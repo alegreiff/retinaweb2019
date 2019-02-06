@@ -29,18 +29,18 @@
     @media all and (max-width: $mqlarge) {
       padding: 0 1em;
       grid-template-columns: repeat(4, 1fr);
-      background: lime;
+      /* background: lime; */
     }
     @media all and (max-width: $mqmedium) {
       padding: 0 1em;
       grid-template-columns: repeat(3, 1fr);
-      background: purple;
+      /* background: purple; */
     }
 
     @media all and (max-width: $mqsmall) {
       padding: 0 1em;
       grid-template-columns: repeat(2, 1fr);
-      background: red;
+      /* background: red; */
     }
   }
 
@@ -56,13 +56,13 @@
     @media all and (max-width: $mqmedium) {
       padding: 0 1em;
       grid-template-columns: repeat(3, 1fr);
-      background: purple;
+      /* background: purple; */
     }
 
     @media all and (max-width: $mqsmall) {
       padding: 0 1em;
       grid-template-columns: repeat(2, 1fr);
-      background: red;
+      /* background: red; */
     }
 
     & .secundarias_titulo {
@@ -97,18 +97,18 @@
     @media all and (max-width: $mqlarge) {
       padding: 0 1em;
       grid-template-columns: repeat(4, 1fr);
-      background: lime;
+      /* background: lime; */
     }
     @media all and (max-width: $mqmedium) {
       padding: 0 1em;
       grid-template-columns: repeat(3, 1fr);
-      background: purple;
+      /* background: purple; */
     }
 
     @media all and (max-width: $mqsmall) {
       padding: 0 1em;
       grid-template-columns: repeat(2, 1fr);
-      background: red;
+      /* background: red; */
     }
 
     & .secundarias_titulo {
@@ -140,22 +140,22 @@
   }
 
   & .sec_6 {
-    background: hotpink;
+    /* background: hotpink; */
     @media all and (max-width: $mqlarge) {
       padding: 0 1em;
       grid-template-columns: repeat(4, 1fr);
-      background: lime;
+      /* background: lime; */
     }
     @media all and (max-width: $mqmedium) {
       padding: 0 1em;
       grid-template-columns: repeat(3, 1fr);
-      background: purple;
+      /* background: purple; */
     }
 
     @media all and (max-width: $mqsmall) {
       padding: 0 1em;
       grid-template-columns: repeat(2, 1fr);
-      background: red;
+      /* background: red; */
     }
 
     & .secundarias_titulo {

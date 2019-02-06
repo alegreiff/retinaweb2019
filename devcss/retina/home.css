@@ -3,10 +3,8 @@
     min-width: 95%;
     padding: 0;
 
-
     @media (min-width: 1600px) {
       min-width: 1500px;
-
     }
   }
 
@@ -99,7 +97,7 @@
 }
 
 .rl-home-personajes div {
-  background-color: #1EAEDB;
+  background-color: #1eaedb;
   border: 2px #fff solid;
   height: 80px;
 }

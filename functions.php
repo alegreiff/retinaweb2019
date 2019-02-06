@@ -427,9 +427,9 @@ function efectos_js() {
 //Función que retorna DOC o FIC según sea documental o ficción
 function muestra_genero($genero){
     if ( $genero=='Documental' ) {
-        return 'DOCUMENTAL';
+        return 'Doc';
     }else if( $genero=='Ficción' ){
-        return 'FICCIÓN';
+        return 'Fic';
     }else{
         return '';
     }
