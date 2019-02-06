@@ -1,0 +1,18 @@
+/*  El archivo style.css se carga primero y tiene los contenidos obligatorios parta el THEME
+*   Desde functions.php se llama el segundo archivo que es custom.css
+*   En este archivo se crea custom.css
+*/
+@import 'modulos/genesis-default.css';
+@import 'retina/variables.css';
+@import 'retina/tipografias.css';
+@import 'retina/home.css';
+@import 'retina/pelicula.css';
+@import 'retina/catalogos.css';
+@import 'retina/inicio.css';
+@import 'retina/logosfooter.css';
+@import 'retina/slider.css';
+
+
+body{
+  background-color: $rojo5;
+}

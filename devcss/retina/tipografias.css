@@ -1,0 +1,19 @@
+body{
+  font-family: var(--letrabase);
+}
+body > div {
+  font-size: 15px;
+  font-size: 1.5rem;
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: var(--letraespecial);
+}
+.retinaicon{
+  font-weight: bold;
+
+}
+
+h3.rl-tablas-h3{
+  font-size: 1.2em; 
+}

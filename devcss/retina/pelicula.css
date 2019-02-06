@@ -1,0 +1,310 @@
+$margen: 200px;
+$margenSuperior: calc($margen * -1);
+$margenInferior: 150px;
+$columna_izquierda: 350px;
+
+main.pelicula {
+  @media only screen and (min-width: 900px) and (max-width: 1199px) {
+    background-color: #fff !important;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    background-color: #fff !important;
+  }
+}
+
+.single-video {
+  & .site-inner {
+    min-width: 95%;
+    padding: 0;
+
+    @media (min-width: 1600px) {
+      min-width: 1500px;
+    }
+  }
+}
+
+main.pelicula {
+  display: grid;
+  height: auto;
+  grid-gap: 10px;
+  background-color: rgb(254, 247, 255);
+  grid-template-areas: "header header""lateral lateral""info info";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 430px 1fr;
+
+  @media only screen and (min-width: 900px) and (max-width: 1199px) {
+    grid-template-areas: "header header""lateral lateral""info info";
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    grid-template-areas: "header header header""lateral info info";
+    grid-template-columns: $columna_izquierda 1fr 1fr;
+  }
+
+  & .su-tabs {
+    background-color: var(--col_azul_retina);
+    padding: 0;
+    width: auto;
+    margin: 0 auto;
+    //min-height: 95%;
+    font-family: $letraespecial;
+    min-height: 100%;
+  }
+
+  & iframe {
+    margin: 0 auto !important;
+  }
+
+  & .su-tabs-nav {
+    background-color: var(--col_azul_retina);
+    /*max-height: 40px; MOBILE PROBLEMA*/
+    padding: 0.5em 0 0 0.5em;
+  }
+
+  & .su-tabs-nav span {
+    background-color: var(--col_azul_retina);
+    padding: 0.6em;
+    max-height: 20px !important;
+  }
+
+  & .su-tabs-current {
+    background-color: var(--col_azul_retina) !important;
+  }
+
+  & .su-tabs-panes {
+    background-color: #000;
+  }
+
+  & .su-tabs-pane {
+    background-color: var(--col_azul_retina);
+  }
+
+  & .retina_advertencia {
+    color: #fff;
+    font-size: 1.4em;
+  }
+}
+
+div.peliculaheader {
+  grid-area: header;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: left 20%;
+  background-color: var(--col_azul_retina);
+  background-blend-mode: darken;
+  //background-attachment: fixed;
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @media only screen and (min-width: 900px) and (max-width: 1199px) {
+    grid-template-columns: 1fr;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    grid-template-columns: $columna_izquierda 1fr;
+  }
+}
+
+.rl-pelicula-pelicula {
+  border: 5px red solid;
+  margin: 0 auto !important;
+
+  @media only screen and (min-width: 900px) and (max-width: 1199px) {
+    border: 5px lime solid;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    border: 5px purple solid;
+  }
+}
+
+div.peliculaDatos {
+  padding: 1em;
+  color: white;
+  display: none;
+
+  @media only screen and (min-width: 900px) and (max-width: 1199px) {
+    display: none;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    display: block;
+  }
+
+  & span.paispelicula {
+    font-family: $letranumeros;
+    font-size: 2em;
+    display: block;
+  }
+
+  & span.year_pelicula {
+    font-family: $letranumeros;
+    display: block;
+    //color: #fff;
+    font-size: 2em;
+  }
+
+  & span.duration {
+    font-family: $letranumeros;
+    font-size: 2em;
+    display: block;
+  }
+
+  & span.duration::after {
+    font-family: $letranumeros;
+    font-size: 0.5em;
+    content: ' min.';
+  }
+}
+
+div.peliculasidebar {
+  display: grid;
+  grid-area: lateral;
+  grid-template-columns: 170px 1fr;
+
+  & .movil-peliculaDatos {
+    display: block;
+  }
+
+  @media only screen and (min-width: 900px) and (max-width: 1199px) {
+    display: grid;
+    grid-template-columns: 270px 1fr;
+
+    & .movil-peliculaDatos {
+      display: block;
+    }
+  }
+
+  @media only screen and (min-width: 1200px) {
+    display: grid;
+    grid-template-rows: 100px 1fr;
+    grid-template-columns: 1fr;
+
+    & .movil-peliculaDatos {
+      display: none;
+    }
+  }
+}
+
+div.info_poster {
+  margin-top: 0;
+  padding: 0.5em;
+
+  & p.dato_pelicula {
+    //padding: 0 !important;
+    margin: 0 0 0.2em 0 !important;
+    //line-height: 1.0em !important;
+  }
+
+  @media only screen and (min-width: 900px) and (max-width: 1199px) {
+    margin-top: 0;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    margin-top: $margenInferior;
+  }
+}
+
+div.peliculainfo {
+  grid-area: info;
+  padding: 2em;
+
+  @media only screen and (min-width: 900px) and (max-width: 1199px) {
+    padding: 0em;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    padding: 0em;
+  }
+}
+
+div.datos_adicionales {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1em;
+
+  @media only screen and (min-width: 900px) and (max-width: 1199px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  & td {
+    white-space: normal;
+    word-break: keep-all;
+  }
+
+  & .datos_ficha p {
+    margin: 0.2em 0;
+  }
+
+  & span.ficha_produccion::before {
+    content: 'Producción';
+  }
+
+  & span.ficha_produccion p::before {
+    content: ' - ';
+  }
+
+  & span.ficha_direccion::before {
+    /*VACIO*/
+  }
+}
+
+div.peliculasidebar div:nth-child(1) {
+  //background-color: #7a2222;
+}
+
+div.peliculasidebar div:nth-child(2) {
+  //background-color: #a60ec4;
+}
+
+div.peliculasidebar div:nth-child(3) {
+  background-color: #abff68;
+}
+
+img.retinsposter_responsive {
+  max-width: 150px;
+  border: 3px var(--col_azul_retina) solid;
+  margin-top: 0;
+  opacity: 1;
+  margin-left: 5%;
+  border-radius: 0.4em;
+
+  @media only screen and (min-width: 900px) and (max-width: 1199px) {
+    max-width: 250px;
+    margin-top: 0;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    max-width: 90%;
+    margin-top: $margenSuperior;
+  }
+}
+
+span.duracion_rl {
+  font-size: 5em;
+  color: #fff !important;
+  margin-right: 200px;
+}
+
+.su-lightbox-content table {
+  & tr:nth-child(1) {
+    font-weight: bold;
+  }
+
+  & td {
+    white-space: normal;
+    word-break: keep-all;
+  }
+}
+
+.enlace_ficha {
+  display: block;
+  cursor: pointer !important;
+  max-width: 300px;
+}

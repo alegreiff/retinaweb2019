@@ -1,0 +1,40 @@
+:root {
+  /*COLORES*/
+  --col_rojo_retina: hsl(337, 79%, 55%);
+  --ROJO-retina: hwb(337, 19%, 9%, 1);
+  --col_azul_retina: hsl(198, 84%, 65%);
+  --colordestacado: #fff;
+  --limon: lime;
+
+  /*TAMAÑOS*/
+  --gap-columnas: 1em;
+
+  /*  --letraespecial: 'Days One', sans-serif;
+  --letrabase: 'Roboto', sans-serif;
+  --letratitulos: 'Open Sans', sans-serif;
+  --letranumeros: 'Wallpoet', cursive;
+*/
+}
+/*Variables tipo SASS*/
+$letraespecial: "Days One", sans-serif;
+$letranumeros: "Wallpoet", cursive;
+$letrabase: "Roboto", sans-serif;
+$col1: hwb(337, 19%, 9%, 1);
+$col3: color($col1 saturation(0%));
+
+$rojo: hwb(337, 19%, 9%, 1);
+$rojo1: color($col1 saturation(0%));
+$rojo2: color($col1 saturation(0%));
+$rojo3: color($col1 saturation(0%));
+$rojo4: color($col1 saturation(0%));
+$rojo5: color($col1 tint(10%));
+$mqextralarge: 1904px;
+$mqlarge: 1264px;
+$mqmedium: 960px;
+$mqsmall: 600px;
+
+.site-header {
+  background-image: url("/wp-content/uploads/2018/02/headerbg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}

@@ -1,0 +1,64 @@
+body{
+    /*background: hwb(66,50%,32%,0.4);*/
+    background: crimson;
+    /*font-family: 'Flamenco', cursive;*/
+    font-family: 'Roboto', sans-serif;
+    @media (--minimi){
+        background: purple;
+        color: white;
+    }
+}
+
+@custom-selector :--heading h1, h2, h4, h6;
+
+h1, h2, h3, h4, h5, h6{
+    color: crimson;
+& a{
+  font-size: 1em;
+}
+}
+:--heading {
+    color: rgba(0, 255, 0, 1);
+}
+.uno{
+    background: color(red alpha(-10%));
+}
+.dos{
+    background: color(black alpha(-70%));
+}
+div.grises{
+
+    & :nth-child(1){
+        background-color: gray(44);
+        color: blue;
+    }
+    & :nth-child(2){
+        background: hwb(0, 10%, 80%, 1);
+    }
+    & :nth-child(3){
+        background: hwb(0, 20%, 70%);
+        color: color(red alpha(100%));
+    }
+    & :nth-child(4){
+        background: hwb(120, 30%, 60%);
+    }
+    & :nth-child(5){
+        background: hwb(0, 40%, 50%);
+    }
+    & :nth-child(6){
+        background: hwb(0, 50%, 40%);
+    }
+    & :nth-child(7){
+        color: hwb(0, 60%, 30%);
+    }
+    & :nth-child(8){
+        background: hwb(0, 70%, 20%);
+    }
+    & :nth-child(9){
+        background: hwb(0, 80%, 10%);
+    }
+    & :nth-child(10){
+        background: hwb(0, 90%, 0%);
+    }
+
+}

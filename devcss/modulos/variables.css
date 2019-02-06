@@ -1,0 +1,15 @@
+@import 'alias.css';
+:root{
+  /* COLORES*/
+    --bgcolor: rgb(207, 251, 168);
+    --color: crimson;
+    --verde: rgb(186, 65, 0);
+    --modelo: {
+    border: 1rem white solid;
+    padding: 2em;
+    background: crimson;
+    color: rgb(16, 241, 188);
+    cursor: pointer;
+    }
+}
+@custom-media --minimi (width < 768px);

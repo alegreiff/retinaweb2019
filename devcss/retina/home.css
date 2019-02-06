@@ -1,0 +1,129 @@
+.homeretina {
+  & .site-inner {
+    min-width: 95%;
+    padding: 0;
+
+
+    @media (min-width: 1600px) {
+      min-width: 1500px;
+
+    }
+  }
+
+  & article {
+    margin: 0.5em;
+    padding: 0;
+  }
+  & #rl-home-video-player {
+  }
+
+  & #rl-home-ciclo-activo {
+    display: none;
+  }
+
+  @media only screen and (min-width: 900px) and (max-width: 1199px) {
+    & #rl-home-ciclo-activo {
+      display: none;
+    }
+  }
+
+  @media only screen and (min-width: 1200px) {
+    & #rl-home-ciclo-activo {
+      display: block;
+      min-height: 400px;
+      background: #dbb584;
+    }
+  }
+}
+
+#rl_home_posteres {
+  grid-gap: 1em;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+
+  @media only screen and (min-width: 900px) and (max-width: 1199px) {
+    grid-template-columns: repeat(4, 1fr);
+
+    & #rl-home-ciclo-activo {
+      background: #6fff12;
+      min-height: 400px;
+    }
+  }
+
+  @media only screen and (min-width: 1200px) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  & article img {
+    border-radius: 0.9em;
+  }
+
+  & article h2 {
+    font-family: $letraespecial;
+    text-align: center !important;
+    font-size: 0.7em;
+    font-weight: 100;
+  }
+
+  & span {
+    display: block;
+    text-align: center;
+    font-size: 0.8em;
+  }
+}
+
+.site-container {
+  background-color: var(--colordestacado);
+}
+
+.rl-aliados {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 2em;
+}
+
+.rl-aliados div {
+  background-color: #68b6b6;
+  height: 220px;
+}
+
+.rl-home-noticias {
+  background: #c1e9ff;
+}
+
+.rl-home-personajes {
+  display: grid;
+  background-color: #b94a48;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+.rl-home-personajes div {
+  background-color: #1EAEDB;
+  border: 2px #fff solid;
+  height: 80px;
+}
+
+.rl-noticia-home div {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  grid-template-rows: 60px 1fr;
+  background: #fff;
+  margin-bottom: 15px;
+}
+
+.rl-noticia-home div img {
+  grid-row: 1 / 2;
+}
+
+.rl-noticia-home div h4 {
+  padding-left: 1em;
+  grid-column: 2;
+  margin: 0;
+}
+
+.rl-noticia-home div p {
+  padding-left: 1em;
+  margin-top: -30px;
+  grid-column: 2;
+}
