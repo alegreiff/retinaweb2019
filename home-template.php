@@ -56,7 +56,9 @@ function peliculas_retina_home() {
                 echo video_embebido($destacado);
             ?>
             </div>
-            <div class="ciclo">
+            <div>ALIADOS</div>
+            <!--
+                <div class="ciclo">
                 <div class="slider">
                 <?php
 
@@ -77,6 +79,7 @@ function peliculas_retina_home() {
                 </div>
                 <div class="slider-txt"></div>
             </div>
+             -->
         </div>
         <div class="peliculas">
         <?php

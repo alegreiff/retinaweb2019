@@ -30,12 +30,12 @@ if(!class_exists('LogosFooterRETINA')) {
             <div class="logos-footer-retina">
                 
                 <div class="coordinacion-texto"><p>Coordinación plataforma</p></div>
-                <div class="coordinacion-logo"><a href="http://www.mincultura.gov.co/" target="_blank" title="Ministerio de Cultura"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logosfooter/colombia-mincultura.png" alt="Logo Gobierno de Colombia"></a></div>
+                <div class="coordinacion-logo"><a href="http://www.mincultura.gov.co/" target="_blank" title="Ministerio de Cultura"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logosfooter/mincultura-gris.png" alt="Logo Gobierno de Colombia"></a></div>
                 
                 <div class="miembros-logo">
                     <p class="miembros">Entidades miembros</p>
                     <a href="http://www.conacinebolivia.com.bo/" target="_blank" title="Conacine - Bolivia"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logosfooter/bolivia-conacine.png" alt="Logo Conacine - Bolivia"></a>
-                    <a href="http://www.mincultura.gov.co/" target="_blank" title="Ministerio de Cultura - Colombia"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logosfooter/colombia-mincultura.png" alt="Logo Ministerio de Cultura - Colombia"></a>
+                    <a href="http://www.mincultura.gov.co/" target="_blank" title="Ministerio de Cultura - Colombia"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logosfooter/mincultura-gris.png" alt="Logo Ministerio de Cultura - Colombia"></a>
                     <a href="http://www.cineyaudiovisual.gob.ec/" target="_blank" title="Instituto de cine y creación audiovisual - Ecuador"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logosfooter/ecuador-icca.png" alt="Logo Instituto de cine y creación audiovisual - Ecuador"></a>
                     <a href="http://www.imcine.gob.mx/" target="_blank" title="Instituo Mexicano de Cinematografía - México"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logosfooter/mexico-imcine.png" alt="Logo Instituo Mexicano de Cinematografía - México"></a>
                     <a href="http://www.cultura.gob.pe/" target="_blank" title="Ministerio de Cultura - Perú"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logosfooter/peru-mincultura.png" alt="Logo Ministerio de Cultura - Perú"></a>
