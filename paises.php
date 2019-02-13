@@ -81,7 +81,13 @@ function retina_loop_paises(){
         <div class="menu">
         <?php
             echo'<div class="nav-primary">';
-            wp_nav_menu( array( 'theme_location' => 'third-menu', 'container_class' => 'genesis-nav-menu' ) );
+            //wp_nav_menu( array( 'theme_location' => 'third-menu', 'container_class' => 'genesis-nav-menu' ) );
+            wp_nav_menu(array(
+'container_class' => 'menu_paises',    // para que no tenga contenedor
+'theme_location' => 'paises_paginas_menu',    // id del menu
+'link_before' => '<div>', // HTML previo al texto de cada sección
+'link_after' => '</div>'    // HTML posterior al texto de cada sección
+));
             echo'</div>';
         ?>
         </div>

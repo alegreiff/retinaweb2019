@@ -2,17 +2,219 @@
 *   Desde functions.php se llama el segundo archivo que es custom.css
 *   En este archivo se crea custom.css
 */
-@import 'modulos/genesis-default.css';
-@import 'retina/variables.css';
-@import 'retina/tipografias.css';
-@import 'retina/home.css';
-@import 'retina/pelicula.css';
-@import 'retina/catalogos.css';
-@import 'retina/inicio.css';
-@import 'retina/logosfooter.css';
-@import 'retina/slider.css';
+@import "modulos/genesis-default.css";
+@import "retina/variables.css";
+@import "retina/tipografias.css";
+@import "retina/home.css";
+@import "retina/pelicula.css";
+@import "retina/catalogos.css";
+@import "retina/inicio.css";
+@import "retina/logosfooter.css";
+@import "retina/slider.css";
 
-
-body{
+/* body {
   background-color: $rojo5;
+} */
+
+/*STICKY MENU*/
+/*
+Sticky Menu
+---------------------------------------------------------------------------------------------------- */
+#genesis-nav-primary {
+  /* position: fixed;
+  top: 0;
+  z-index: 1000;
+  margin: 0 auto;
+  padding: 30px 0px 0px 0px;
+  width: 100%; */
+}
+
+/* nav.nav-primary {
+  margin-top: 130px;
+} */
+/* FIN STICKY MENU*/
+
+.fixedBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* .fixedBar .nav-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.nav-placeholder {
+  margin: 0 auto;
+} */
+
+.header-image .site-title a {
+}
+
+p.netflix {
+}
+
+/* Utility Bar
+--------------------------------------------- */
+.utility-bar {
+  background-color: #333;
+  border-bottom: 1px solid #ddd;
+  color: #ddd;
+  font-size: 12px;
+  font-size: 1.2rem;
+  padding: 10px 0;
+  padding: 1rem;
+  max-height: 33px;
+}
+.utility-bar a {
+  color: #ccff33;
+}
+.utility-bar a:hover {
+  text-decoration: underline;
+}
+.utility-bar-left,
+.utility-bar-right {
+  width: 50%;
+}
+.utility-bar-left p,
+.utility-bar-right p {
+  margin-bottom: 0;
+}
+.utility-bar-left {
+  float: left;
+}
+.utility-bar-right {
+  float: right;
+  text-align: right;
+}
+.utility-bar input[type="search"] {
+  background: inherit;
+  padding: 10px 0 0;
+  padding: 1rem 0 0;
+}
+
+/* # Search
+---------------------------------------------------------------------------------------------------- */
+.menu-primary .menu-item {
+  float: left;
+}
+
+.fa-search {
+  color: #fff;
+}
+
+/* Header search */
+.search-form-container {
+  position: relative;
+}
+
+.search-toggle {
+  float: right;
+  padding: 30px 24px;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.search-toggle:hover,
+.search-toggle.active {
+  background: #4d4d4d;
+}
+
+@media screen and (max-width: 600px) {
+  .search-toggle {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    margin-right: -5%;
+    background: #4c4c4c;
+    padding: 17px 24px;
+  }
+}
+
+.search-box-wrapper {
+  z-index: 999;
+  width: 100%;
+  display: none;
+}
+
+.search-box {
+  padding: 1em;
+  background: transparent;
+}
+
+.search-box input[type="search"] {
+  max-width: 350px;
+  float: right;
+  padding: 10px 20px 10px 40px;
+  font-size: 20px;
+  background-color: #fff;
+  border: 0;
+  border-radius: 3px;
+}
+
+.search-box input[value="Search"] {
+  display: none;
+}
+
+/* Text meant only for screen readers - from UnderScores */
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  right: 0;
+}
+
+.screen-reader-text:hover,
+.screen-reader-text:active,
+.screen-reader-text:focus {
+  background-color: #f1f1f1;
+  border-radius: 3px;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
+  color: #21759b;
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
+}
+
+.menu_paises li.current_page_item a {
+  color: black;
+  text-transform: uppercase;
+}
+
+.peliculas_search {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 15px;
+  /* background: yellow; */
+
+  @media all and (max-width: $mqlarge) {
+    padding: 0 1em;
+    grid-template-columns: repeat(4, 1fr);
+    /* background: lime; */
+  }
+  @media all and (max-width: $mqmedium) {
+    padding: 0 1em;
+    grid-template-columns: repeat(3, 1fr);
+    /* background: purple; */
+  }
+
+  @media all and (max-width: $mqsmall) {
+    padding: 0 1em;
+    grid-template-columns: repeat(2, 1fr);
+    /* background: red; */
+  }
 }

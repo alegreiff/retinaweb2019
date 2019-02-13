@@ -106,11 +106,13 @@ add_theme_support('genesis-responsive-viewport');
 
 // Add support for custom header.
 add_theme_support('custom-header', array(
-    'width' => 600,
-    'height' => 160,
+    'width' => 200,
+    'height' => 158,
     'header-selector' => '.site-title a',
     'header-text' => false,
     'flex-height' => true,
+    'flex-width' => true,
+	
 ));
 
 // Add support for custom background.
@@ -234,8 +236,9 @@ function get_relative_thumb( $size ) {
 
 
 /** TERCER MENU ES */
+//Removido por innecesario
 
-add_action('init', 'register_additional_menu');
+/*  add_action('init', 'register_additional_menu');
 add_action('genesis_before', 'add_third_nav_genesis');
 function register_additional_menu() {
     register_nav_menu('third-menu', __('Third Navigation Menu'));
@@ -247,7 +250,7 @@ function add_third_nav_genesis() {
         'theme_location' => 'third-menu',
         'container_class' => 'genesis-nav-menu'
     ));
-}
+} */
 
 /** AJAX FILTER */
 add_action( 'wp_enqueue_scripts', 'theme_name_scripts' );
@@ -511,3 +514,139 @@ function wsm_custom_stylesheet() {
     wp_enqueue_style( 'custom-style', get_stylesheet_directory_uri() . '/custom.css' );
 }
 /* https://10up.github.io/wp-local-docker-docs/environments/ */
+
+/* STICKY MENU https://www.jeanphilippemarchand.com/code/add-sticky-menu-genesis-sample-child-theme/ */
+//* Enqueue sticky menu script
+add_action('wp_enqueue_scripts', 'sp_enqueue_script');
+function sp_enqueue_script() {
+    wp_enqueue_script('sample-sticky-menu', get_stylesheet_directory_uri() . '/js/sticky-menu.js', array('jquery'), '1.0.0');
+}
+
+//* Reposition the secondary navigation menu
+
+/* remove_action( 'genesis_after_header', 'genesis_do_subnav' );
+add_action( 'genesis_before', 'genesis_do_subnav' ); */
+
+
+
+
+
+
+
+
+
+
+/** Register Utility Bar Widget Areas. */
+genesis_register_sidebar( array(
+ 'id' => 'utility-bar-left',
+ 'name' => __( 'Utility Bar Left', 'theme-prefix' ),
+ 'description' => __( 'This is the left utility bar above the header.', 'theme-prefix' ),
+) );
+genesis_register_sidebar( array(
+ 'id' => 'utility-bar-right',
+ 'name' => __( 'Utility Bar Right', 'theme-prefix' ),
+ 'description' => __( 'This is the right utility bar above the header.', 'theme-prefix' ),
+) );
+
+
+add_action( 'genesis_before_header', 'utility_bar' );
+/**
+* Add utility bar above header.
+*
+* @author Carrie Dils
+* @copyright Copyright (c) 2013, Carrie Dils
+* @license GPL-2.0+
+*/
+function utility_bar() {
+ 
+ echo '<div class="utility-bar"><div class="wrap">';
+ 
+ genesis_widget_area( 'utility-bar-left', array(
+ 'before' => '<div class="utility-bar-left">',
+ 'after' => '</div>',
+ ) );
+ 
+ genesis_widget_area( 'utility-bar-right', array(
+ 'before' => '<div class="utility-bar-right">',
+ 'after' => '</div>',
+ ) );
+ 
+ echo '</div></div>';
+ 
+}
+
+
+// Enqueue scripts and styles
+function themeprefix_scripts_and_styles() {
+    wp_enqueue_Style( 'fontawesome', '//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.css' );
+    wp_enqueue_script( 'hidesearch', get_stylesheet_directory_uri() . '/js/hidesearch.js', array('jquery'), '1', true );
+}
+add_action( 'wp_enqueue_scripts', 'themeprefix_scripts_and_styles' );
+
+//Allow PHP to run in Widgets
+function genesis_execute_php_widgets( $html ) {
+	if ( strpos( $html, "<" . "?php" ) !==false ) {
+	ob_start();
+	eval( "?".">".$html );
+	$html=ob_get_contents();
+	ob_end_clean();
+		}
+	return $html;
+}
+add_filter( 'widget_text','genesis_execute_php_widgets' );	
+
+
+//Add in new Search Widget areas
+function themeprefix_extra_widgets() {	
+	genesis_register_sidebar( array(
+	'id'            => 'search',
+	'name'          => __( 'Search', 'genesischild' ),
+	'description'   => __( 'This is the Search toggle area', 'genesischild' ),
+	'before_widget' => '<div class="search">',
+	'after_widget'  => '</div>',
+	) );
+}
+add_action( 'widgets_init', 'themeprefix_extra_widgets' );
+
+
+//Position the Search Area
+function themeprefix_search_widget() {
+	genesis_widget_area ( 'search', array(
+	'before' => '<div id="search-form-container">',
+	'after'  => '</div>',));
+}
+add_action( 'genesis_after_header','themeprefix_search_widget' );
+
+
+function custom_nav_item( $menu, stdClass $args ){
+    // make sure we are in the primary menu
+    if ( 'primary' != $args->theme_location )
+    
+        return $menu;   
+
+    $menu  .= '</ul><ul class="search-form-container"><div class="search-toggle"><i class="fa fa-search"></i>
+				<a href="#search-container" class="screen-reader-text"></a>
+				</div>'; 
+        return $menu; 
+}
+add_filter( 'wp_nav_menu_items', 'custom_nav_item', 10, 2 );
+
+
+
+
+
+
+
+
+
+
+
+
+
+function register_menus() 
+{
+    register_nav_menus(
+        array('paises_paginas_menu' => __( 'Países - Páginas' ))
+    );
+} 
+add_action( 'init', 'register_menus' );

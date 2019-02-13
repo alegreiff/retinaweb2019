@@ -1,4 +1,4 @@
-body{
+body {
   font-family: var(--letrabase);
 }
 body > div {
@@ -6,14 +6,49 @@ body > div {
   font-size: 1.5rem;
 }
 
-h1, h2, h3, h4, h5, h6{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--letraespecial);
 }
-.retinaicon{
+.retinaicon {
   font-weight: bold;
-
 }
 
-h3.rl-tablas-h3{
-  font-size: 1.2em; 
+h3.rl-tablas-h3 {
+  font-size: 1.2em;
+}
+
+/* nav#genesis-nav-primary a {
+  color: red;
+} */
+nav#genesis-nav-primary {
+  font-family: "Montserrat";
+  font-weight: lighter;
+  background-color: $rojo;
+  & a {
+    color: white;
+  }
+
+  & sub-menu a {
+    background: $rojo;
+  }
+}
+
+.genesis-nav-menu {
+  & li {
+    border: none;
+  }
+  & .sub-menu {
+    border-top: 5px solid var(--col_azul_retina);
+  }
+  & .sub-menu a {
+    background-color: $rojo;
+    border: 0px;
+  }
+  & .sub-menu li {
+  }
 }
