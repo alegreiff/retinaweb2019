@@ -29,17 +29,17 @@ main.pelicula {
   height: auto;
   grid-gap: 10px;
   background-color: rgb(254, 247, 255);
-  grid-template-areas: "header header""lateral lateral""info info";
+  grid-template-areas: "header header" "lateral lateral" "info info";
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 430px 1fr;
 
   @media only screen and (min-width: 900px) and (max-width: 1199px) {
-    grid-template-areas: "header header""lateral lateral""info info";
+    grid-template-areas: "header header" "lateral lateral" "info info";
     grid-template-columns: 1fr 1fr;
   }
 
   @media only screen and (min-width: 1200px) {
-    grid-template-areas: "header header header""lateral info info";
+    grid-template-areas: "header header header" "lateral info info";
     grid-template-columns: $columna_izquierda 1fr 1fr;
   }
 
@@ -142,7 +142,7 @@ div.peliculaDatos {
   & span.year_pelicula {
     font-family: $letranumeros;
     display: block;
-    //color: #fff;
+    /* color: #fff; */
     font-size: 2em;
   }
 
@@ -155,7 +155,7 @@ div.peliculaDatos {
   & span.duration::after {
     font-family: $letranumeros;
     font-size: 0.5em;
-    content: ' min.';
+    content: " min.";
   }
 }
 
@@ -193,9 +193,9 @@ div.info_poster {
   padding: 0.5em;
 
   & p.dato_pelicula {
-    //padding: 0 !important;
+    /* padding: 0 !important; */
     margin: 0 0 0.2em 0 !important;
-    //line-height: 1.0em !important;
+    /* line-height: 1.0em !important; */
   }
 
   @media only screen and (min-width: 900px) and (max-width: 1199px) {
@@ -243,11 +243,11 @@ div.datos_adicionales {
   }
 
   & span.ficha_produccion::before {
-    content: 'Producción';
+    content: "Producción";
   }
 
   & span.ficha_produccion p::before {
-    content: ' - ';
+    content: " - ";
   }
 
   & span.ficha_direccion::before {
@@ -256,11 +256,11 @@ div.datos_adicionales {
 }
 
 div.peliculasidebar div:nth-child(1) {
-  //background-color: #7a2222;
+  /* background-color: #7a2222; */
 }
 
 div.peliculasidebar div:nth-child(2) {
-  //background-color: #a60ec4;
+  /* background-color: #a60ec4; */
 }
 
 div.peliculasidebar div:nth-child(3) {
@@ -304,7 +304,22 @@ span.duracion_rl {
 }
 
 .enlace_ficha {
+  & i {
+    font-size: 1.4em;
+    font-weight: 800;
+  }
+  font-size: 0.7;
   display: block;
   cursor: pointer !important;
-  max-width: 300px;
+  margin: 0.2em auto;
+
+  /* max-width: 300px; */
+  background-color: var(--col_azul_retina);
+  color: white;
+  border: none;
+  border-radius: 0.77em;
+  max-width: 80%;
+  padding: 5px 16px;
+  text-align: center;
+  text-decoration: none;
 }

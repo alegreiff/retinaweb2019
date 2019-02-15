@@ -25,14 +25,18 @@ function peliculaTrailer($trailer)
 {
     return '<iframe title="YouTube video player" class="youtube-player" type="text/html" width="600" height="320" src="http://www.youtube.com/embed/' . $trailer . '"frameborder="0" allowFullScreen></iframe>';
 }
-function tabla_popup($etiqueta, $campo, $identificador){
+function tabla_popup($icono = 'fas fa-music', $etiqueta, $campo, $identificador){
     global $post;
     $pelicula = $post->post_title;
     if($campo){
-        $s = do_shortcode('[su_lightbox type="inline" src="#'.$identificador.'"]<span class="enlace_ficha">'.$etiqueta.'</span>[/su_lightbox]');
+        $s = do_shortcode('[su_lightbox type="inline" src="#'.$identificador.'"]
+        <span class="enlace_ficha">
+        <i class="'.$icono.'"></i>
+        '.$etiqueta.'</span>[/su_lightbox]');
         $s.= do_shortcode('[su_lightbox_content id="#'.$identificador.'"]<h3 class="rl-tablas-h3">'.$etiqueta. ' - '.$pelicula.'</h3>'.wpautop($campo).'[/su_lightbox_content]');
+        return $s;
     }
-return $s;
+
 }
 function lista_asociada($etiqueta, $etiquetaplural='', $campos)
 {
@@ -63,9 +67,12 @@ function creditos($rol, $rolplural ='', $personas_contenidos)
 
         $ta = array();
         foreach ($personas_contenidos as $persona):
+            //d($persona);
             if ($rol === 'Dirección') {
                 $a_p = '<a href="' . get_permalink($persona->ID) . '">' . get_the_title($persona->ID) . '</a>';
             } else {
+                d($persona);
+                d($persona->ID);
                 $a_p = '<strong>'.get_the_title($persona->ID).'</strong>';
             }
             //$a_p = '<a href="' . get_permalink($persona->ID) . '">' . get_the_title($persona->ID) . '</a>';
@@ -131,14 +138,19 @@ function muestradatos()
     $sonido_mezcla = get_field('sound_mzl');
     $narracion = get_field('narration');
     $asistente_camara = get_field('camara_assistant');
-    $productor_campo = get_field('field_producer');
+    $productor_campo = get_field('campo_producer');
     $casting = get_field('casting');
     $fotofija = get_field('foto_fija');
     $vestuario = get_field('vestuario');
     /*FIN PERSONAS*/
 
 
-    $trailer = get_field('trailer');
+    //$trailer = get_field('trailer');
+    if(get_field('trailer')){
+        $trailer = getYouTubeId(get_field('trailer'));//JAIME
+    }
+
+    
     $duracion = get_field('duration');
     $year_pelicula = get_field('year');
     $imagendestacada = get_field('imagendestacada');
@@ -153,13 +165,13 @@ function muestradatos()
     $tagges = wp_get_post_terms(get_the_ID(), 'post_tag');
 
     $premios = get_field('awards');
-    d($eventos);
-    d($tagges);
+    //d($eventos);
+    //d($tagges);
     //d(get_the_post_thumbnail_url());
 
     $imagendestacada ? $fondopelicula = $imagendestacada : $fondopelicula = get_the_post_thumbnail_url();
-    d($imagendestacada);
-    if ($trailer) {
+    //d($imagendestacada);
+    if (isset($trailer)) {
         //$retina_trailer = true;
         $muestra_trailer = '<div class="trailer_retinalatina">' . peliculaTrailer($trailer) . '</div>';
     }
@@ -184,7 +196,7 @@ function muestradatos()
     //Si está logueado
     if ($retina_film) {
         if (get_field("msg_custom") == '' && $video) {
-            if ($trailer) {
+            if (isset($trailer)) {
                 echo do_shortcode('[su_tabs][su_tab title="Tráiler"]' . $muestra_trailer . '[/su_tab] [su_tab title="Ver Película"]' . $muestra_film . '[/su_tab] [/su_tabs]');
             } else {
                 echo do_shortcode('[su_tabs][su_tab title="Ver Película" anchor="r"]' . $muestra_film . '[/su_tab][/su_tabs]');
@@ -244,7 +256,7 @@ function muestradatos()
         $tags = get_the_tags();
         //d($tags);
         $customPostTaxonomies = get_object_taxonomies('video');
-        d($customPostTaxonomies);
+        //d($customPostTaxonomies);
 
         //d($classification);
         //$language = wp_get_post_terms(get_the_ID() , 'videos_language');
@@ -256,15 +268,21 @@ function muestradatos()
 
         //$topics = wp_get_post_terms(get_the_ID(), 'videos_format');
         //d($topics);
-        d($formato_pelicula);
-        d($genero_pelicula);
-        d($idioma_pelicula);
+        //d($formato_pelicula);
+        //d($genero_pelicula);
+        //d($idioma_pelicula);
         //d($post);
         ?>
 
     </div>
 
     <?php
+    
+    if ( $musica ) {
+        $muestra_musica = tabla_popup("fas fa-music", "Música", $musica, "ficha_musica");
+    }else{
+        $muestra_musica = 'sin musikA';
+    }
     echo '</div>';
     echo '<div class="peliculainfo">';
     //echo "<p>" . $video . "</p>";
@@ -278,17 +296,17 @@ function muestradatos()
                 <div class="datos_ficha"><h5>Ficha técnica y artística</h5>
                     <span class="ficha_direccion">
                     '.creditos("Asistente de dirección", 'Asistentes de dirección', $director_asistente).'
-                    '.creditos("Guionista", 'Guionistas',$guionista).'
+                    '.creditos("Guionista", 'Guionistas', $guionista).'
                     </span>
                     <span class="ficha_produccion">
                     '.lista_asociada('País de producción', 'Países de producción',  $paises_produccion).'
                     '.creditos("Compañía productora", 'Compañías productoras',$companias).'
-                    '.creditos("Productor", 'Productores',$productor).'
-                    '.creditos("Jefe de producción", 'Jefes de producción',$jefe_produccion).'
+                    '.creditos("Productor", 'Productores', $productor).'
+                    '.creditos("Jefe de producción", 'Jefes de producción', $jefe_produccion).'
                     '.creditos("Coproductor", 'Coproductores',$coproductor).'
-                    '.creditos("Productor ejecutivo", 'Productores ejecutivos',$productor_ejecutivo).'
-                    '.creditos("Productor asociado", 'Productores asociados',$productor_asociado).'
-                    '.creditos("Productor de campo", 'Productores de campo',$productor_campo).'
+                    '.creditos("Productor ejecutivo", 'Productores ejecutivos' ,$productor_ejecutivo).'
+                    '.creditos("Productor asociado", 'Productores asociados', $productor_asociado).'
+                    '.creditos("Productor de campo", 'Productores de campo', $productor_campo).'
                     </span>
                     <span class="ficha_fotografia">
                     '.creditos("Cámara", '', $camarografo).'
@@ -300,7 +318,7 @@ function muestradatos()
                     '.creditos("Sonidista", 'Sonidistas', $sonidista).'
                     '.creditos("Diseñador de sonido", 'Diseñadores de sonido', $sonido_disenador).'
                     '.creditos("Músico", 'Músicos', $musico).'
-                    '.creditos("Mexcla de sonido", '', $sonido_mezcla).'
+                    '.creditos("Mezcla de sonido", '', $sonido_mezcla).'
                     '.creditos("Narración", '', $narracion).'
                     </span>
                     <span class="ficha_varios">
@@ -315,9 +333,11 @@ function muestradatos()
                 </div>
                 <!--<div class="datos_eventos">'.  wpautop($eventos). '<hr />' .wpautop($premios).'</div>-->
                 <div class="datos_eventos">
-                '.tabla_popup("Música", $musica, "ficha_musica").'
-                '.tabla_popup("Premios y reconocimientos", $premios, "ficha_premios").'
-                '.tabla_popup("Participación en eventos cinematográficos", $eventos, "ficha_eventos").'
+                
+                '.$muestra_musica.'
+                '.tabla_popup("fas fa-award", "Premios y reconocimientos", $premios, "ficha_premios").'
+                '.tabla_popup("fas fa-star", "Participación en eventos cinematográficos", $eventos, "ficha_eventos").'
+                
              </div>
               
                  
@@ -330,7 +350,7 @@ function muestradatos()
 
     $fields = get_fields();
 
-    d($fields);
+    //d($fields);
 
 }
 

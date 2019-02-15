@@ -22,12 +22,13 @@ $letrabase: "Roboto", sans-serif;
 $col1: hwb(337, 19%, 9%, 1);
 $col3: color($col1 saturation(0%));
 
+$negroretina: #2e2e2e;
 $rojo: hwb(337, 19%, 9%, 1);
 $rojo1: color($col1 saturation(0%));
 $rojo2: color($col1 saturation(0%));
 $rojo3: color($col1 saturation(0%));
 $rojo4: color($col1 saturation(0%));
-$rojo5: color($col1 tint(10%));
+$rojo5: color($col1 tint(20%));
 $mqextralarge: 1904px;
 $mqlarge: 1264px;
 $mqmedium: 960px;

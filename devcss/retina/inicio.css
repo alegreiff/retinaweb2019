@@ -15,8 +15,8 @@
 
     @media all and (max-width: 768px) {
       padding: 0 1em;
-      /* grid-template-columns: 1fr; */
-      display: none;
+      grid-template-columns: 1fr;
+      /* display: none; */
     }
   }
 
@@ -403,7 +403,7 @@ article.mini_film:hover .middle {
 .container {
   width: auto;
   height: auto;
-  background: #fff;
+  background: white;
   margin: 10px auto;
   text-align: center;
   padding: 0 12px 12px 12px;
@@ -416,8 +416,12 @@ article.mini_film:hover .middle {
   }
 
   &:hover {
-    background-color: #eef6ff;
+    background-color: var(--col_azul_retina);
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+    color: white;
+    & h4 {
+      color: white;
+    }
   }
 
   &:hover > a .navigation .pais,

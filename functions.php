@@ -650,3 +650,106 @@ function register_menus()
     );
 } 
 add_action( 'init', 'register_menus' );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * Produces cleaner filenames for uploads
+ *
+ * @param  string $filename
+ * @return string
+ */
+function wpartisan_sanitize_file_name( $filename ) {
+ 
+    $sanitized_filename = remove_accents( $filename ); // Convert to ASCII
+ 
+    // Standard replacements
+    $invalid = array(
+        ' '   => '-',
+        '%20' => '-',
+        '_'   => '-',
+    );
+    $sanitized_filename = str_replace( array_keys( $invalid ), array_values( $invalid ), $sanitized_filename );
+ 
+    $sanitized_filename = preg_replace('/[^A-Za-z0-9-\. ]/', '', $sanitized_filename); // Remove all non-alphanumeric except .
+    $sanitized_filename = preg_replace('/\.(?=.*\.)/', '', $sanitized_filename); // Remove all but last .
+    $sanitized_filename = preg_replace('/-+/', '-', $sanitized_filename); // Replace any more than one - in a row
+    $sanitized_filename = str_replace('-.', '.', $sanitized_filename); // Remove last - if at the end
+    $sanitized_filename = strtolower( $sanitized_filename ); // Lowercase
+ 
+    return $sanitized_filename;
+}
+ 
+add_filter( 'sanitize_file_name', 'wpartisan_sanitize_file_name', 10, 1 );
+
+
+
+
+
+
+
+add_filter('use_block_editor_for_post', '__return_false');
+
+
+function my_relationship_query( $args, $field, $post_id ) {
+	
+    // only show children of the current post being edited
+    
+    //$args['meta_key'] = 'trailer';
+    //$args['meta_value'] !='';
+    
+$args['meta_query'] = array(
+    array(
+    'key' => 'trailer', // name of custom field
+    'value' => array(''),
+    'compare' => 'NOT IN'
+    )
+); // <-- this one!
+    // return
+    d($args);
+    return $args;
+    //d("mierda");
+    
+}
+
+
+// filter for every field
+add_filter('acf/fields/relationship/query/name=eltrailer', 'my_relationship_query', 10, 3);
+
+
+/*function my_relationship_result( $title, $post, $field, $post_id ) {
+	
+	$res = get_field('trailer', $post->ID);
+	return $res;
+	
+}
+
+add_filter('acf/fields/relationship/result/name=trailer', 'my_relationship_result', 10, 4);
+*/
+
+
+
+function getYouTubeId($url) {
+    if (strlen($url) == 11) {
+        return $url;
+    }else{
+        preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match);
+    return $match[1];
+    }
+    
+
+}

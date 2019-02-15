@@ -6,11 +6,44 @@
  * @package retina
  */
 
+function peliculaTrailer($trailer)
+{
+    //return '<iframe title="YouTube video player" class="youtube-player" type="text/html" width="100%" height="100%" src="http://www.youtube.com/embed/' . $trailer . '"frameborder="0" allowFullScreen></iframe>';
+            return '<iframe src="https://www.youtube.com/embed/' . $trailer . '?rel=0;controls=1;showinfo=0;theme=light" 
+allowfullscreen width="100%" height="90%" frameborder="0"></iframe>';
+}
+
 remove_action ('genesis_loop', 'genesis_do_loop'); // Remove the standard loop
 add_action( 'genesis_loop', 'peliculas_retina_home' ); // Add custom loop
 
+
+
+
 function peliculas_retina_home() {
     /* Obtengo los parámetros de la página ACF */
+    $traileresID = (get_field('eltrailer')); 
+    $trailerinterno = get_field('trailerinterno');
+
+
+    
+    
+    $traileres = array();
+    foreach ($traileresID as $trailer) {
+        $traileres[]= array(
+            'titulo' => get_the_title($trailer),
+            'trailer' => getYouTubeId(get_field('trailer', $trailer)),
+            'url' => get_post_permalink($trailer),
+            'pais' => get_field('country_group', $trailer)
+        );
+    }
+    $et = $traileres[array_rand($traileres)];
+    d($et['trailer']);
+    
+    
+    //$value = get_field( "text_field", 123 );
+
+
+    d($traileres);
     if(get_field('aliados')):
         $aliados = array();
         while(the_repeater_field('aliados')):
@@ -52,12 +85,22 @@ function peliculas_retina_home() {
         <div class="destacados">
             <div class="video">
             <?php
-                echo $destacado->post_title;
-                echo video_embebido($destacado);
+                //echo video_embebido($destacado);
+                //echo $destacado->post_title;
+                if($trailerinterno ==='SI'){
+                echo peliculaTrailer($et['trailer']); 
+                echo ($et['titulo']);
+                }else{
+                    echo peliculaTrailer(getYouTubeId(get_field('video_estreno'))); 
+                    echo (get_field('mensaje_estreno'));
+                    
+                }
+                
+                
             ?>
             </div>
-            <div>ALIADOS</div>
-            <!--
+            
+            
                 <div class="ciclo">
                 <div class="slider">
                 <?php
@@ -79,7 +122,7 @@ function peliculas_retina_home() {
                 </div>
                 <div class="slider-txt"></div>
             </div>
-             -->
+             
         </div>
         <div class="peliculas">
         <?php
