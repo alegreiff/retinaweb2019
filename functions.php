@@ -730,6 +730,21 @@ $args['meta_query'] = array(
 // filter for every field
 add_filter('acf/fields/relationship/query/name=eltrailer', 'my_relationship_query', 10, 3);
 
+/** CAMPO PELICULADIRECTOR */
+
+function my_relationship_result( $title, $post, $field, $post_id ) {
+	
+    $res = get_field('director', $post->ID);
+    //d($res[post_title]);
+    //d($res[0]->post_title);
+    return $title . ' / ' . $res[0]->post_title;
+    //return $res[0]->post_title;
+	
+}
+
+add_filter('acf/fields/relationship/result/name=peliculadirector', 'my_relationship_result', 10, 4);
+
+/** FIN CAMPO PELICULADIRECTOR */
 
 /*function my_relationship_result( $title, $post, $field, $post_id ) {
 	
@@ -753,3 +768,8 @@ function getYouTubeId($url) {
     
 
 }
+
+function custom_excerpt_length( $length ) {
+	return 20;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );

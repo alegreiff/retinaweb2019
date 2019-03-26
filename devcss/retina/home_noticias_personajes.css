@@ -1,0 +1,82 @@
+.homeCierre {
+  display: grid;
+
+  grid-template-columns: 6fr 8fr;
+  grid-column-gap: 16px;
+
+  @media all and (max-width: $mqmedium) {
+    grid-template-columns: 1fr;
+  }
+  & h2 {
+    color: white;
+    background-color: $azuloscuro;
+    padding: 0.3em;
+    text-align: right;
+    font-family: "Montserrat";
+    font-size: 1.35em;
+  }
+  & div.noticias {
+    background: $azul1;
+    & div.noticia {
+      display: grid;
+      margin: 0.3em;
+      grid-template-columns: 200px 1fr;
+
+      & span.fecha {
+        grid-column: span 2;
+      }
+      & p {
+      }
+      & img {
+        margin: 0 auto;
+        max-width: 90%;
+        &:hover {
+          filter: grayscale(100%) brightness(30%) sepia(100%)
+            hue-rotate(-180deg) saturate(700%) contrast(0.8);
+        }
+      }
+      & h3 {
+        font-size: 1.1em;
+      }
+      & a {
+      }
+    }
+    & div.noticia:hover {
+      cursor: hand;
+      cursor: pointer;
+      opacity: 0.9;
+    }
+  }
+
+  & .personajes {
+    background: $azul0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    color: white;
+
+    & .personaje {
+      margin: 0.2em;
+      & img {
+        display: block;
+        max-width: 80%;
+        margin: 0 auto;
+        border-radius: 0.5em;
+        filter: grayscale(100%);
+
+        &:hover {
+          filter: none;
+        }
+      }
+      & p {
+        text-align: center;
+        margin: 0;
+        padding: 0;
+      }
+    }
+    & div.personaje:hover {
+      cursor: hand;
+      cursor: pointer;
+      opacity: 0.9;
+    }
+  }
+}

@@ -6,23 +6,16 @@
  * @package retina
  */
 
-function peliculaTrailer($trailer)
-{
-    //return '<iframe title="YouTube video player" class="youtube-player" type="text/html" width="100%" height="100%" src="http://www.youtube.com/embed/' . $trailer . '"frameborder="0" allowFullScreen></iframe>';
-            return '<iframe src="https://www.youtube.com/embed/' . $trailer . '?rel=0;controls=1;showinfo=0;theme=light" 
-allowfullscreen width="100%" height="90%" frameborder="0"></iframe>';
-}
-
 remove_action ('genesis_loop', 'genesis_do_loop'); // Remove the standard loop
 add_action( 'genesis_loop', 'peliculas_retina_home' ); // Add custom loop
-
-
-
 
 function peliculas_retina_home() {
     /* Obtengo los parámetros de la página ACF */
     $traileresID = (get_field('eltrailer')); 
     $trailerinterno = get_field('trailerinterno');
+    /* $directores = get_field('personajes_home');
+    d($directores);
+    d(get_field('director', 4788)); */
 
 
     
@@ -37,13 +30,13 @@ function peliculas_retina_home() {
         );
     }
     $et = $traileres[array_rand($traileres)];
-    d($et['trailer']);
+    //d($et['trailer']);
     
     
     //$value = get_field( "text_field", 123 );
 
 
-    d($traileres);
+    //d($traileres);
     if(get_field('aliados')):
         $aliados = array();
         while(the_repeater_field('aliados')):
@@ -157,7 +150,7 @@ function peliculas_retina_home() {
             //$pais_pelicula = get_field('country_group');
 
             $pais_pelicula = muestra_codigopais(get_field('country_group'));
-            d($pais_pelicula);
+            //d($pais_pelicula);
             $formato_pelicula = wp_get_post_terms(get_the_ID(), 'videos_format')[0]->name;
             $genero_pelicula = wp_get_post_terms(get_the_ID(), 'videos_genres')[0]->name;
             $duracion = get_field('duration');
@@ -185,7 +178,7 @@ function peliculas_retina_home() {
         ?>
         </div>
         <?php
-            if($numero_de_peliculas_secundario){
+            if(isset($numero_de_peliculas_secundario)){
             ?>
         <div class="peliculas secundarias sec_<?php echo $numero_de_peliculas_secundario;?>">
         <?php
@@ -223,7 +216,7 @@ function peliculas_retina_home() {
             //$pais_pelicula = get_field('country_group');
 
             $pais_pelicula = muestra_codigopais(get_field('country_group'));
-            d($pais_pelicula);
+            //d($pais_pelicula);
             $formato_pelicula = wp_get_post_terms(get_the_ID(), 'videos_format')[0]->name;
             $genero_pelicula = wp_get_post_terms(get_the_ID(), 'videos_genres')[0]->name;
             $duracion = get_field('duration');
@@ -253,10 +246,10 @@ function peliculas_retina_home() {
             <?php
             }
         ?>
-        <div class="aliados">
+        <!-- <div class="aliados">
         <h4>Alianzas</h4>
             <?php
-                $posicion = 0;
+                /* $posicion = 0;
                 foreach($aliados as $aliado){
                     $posicion++;
                     echo '<div class="alianza'.$posicion.'">
@@ -266,20 +259,100 @@ function peliculas_retina_home() {
                                 <p><a href="'.$aliado['enlace'].'">'.$aliado['describe'].'</a></p>
 
                     </div>';
-                }
+                } */
             ?>
-            <!--<div class="alianza1">001</div>
-            <div class="alianza2">002</div>
-            <div class="alianza3">003</div>-->
-        </div>
-        <div class="datos">
-            <div class="noticias">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea magnam facere voluptas repellendus optio rem at animi quidem illum quod cupiditate expedita culpa dolores sapiente qui, est quo in impedit.</div>
-            <div class="personajes">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum molestias ea eum doloribus ad nostrum iste architecto magni consectetur iure dolor quas numquam, nobis beatae incidunt, earum odit tenetur deleniti.</div>
+        </div> -->
+        <div class="homeCierre">
+            <div><h2>Noticias</h2></div>
+            <div><h2>Personajes</h2></div>
+            <div class="noticias">
+                <?php
+                        $loopNoticias = noticias_home();
+                        if( $loopNoticias->have_posts() ):
+
+                            while( $loopNoticias->have_posts() ): $loopNoticias->the_post(); 
+                            global $post;
+
+                            if(!get_the_post_thumbnail()){
+                                $imagen='<img src='.get_stylesheet_directory_uri().'/images/no-imagendestacada.jpg">';
+                            }else{
+                                $imagen = get_the_post_thumbnail();
+                            }
+                            $categoria = get_the_category()[0]->cat_name;
+                            $fecha = ucfirst(get_the_date( 'F j \d\e Y' ));
+                            $contenido = get_the_excerpt(60);
+                            d($contenido);
+                            echo '
+                            <div class="noticia">
+                                <span class="fecha">'.$fecha.'</span>
+                                '.$imagen.'
+                                <div>
+                                <a href="'.get_post_permalink().'">'.get_the_title().'</a>
+                                <p>'.$contenido.'</p>
+                                </div>
+                                
+                                
+                                
+                                
+                            </div>';
+                            endwhile;
+                        endif;                    
+                    ?>
+                    <!-- 
+                            <p>'.get_the_title().'</p>
+                                <a href="'.get_post_permalink().'"> 
+                                '.$imagenDIR.'
+                                </a> 
+
+                    -->
+                
+                <!-- <div class="noticia">
+                    <span class="fecha">17 de junio de 2018</span>
+                    <img src="https://picsum.photos/150/108" alt="">
+                    <div>
+                        <a href="#">Balance 2015: Un año con más luces que sombras para las cinematografías latinoamericanas</a>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, sint minima. Numquam aperiam amet aspernatur impedit ducimus.</p>
+                    </div>
+                </div>
+                <div class="noticia">
+                    <span class="fecha">17 de junio de 2018</span>
+                    <img src="https://picsum.photos/150/108" alt="">
+                    <div>
+                        <a href="#">Balance 2015: Un año con más luces que sombras para las cinematografías latinoamericanas</a>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, sint minima. Numquam aperiam amet aspernatur impedit ducimus.</p>
+                    </div>
+                </div> -->
+                
+            </div>
+            <div class="personajes">
+                
+                    <?php
+                        $loopPersonas = personas_home();
+                        if( $loopPersonas->have_posts() ):
+
+                            while( $loopPersonas->have_posts() ): $loopPersonas->the_post(); 
+                            global $post;
+
+                            if(!get_the_post_thumbnail()){
+                                    $imagenDIR='<img src='.get_stylesheet_directory_uri().'/images/no-director.jpg">';
+                                }else{
+                                    $imagenDIR = get_the_post_thumbnail();
+                                }
+                            echo '<div class="personaje">
+                                <p>'.get_the_title().'</p>
+                                <a href="'.get_post_permalink().'"> 
+                                '.$imagenDIR.'
+                                </a> 
+                                <p>'.get_field("citizenship_person").'</p> 
+                                
+                            </div>';
+                            endwhile;
+                        endif;                    
+                    ?>
+
+            </div>
         </div>
     </div>
-
-
-
 
     <?php
 }
@@ -287,7 +360,55 @@ function peliculas_retina_home() {
 /**
  * FUNCIONES AUXILIARES
  */
+function peliculaTrailer($trailer){
+    //return '<iframe title="YouTube video player" class="youtube-player" type="text/html" width="100%" height="100%" src="http://www.youtube.com/embed/' . $trailer . '"frameborder="0" allowFullScreen></iframe>';
+            return '<iframe src="https://www.youtube.com/embed/' . $trailer . '?rel=0;controls=1;showinfo=0;theme=light" 
+allowfullscreen width="100%" height="90%" frameborder="0"></iframe>';
+}
 
+function personas_home(){
+
+    $args = array(
+            'posts_per_page'=> 4,
+            'post_type' => 'person',
+            'tax_query' => array(
+                'relation' => 'AND',
+                array(
+                    'taxonomy' => 'persons_categories',
+                    'field'    => 'slug',
+                    'terms' => 'enportada',
+                    'operator' => 'IN'
+                )
+            ),
+            'orderby' => 'rand',
+        );
+        $loop = new WP_Query( $args );
+        wp_reset_query();
+    return $loop;
+
+}
+
+function noticias_home(){
+
+    $args = array(
+            'posts_per_page'=> 2,
+            'post_type' => 'post',
+            'tax_query' => array(
+                'relation' => 'AND',
+                array(
+                    'taxonomy' => 'category',
+                    'field'    => 'slug',
+                    'terms' => 'portada',
+                    'operator' => 'IN'
+                )
+            ),
+            'orderby' => 'date',
+        );
+        $loop = new WP_Query( $args );
+        wp_reset_query();
+    return $loop;
+
+}
 
 
  genesis();

@@ -1737,6 +1737,84 @@ nav#genesis-nav-primary sub-menu a {
   margin-top: -30px;
   grid-column: 2;
 }
+.homeCierre {
+  display: grid;
+
+  grid-template-columns: 6fr 8fr;
+  grid-column-gap: 16px
+}
+.homeCierre h2 {
+    color: white;
+    background-color: #094965;
+    padding: 0.3em;
+    text-align: right;
+    font-family: "Montserrat";
+    font-size: 1.35em;
+  }
+.homeCierre div.noticias {
+    background: rgb(222, 243, 252)
+  }
+.homeCierre div.noticias div.noticia {
+      display: grid;
+      margin: 0.3em;
+      grid-template-columns: 200px 1fr
+    }
+.homeCierre div.noticias div.noticia span.fecha {
+        grid-column: span 2;
+      }
+.homeCierre div.noticias div.noticia p {
+      }
+.homeCierre div.noticias div.noticia img {
+        margin: 0 auto;
+        max-width: 90%
+      }
+.homeCierre div.noticias div.noticia img:hover {
+          -webkit-filter: grayscale(100%) brightness(30%) sepia(100%)
+            hue-rotate(-180deg) saturate(700%) contrast(0.8);
+                  filter: grayscale(100%) brightness(30%) sepia(100%)
+            hue-rotate(-180deg) saturate(700%) contrast(0.8);
+        }
+.homeCierre div.noticias div.noticia h3 {
+        font-size: 1.1em;
+      }
+.homeCierre div.noticias div.noticia a {
+      }
+.homeCierre div.noticias div.noticia:hover {
+      cursor: hand;
+      cursor: pointer;
+      opacity: 0.9;
+    }
+.homeCierre .personajes {
+    background: hsl(198, 84%, 65%);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    color: white
+  }
+.homeCierre .personajes .personaje {
+      margin: 0.2em
+    }
+.homeCierre .personajes .personaje img {
+        display: block;
+        max-width: 80%;
+        margin: 0 auto;
+        border-radius: 0.5em;
+        -webkit-filter: grayscale(100%);
+                filter: grayscale(100%)
+      }
+.homeCierre .personajes .personaje img:hover {
+          -webkit-filter: none;
+                  filter: none;
+        }
+.homeCierre .personajes .personaje p {
+        text-align: center;
+        margin: 0;
+        padding: 0;
+      }
+.homeCierre .personajes div.personaje:hover {
+      cursor: hand;
+      cursor: pointer;
+      opacity: 0.9;
+    }
 .single-video .site-inner {
     min-width: 95%;
     padding: 0
@@ -3589,7 +3667,7 @@ p.netflix {
       display: none;
     }
 #rl_home_posteres {
-    grid-template-columns: repeat(4, 1fr)
+    grid-template-columns: repeat(2, 1fr)
 }
 
     #rl_home_posteres #rl-home-ciclo-activo {
@@ -3696,48 +3774,10 @@ img.retinsposter_responsive {
     /*min-width: 100%;*/
 }
   }
-@media all and (max-width: 768px) {
-.rl_home .destacados {
-      padding: 0 1em;
-      grid-template-columns: 1fr
-      /* display: none; */
-  }
-    }
-@media all and (max-width: 1264px) {
-.rl_home .peliculas {
-      padding: 0 1em;
-      grid-template-columns: repeat(4, 1fr)
-      /* background: lime; */
-  }
-.rl_home .sec_5 {
-      padding: 0 1em;
-      grid-template-columns: repeat(4, 1fr)
-      /* background: lime; */
-  }
-.rl_home .sec_5 .secundarias_titulo {
-        grid-column: 1/5
-    }
-.rl_home .sec_6 {
-      padding: 0 1em;
-      grid-template-columns: repeat(4, 1fr)
-      /* background: lime; */
-  }
-.rl_home .sec_6 .secundarias_titulo {
-        grid-column: 1/5
-    }
-.peliculas_search,
-.persona_search {
-    padding: 0 1em;
-    grid-template-columns: repeat(4, 1fr)
-    /* background: lime; */
-}
-.posts_search {
-    padding: 0 1em;
-    grid-template-columns: repeat(3, 1fr)
-    /* background: lime; */
-}
-    }
 @media all and (max-width: 960px) {
+.homeCierre {
+    grid-template-columns: 1fr
+}
 .rl_home .peliculas {
       padding: 0 1em;
       grid-template-columns: repeat(3, 1fr)
@@ -3777,6 +3817,47 @@ img.retinsposter_responsive {
     padding: 0 1em;
     grid-template-columns: repeat(2, 1fr)
     /* background: purple; */
+}
+  }
+@media all and (max-width: 768px) {
+.rl_home .destacados {
+      padding: 0 1em;
+      grid-template-columns: 1fr
+      /* display: none; */
+  }
+    }
+@media all and (max-width: 1264px) {
+.rl_home .peliculas {
+      padding: 0 1em;
+      grid-template-columns: repeat(4, 1fr)
+      /* background: lime; */
+  }
+.rl_home .sec_5 {
+      padding: 0 1em;
+      grid-template-columns: repeat(4, 1fr)
+      /* background: lime; */
+  }
+.rl_home .sec_5 .secundarias_titulo {
+        grid-column: 1/5
+    }
+.rl_home .sec_6 {
+      padding: 0 1em;
+      grid-template-columns: repeat(4, 1fr)
+      /* background: lime; */
+  }
+.rl_home .sec_6 .secundarias_titulo {
+        grid-column: 1/5
+    }
+.peliculas_search,
+.persona_search {
+    padding: 0 1em;
+    grid-template-columns: repeat(4, 1fr)
+    /* background: lime; */
+}
+.posts_search {
+    padding: 0 1em;
+    grid-template-columns: repeat(3, 1fr)
+    /* background: lime; */
 }
     }
 @media all and (max-width: 600px) {
