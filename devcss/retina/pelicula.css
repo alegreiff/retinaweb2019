@@ -94,7 +94,6 @@ div.peliculaheader {
   background-position: left 20%;
   background-color: var(--col_azul_retina);
   background-blend-mode: darken;
-  //background-attachment: fixed;
   display: grid;
   grid-template-columns: 1fr;
 
@@ -156,6 +155,11 @@ div.peliculaDatos {
     font-family: $letranumeros;
     font-size: 0.5em;
     content: " min.";
+  }
+
+  & span.subs {
+    font-family: $letranumeros;
+    font-size: 1em;
   }
 }
 
@@ -322,4 +326,30 @@ span.duracion_rl {
   padding: 5px 16px;
   text-align: center;
   text-decoration: none;
+}
+
+span.ficha_datosprincipales {
+  background: color($rojo tint(1%));
+  display: block;
+}
+
+span.ficha_fotografia {
+  background: color($rojo tint(30%));
+  display: block;
+}
+span.ficha_audio {
+  background: color($rojo tint(10%));
+  display: block;
+}
+span.ficha_produccion {
+  background: color($rojo tint(40%));
+  display: block;
+}
+span.ficha_direccion {
+  background: color($rojo tint(20%));
+  display: block;
+}
+span.ficha_varios {
+  background: color($rojo tint(70%));
+  display: block;
 }

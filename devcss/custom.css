@@ -196,3 +196,8 @@ p.netflix {
   color: black;
   text-transform: uppercase;
 }
+
+.testeretina {
+  color: white !important;
+  background-color: #333 !important;
+}

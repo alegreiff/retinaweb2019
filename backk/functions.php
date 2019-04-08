@@ -578,7 +578,7 @@ function utility_bar() {
 
 // Enqueue scripts and styles
 function themeprefix_scripts_and_styles() {
-    wp_enqueue_Style( 'fontawesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css' );
+    wp_enqueue_Style( 'fontawesome', '//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.css' );
     wp_enqueue_script( 'hidesearch', get_stylesheet_directory_uri() . '/js/hidesearch.js', array('jquery'), '1', true );
 }
 add_action( 'wp_enqueue_scripts', 'themeprefix_scripts_and_styles' );

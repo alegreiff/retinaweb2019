@@ -1876,7 +1876,6 @@ div.peliculaheader {
   background-color: hsl(198, 84%, 65%);
   background-color: var(--col_azul_retina);
   background-blend-mode: darken;
-  //background-attachment: fixed;
   display: grid;
   grid-template-columns: 1fr
 }
@@ -1909,6 +1908,10 @@ div.peliculaDatos span.duration::after {
     font-family: "Wallpoet", cursive;
     font-size: 0.5em;
     content: " min.";
+  }
+div.peliculaDatos span.subs {
+    font-family: "Wallpoet", cursive;
+    font-size: 1em;
   }
 div.peliculasidebar {
   display: grid;
@@ -2002,6 +2005,30 @@ span.duracion_rl {
   padding: 5px 16px;
   text-align: center;
   text-decoration: none;
+}
+span.ficha_datosprincipales {
+  background: rgb(232, 50, 120);
+  display: block;
+}
+span.ficha_fotografia {
+  background: rgb(239, 110, 160);
+  display: block;
+}
+span.ficha_audio {
+  background: rgb(234, 69, 133);
+  display: block;
+}
+span.ficha_produccion {
+  background: rgb(241, 131, 173);
+  display: block;
+}
+span.ficha_direccion {
+  background: rgb(237, 89, 146);
+  display: block;
+}
+span.ficha_varios {
+  background: rgb(248, 193, 214);
+  display: block;
 }
 .rl-home-catalogos #rl-catalogos {
   grid-gap: 1em;
@@ -3198,6 +3225,10 @@ p.netflix {
 .menu_paises li.current_page_item a {
   color: black;
   text-transform: uppercase;
+}
+.testeretina {
+  color: white !important;
+  background-color: #333 !important;
 }
 @media only screen and (max-width: 1340px) {
   .site-inner,
