@@ -343,7 +343,8 @@ function filtro_peliculas_retina(){
 
 
 	if( $query->have_posts() ) :
-        echo '<h1>'.$total.'</h1>';
+        //CONTROL CUÁNTOS ELEMENTOS
+        //echo '<h1>'.$total.'</h1>';
         //echo '<div class="peliculas_paises">';
 		while( $query->have_posts() ): $query->the_post();
 		$poster = trae_poster(get_field('poster'));

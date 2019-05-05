@@ -93,7 +93,7 @@ function retina_loop_paises(){
         </div>
         
         <?php
-            echo '<div class="peliculas_paises">';
+            echo '<div class="peliculas_paises">Les payss';
             echo '</div>'; //peliculas_paises
             echo '</div>'; //paises
 }

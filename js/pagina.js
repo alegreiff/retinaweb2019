@@ -1,52 +1,51 @@
-jQuery(function($){
-	//$('#filter').submit(function(){
-    
-        var filter = $('#filter');
-        console.log('======');
-        console.log(filter.serialize());
-        console.log('======');
-		$.ajax({
-			url: MyAjax.ajaxurl,
-            data:filter.serialize(), 
-			type: 'POST',
-			beforeSend:function(xhr){
-				filter.find('mensaje').text('cateando...'); // changing the button label
-			},
-			success:function(data){
-				filter.find('mensaje').text('Mensaje Inicio'); // changing the button label back
-				$('.peliculas_paises').html(data); // insert data
-            },
-            error: function(err){
-                console.log(err)
-            }
-		});
-		return false;
-	
+jQuery(function($) {
+  //$('#filter').submit(function(){
+
+  var filter = $("#filter");
+  console.log("======");
+  console.log(filter.serialize());
+  console.log("======");
+  $.ajax({
+    url: MyAjax.ajaxurl,
+    data: filter.serialize(),
+    type: "POST",
+    beforeSend: function(xhr) {
+      filter.find("mensaje").text("cateando..."); // changing the button label
+    },
+    success: function(data) {
+      filter.find("mensaje").text("Mensaje Inicio"); // changing the button label back
+      $(".peliculas_paises").html(data); // insert data
+    },
+    error: function(err) {
+      console.log(err);
+    }
+  });
+  return false;
 });
 
-
-jQuery(function($){
-	//$('#filter').submit(function(){
-    $('#filter').on('change', function() {
-        var filter = $('#filter');
-        console.log(filter.serialize());
-		$.ajax({
-			url: MyAjax.ajaxurl,
-            data:filter.serialize(), 
-			type: 'POST',
-			beforeSend:function(xhr){
-				filter.find('mensaje').text('cateando...'); // changing the button label
-			},
-			success:function(data){
-				filter.find('mensaje').text('Mensaje'); // changing the button label back
-				$('.peliculas_paises').html(data); // insert data
-            },
-            error: function(err){
-                console.log(err)
-            }
-		});
-		return false;
-	});
+jQuery(function($) {
+  //$('#filter').submit(function(){
+  $("#filter").on("change", function() {
+    var filter = $("#filter");
+    console.log(filter.serialize());
+    $.ajax({
+      url: MyAjax.ajaxurl,
+      data: filter.serialize(),
+      type: "POST",
+      beforeSend: function(xhr) {
+        filter.find("mensaje").text("cateando..."); // changing the button label
+      },
+      success: function(data) {
+        filter.find("mensaje").text("Mensaje"); // changing the button label back
+        $(".peliculas_paises").html(data); // insert data
+      },
+      error: function(err) {
+        console.log("jajajaja");
+        console.log(err);
+      }
+    });
+    return false;
+  });
 });
 
 /*jQuery(function($){
