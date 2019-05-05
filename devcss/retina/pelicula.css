@@ -247,7 +247,7 @@ div.datos_adicionales {
   }
 
   & span.ficha_produccion::before {
-    content: "Producción";
+    /*content: "Producción";*/
   }
 
   & span.ficha_produccion p::before {

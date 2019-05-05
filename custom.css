@@ -1947,7 +1947,7 @@ div.datos_adicionales .datos_ficha p {
     margin: 0.2em 0;
   }
 div.datos_adicionales span.ficha_produccion::before {
-    content: "Producción";
+    /*content: "Producción";*/
   }
 div.datos_adicionales span.ficha_produccion p::before {
     content: " - ";

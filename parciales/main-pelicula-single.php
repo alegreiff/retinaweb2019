@@ -1,7 +1,7 @@
 <?php
 function datospeliculaHeader($clase, $pais, $year, $duracion, $subs){
     if($subs==='Si'){
-        $sub_salida = '<span class="subs"><i class="fas fa-grip-lines"></i> SI </span>';
+        $sub_salida = '<span class="subs"><i class="fas fa-grip-lines"></i> ESP ING Aymara </span>';
     }
     echo '
     <div class='.$clase.'>
@@ -74,6 +74,8 @@ function datospeliculaHeader($clase, $pais, $year, $duracion, $subs){
             echo formato_dato($genero_pelicula);
             echo formato_dato('<strong>Clasificación</strong>: ' . $clasificacion_edad);
             echo creditos('Reparto', '', $reparto);
+            echo web($sitioweb) ;
+            echo 'AKA<hr />CONTACTO (TEXTO)';
             echo '</span>';
             //$screenwriter = get_field("screenwriter");
             $tags = get_the_tags();

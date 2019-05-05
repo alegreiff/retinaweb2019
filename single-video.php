@@ -53,6 +53,9 @@ function lista_asociada($etiqueta, $etiquetaplural = '', $campos){
 }
 
 function creditos($rol, $rolplural = '', $personas_contenidos){
+    /*
+    SI LA PERSONA TIENE CONTENIDO, GENERAR EL ENLACE, SI NO, SOLO EL NOMBRE
+    */
   $rolplural === '' ? $rolplural = $rol : $rolplural = $rolplural;
     $salida = '';
     if ($personas_contenidos) {
@@ -74,6 +77,10 @@ function creditos($rol, $rolplural = '', $personas_contenidos){
         $salida .= '</p>';
     }
 return $salida;
+}
+function web($url){
+    if($url!=='')
+    echo '<i class="fas fa-link"></i> '. '<a href="'.$url.'" target="">Sitio web</a>';
 }
 
 function muestradatos(){
@@ -118,6 +125,7 @@ function muestradatos(){
     $camarografo = get_field('cameraman');
     $director_fotografia = get_field('director_photography');
     $montajista = get_field('montajista');
+    $colorista = get_field('rl_colorista');
     $sonidista = get_field('soundman');
     $sonido_disenador = get_field('sound_designer');
     $director_arte = get_field('art_director');

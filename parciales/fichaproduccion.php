@@ -5,12 +5,14 @@
  * FICHA DE PRODUCCIÓN
  */
 echo '<span class="ficha_produccion">
-    ' . lista_asociada('País de producción', 'Países de producción',  $paises_produccion) . '
+    ' . lista_asociada('País coproductor', 'Países coproductores',  $paises_produccion) . '
     ' . creditos("Compañía productora", 'Compañías productoras', $companias) . '
-    ' . creditos("Productor", 'Productores', $productor) . '
-    ' . creditos("Jefe de producción", 'Jefes de producción', $jefe_produccion) . '
+    ' . creditos("SUMAR A PROD JEFE", "SUMAR A PROD JEFE", $jefe_produccion) . '
+    ' . creditos("Producción", 'Producción', $productor) . '
+    ASISTENTE DE PRODUCCIÓN
     ' . creditos("Coproductor", 'Coproductores', $coproductor) . '
-    ' . creditos("Productor ejecutivo", 'Productores ejecutivos', $productor_ejecutivo) . '
-    ' . creditos("Productor asociado", 'Productores asociados', $productor_asociado) . '
-    ' . creditos("Productor de campo", 'Productores de campo', $productor_campo) . '
+
+    ' . creditos("Producción ejecutiva", 'Producción ejecutiva', $productor_ejecutivo) . '
+    ' . creditos("Producción asociada", 'Producción asociada', $productor_asociado) . '
+    ' . creditos("Producción de campo", 'Producción de campo', $productor_campo) . '
     </span>';
