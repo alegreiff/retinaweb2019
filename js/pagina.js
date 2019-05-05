@@ -2,7 +2,7 @@ jQuery(function($) {
   //$('#filter').submit(function(){
 
   var filter = $("#filter");
-  console.log("======");
+  console.log("======AAA1");
   console.log(filter.serialize());
   console.log("======");
   $.ajax({
