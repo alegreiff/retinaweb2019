@@ -17,6 +17,7 @@ jQuery(function($) {
       $(".peliculas_paises").html(data); // insert data
     },
     error: function(err) {
+      console.log("001 err net");
       console.log(err);
     }
   });
