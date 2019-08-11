@@ -10,6 +10,8 @@
  * @link    http://www.studiopress.com/
  */
 
+/* error_reporting(E_ALL); 
+ini_set("display_errors", 1); */
 
 // Start the engine.
 include_once (get_template_directory() . '/lib/init.php');
@@ -170,7 +172,7 @@ function genesis_sample_comments_gravatar($args) {
 
 /*JAIME DE GREIFF CUSTOM*/
 //Agregar widget areas
-include_once (get_stylesheet_directory() . '/includes/widget-areas.php');
+include_once (get_stylesheet_directory() . '/includes/widget-areas.php'); 
 
 add_action('wp_enqueue_scripts', 'enqueue_load_fa');
 function enqueue_load_fa() {
@@ -203,8 +205,8 @@ function categoria_archivo() {
 function video_embebido($pelicula) {
     $video_meta = get_post_meta($pelicula->ID, 'video', true);
     $video = $video_meta['embed'];
-    $salida = '
-	<iframe class="rl-iframe-video-home" src="http://cdnapi.kaltura.com/p/1993331/sp/199333100/embedIframeJs/uiconf_id/33074692/partner_id/1993331?iframeembed=true&playerId=kaltura_player_1452811701&entry_id=' . $video . '&flashvars[akamaiHD.loadingPolicy]=preInitialize&flashvars[akamaiHD.asyncInit]=true&flashvars[twoPhaseManifest]=true&flashvars[streamerType]=hdnetworkmanifest" allowfullscreen webkitallowfullscreen mozAllowFullScreen frameborder="0" style="width: 100%; height: 420px;" itemprop="video" itemscope itemtype="http://schema.org/VideoObject"></iframe>';
+    $salida = 'VID
+	<iframe class="rl-iframe-video-home" src="http://cdnapi.kaltura.com/p/1993331/sp/199333100/embedIframeJs/uiconf_id/33074692/partner_id/1993331?iframeembed=true&playerId=kaltura_player_1452811701&entry_id=' . $video . '&flashvars[akamaiHD.loadingPolicy]=preInitialize&flashvars[akamaiHD.asyncInit]=true&flashvars[twoPhaseManifest]=true&flashvars[streamerType]=hdnetworkmanifest" allowfullscreen webkitallowfullscreen mozAllowFullScreen frameborder="0" style="width: 100%; height: 420px;" itemprop="video" itemscope itemtype="http://schema.org/VideoObject"></iframe>EOLOKO';
     return $salida;
 }
 
@@ -268,7 +270,6 @@ function theme_name_scripts() {
 add_action('wp_ajax_filtro_peliculas_retina', 'filtro_peliculas_retina');
 add_action('wp_ajax_nopriv_filtro_peliculas_retina', 'filtro_peliculas_retina');
 function filtro_peliculas_retina(){
-    d("dfsah djashdjk hsajdh sajkdhasj");
 	//https://rudrastyh.com/wordpress/ajax-post-filters.html
 	$args = array(
 		'orderby' => 'date', // we will sort posts by date
@@ -721,7 +722,7 @@ $args['meta_query'] = array(
     )
 ); // <-- this one!
     // return
-    d($args);
+    //d($args);
     return $args;
     //d("mierda");
     
@@ -766,11 +767,16 @@ function getYouTubeId($url) {
         preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match);
     return $match[1];
     }
-    
-
 }
 
 function custom_excerpt_length( $length ) {
 	return 20;
 }
-add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 ); 
+
+// Update CSS within in Admin
+function admin_style() {
+    
+    wp_enqueue_style( 'custom-style', get_stylesheet_directory_uri() . '/retinalatinaadmin.css' );
+  }
+  add_action('admin_enqueue_scripts', 'admin_style');

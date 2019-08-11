@@ -13,6 +13,7 @@
 @import "retina/logosfooter.css";
 @import "retina/slider.css";
 @import "retina/search.css";
+@import "retina/filtros_peliculas.css";
 
 /* body {
   background-color: $rojo5;
@@ -200,4 +201,45 @@ p.netflix {
 .testeretina {
   color: white !important;
   background-color: #333 !important;
+}
+
+@media screen and (max-width: 600px) {
+  #ficha_premios,
+  #ficha_locacion,
+  #ficha_eventos {
+    min-width: 100%;
+    & table {
+      font-size: 0.8em;
+    }
+  }
+}
+div.datos_adicionales {
+  /* background: crimson; */
+}
+div.datos_ficha {
+}
+div.info_poster {
+  background: rgb(231, 172, 231);
+}
+
+div.fichacolretina {
+  /* background: yellow; */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+div.fichacol001 {
+  /* background: lime; */
+}
+div.fichacol002 {
+  /* background: blue; */
+}
+span.ficha_fotografia {
+  background-color: #86d3f7;
+}
+span.ficha_audio {
+  background-color: #acebb2;
+}
+
+p.rl_inspirado::before {
+  content: "Inspirado en: ";
 }

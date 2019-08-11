@@ -1,7 +1,7 @@
 :root {
   /*COLORES*/
-  --col_rojo_retina: hsl(337, 79%, 55%);
-  --ROJO-retina: hwb(337, 19%, 9%, 1);
+  /*--col_rojo_retina: hsl(337, 79%, 55%);*/
+  /*--ROJO-retina: hwb(337, 19%, 9%, 1);*/
   --col_azul_retina: hsl(198, 84%, 65%);
   --colordestacado: #fff;
   --limon: lime;
@@ -23,7 +23,17 @@ $col1: hwb(337, 19%, 9%, 1);
 $col3: color($col1 saturation(0%));
 
 $negroretina: #2e2e2e;
-$rojo: hwb(337, 19%, 9%, 1);
+$rojo: #e83278;
+$azul: #5bc5f2;
+$destacado: rgb(219, 233, 168);
+
+/* COLORES ADICIONALES EN EL MANUAL DE IMAGEN*/
+$morado1: #783683;
+$morado2: #433583;
+$morado3: #72639f;
+
+/* FIN COLORES ADICIONALES*/
+
 $rojo1: color($col1 saturation(0%));
 $rojo2: blue;
 $rojo3: color($col1 saturation(0%));

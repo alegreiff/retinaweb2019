@@ -35,6 +35,7 @@ jQuery(function($) {
       type: "POST",
       beforeSend: function(xhr) {
         filter.find("mensaje").text("cateando..."); // changing the button label
+        console.log("BeforeSend");
       },
       success: function(data) {
         filter.find("mensaje").text("Mensaje"); // changing the button label back

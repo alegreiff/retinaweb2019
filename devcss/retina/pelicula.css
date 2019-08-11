@@ -28,7 +28,7 @@ main.pelicula {
   display: grid;
   height: auto;
   grid-gap: 10px;
-  background-color: rgb(254, 247, 255);
+
   grid-template-areas: "header header" "lateral lateral" "info info";
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 430px 1fr;
@@ -225,9 +225,9 @@ div.peliculainfo {
 }
 
 div.datos_adicionales {
-  display: grid;
+  /*display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 1em;
+  grid-gap: 1em;*/
 
   @media only screen and (min-width: 900px) and (max-width: 1199px) {
     grid-template-columns: 1fr 1fr;
@@ -245,13 +245,16 @@ div.datos_adicionales {
   & .datos_ficha p {
     margin: 0.2em 0;
   }
+  & span.ficha_produccion {
+    background: $destacado;
+  }
 
   & span.ficha_produccion::before {
-    /*content: "Producción";*/
+    /* content: "Producción"; */
   }
 
   & span.ficha_produccion p::before {
-    content: " - ";
+    /* content: " - "; */
   }
 
   & span.ficha_direccion::before {
@@ -308,12 +311,12 @@ span.duracion_rl {
 }
 
 .enlace_ficha {
-  & i {
+  /* & i {
     font-size: 1.4em;
     font-weight: 800;
-  }
+  } */
   font-size: 0.7;
-  display: block;
+  display: inline-block;
   cursor: pointer !important;
   margin: 0.2em auto;
 
@@ -322,34 +325,56 @@ span.duracion_rl {
   color: white;
   border: none;
   border-radius: 0.77em;
-  max-width: 80%;
+
   padding: 5px 16px;
-  text-align: center;
+  text-align: left;
   text-decoration: none;
 }
-
+span.rl_adicionales {
+  text-align: right;
+  margin-top: 1em;
+  /* background: lime; */
+}
 span.ficha_datosprincipales {
-  background: color($rojo tint(1%));
+  /* background: color($rojo tint(1%)); */
+  /* background: $rojo; */
   display: block;
 }
 
 span.ficha_fotografia {
-  background: color($rojo tint(30%));
+  /* background: color($rojo tint(30%)); */
   display: block;
 }
 span.ficha_audio {
-  background: color($rojo tint(10%));
+  /* background: color($rojo tint(10%)); */
   display: block;
 }
 span.ficha_produccion {
-  background: color($rojo tint(40%));
+  /* background: color($rojo tint(40%)); */
   display: block;
 }
 span.ficha_direccion {
-  background: color($rojo tint(20%));
+  /* background: color($rojo tint(20%)); */
   display: block;
 }
 span.ficha_varios {
-  background: color($rojo tint(70%));
+  /* background: color($rojo tint(70%)); */
   display: block;
+}
+
+.rl_locaciones {
+  color: grey;
+  font-size: 0.9em;
+  & table {
+    border: 0;
+    border-collapse: collapse;
+    & td {
+      border: none;
+    }
+  }
+}
+div.GEO_ALL::before {
+  content: "ICONO + mensaje";
+}
+div.GEO_ALL {
 }

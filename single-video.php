@@ -80,7 +80,13 @@ return $salida;
 }
 function web($url){
     if($url!=='')
-    echo '<i class="fas fa-link"></i> '. '<a href="'.$url.'" target="">Sitio web</a>';
+    echo '<br /><i class="fas fa-link"></i> '. '<a href="'.$url.'" target="">Sitio web</a>';
+}
+
+function contacto_productora($contacto){
+    if(!empty($contacto))
+    echo '<br /> Contacto:'. $contacto;
+    
 }
 
 function muestradatos(){
@@ -96,9 +102,12 @@ function muestradatos(){
     //d($post);
 
     /*INICIO CAMPOS DE NO PERSONAS*/
+    
+    $otros_nombres = get_field('rl_otrosnombres');
     $paises_produccion = get_field('countries_production');
     $nacionalidad = get_field('citizenship_video');
     $subtitulos = get_field('subtitulos');
+    $paises_coproduccion = get_field('rl_coproduccionpaises');
 
     //d($nacionalidad);
     /*FIN CAMPOS DE NO PERSONAS*/
@@ -110,6 +119,8 @@ function muestradatos(){
     $guionista = get_field('screenwriter');
 
     $companias = get_field('company_productors');
+    $scriptcontinuista = get_field('rl_script');
+    
     $productor = get_field('producer');
     $coproductor = get_field('coproducer');
     $productor_ejecutivo = get_field('executive_producer');
@@ -118,6 +129,10 @@ function muestradatos(){
 
     $sitioweb = get_field('webpage'); //string
     $locaciones = get_field('locations'); //string
+    $contacto = get_field('rl_contacto'); //string
+    $inspirado = get_field('rl_inspirado'); //string
+    
+    
     $eventos = get_field('participation_event'); //string table
 
     $premios = get_field('awards'); //string table
@@ -135,19 +150,35 @@ function muestradatos(){
     $sonido_mezcla = get_field('sound_mzl');
     $narracion = get_field('narration');
     $asistente_camara = get_field('camara_assistant');
-    $productor_campo = get_field('campo_producer');
+    $productor_campo = get_field('rl_productordecampo');
+    $productor_asistente = get_field('rl_productorasistente');
+    $diseno_grafico  = get_field('rl_disenografico');
+    $efectos_visuales = get_field('rl_efectosvisuales');
+    $maquillador = get_field('rl_maquillaje');
+    $microfonista = get_field('rl_microfonista');
+    $editor_sonido = get_field('rl_ediciondesonido');
+
+
+    
     $casting = get_field('casting');
     $fotofija = get_field('foto_fija');
     $vestuario = get_field('vestuario');
     /*FIN PERSONAS*/
 
+    if ($musica) {
+        $muestra_musica = tabla_popup("fas fa-music", "Música", $musica, "ficha_musica");
+    } else {
+        $muestra_musica = '';
+    }
 
     //$trailer = get_field('trailer');
     if (get_field('trailer')) {
         $trailer = getYouTubeId(get_field('trailer')); //JAIME
+    }else{
+        $trailer = false;
     }
 
-
+    
     $duracion = get_field('duration');
     $year_pelicula = get_field('year');
     $imagendestacada = get_field('imagendestacada');
@@ -160,7 +191,9 @@ function muestradatos(){
     $genero_pelicula = wp_get_post_terms(get_the_ID(), 'videos_genres')[0]->name;
     $idioma_pelicula = wp_get_post_terms(get_the_ID(), 'videos_language')[0]->name;
     $tagges = wp_get_post_terms(get_the_ID(), 'post_tag');
-
+    /* INICIO CAMPOS NUEVOS 2019*/
+    $geobloqueo = get_field('rl_geobloqueo');
+    /* FIN CAMPOS NUEVOS 2019*/
     $premios = get_field('awards');
     $imagendestacada ? $fondopelicula = $imagendestacada : $fondopelicula = get_the_post_thumbnail_url();
     //d($imagendestacada);
