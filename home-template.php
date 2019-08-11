@@ -6,8 +6,6 @@
  * @package retina
  */
 
-//rl_home_los_directores
-
 remove_action ('genesis_loop', 'genesis_do_loop'); // Remove the standard loop
 add_action( 'genesis_loop', 'peliculas_retina_home' ); // Add custom loop
 
@@ -17,12 +15,7 @@ function peliculas_retina_home() {
     $traileresID = (get_field('eltrailer')); 
     $trailerinterno = get_field('trailerinterno');
     $directores = get_field('personajes_home');
-    d($directores);
-    //d(get_field('director', 4788)); 
-    $lesdirecteurs = (get_field('rl_home_los_directores')); 
-    d($lesdirecteurs);
 
-    
     
     $traileres = array();
     foreach ($traileresID as $trailer) {
@@ -34,13 +27,7 @@ function peliculas_retina_home() {
         );
     }
     $et = $traileres[array_rand($traileres)];
-    //d($et['trailer']);
-    
-    
-    //$value = get_field( "text_field", 123 );
 
-
-    //d($traileres);
     if(get_field('aliados')):
         $aliados = array();
         while(the_repeater_field('aliados')):
@@ -72,11 +59,6 @@ function peliculas_retina_home() {
         }
 
     }
-
-
-    //d($aliados);
-
-
     ?>
     <div class="rl_home">
         <div class="destacados">
@@ -151,10 +133,7 @@ function peliculas_retina_home() {
             while( $loop->have_posts() ): $loop->the_post(); global $post;
 
             $poster = trae_poster(get_field('poster'));
-            //$pais_pelicula = get_field('country_group');
-
             $pais_pelicula = muestra_codigopais(get_field('country_group'));
-            //d($pais_pelicula);
             $formato_pelicula = wp_get_post_terms(get_the_ID(), 'videos_format')[0]->name;
             $genero_pelicula = wp_get_post_terms(get_the_ID(), 'videos_genres')[0]->name;
             $duracion = get_field('duration');
@@ -220,7 +199,6 @@ function peliculas_retina_home() {
             //$pais_pelicula = get_field('country_group');
 
             $pais_pelicula = muestra_codigopais(get_field('country_group'));
-            //d($pais_pelicula);
             $formato_pelicula = wp_get_post_terms(get_the_ID(), 'videos_format')[0]->name;
             $genero_pelicula = wp_get_post_terms(get_the_ID(), 'videos_genres')[0]->name;
             $duracion = get_field('duration');
@@ -302,31 +280,6 @@ function peliculas_retina_home() {
                             endwhile;
                         endif;                    
                     ?>
-                    <!-- 
-                            <p>'.get_the_title().'</p>
-                                <a href="'.get_post_permalink().'"> 
-                                '.$imagenDIR.'
-                                </a> 
-
-                    -->
-                
-                <!-- <div class="noticia">
-                    <span class="fecha">17 de junio de 2018</span>
-                    <img src="https://picsum.photos/150/108" alt="">
-                    <div>
-                        <a href="#">Balance 2015: Un año con más luces que sombras para las cinematografías latinoamericanas</a>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, sint minima. Numquam aperiam amet aspernatur impedit ducimus.</p>
-                    </div>
-                </div>
-                <div class="noticia">
-                    <span class="fecha">17 de junio de 2018</span>
-                    <img src="https://picsum.photos/150/108" alt="">
-                    <div>
-                        <a href="#">Balance 2015: Un año con más luces que sombras para las cinematografías latinoamericanas</a>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, sint minima. Numquam aperiam amet aspernatur impedit ducimus.</p>
-                    </div>
-                </div> -->
-                
             </div>
             <div class="personajes">
                 
@@ -336,40 +289,30 @@ function peliculas_retina_home() {
                     
                     foreach ($loopPersonas as $persona) {
                         d($persona);
-                        /* print_r('<pre>');
-                        print_r($persona); 
-                        print_r('</pre>'); */
+                        
                         $imagen = get_the_post_thumbnail($persona['peliculadirector'][0]);
-                        $r = get_field('director', $persona['peliculadirector'][0]);
+                        $personaje = get_field('director', $persona['peliculadirector'][0]);
 
-                        /* print_r('<pre>');
-                        print_r($r[0]->ID);
-                        print_r('</pre>'); */
-                        $imagen = get_the_post_thumbnail($r[0]->ID);
-                        echo $imagen;
-                        //echo $persona['genre'];
+                        if(!get_the_post_thumbnail($personaje[0]->ID)){
+                            $imagenDIR='<img src='.get_stylesheet_directory_uri().'/images/no-director.jpg">';
+                        }else{
+                            $imagenDIR = get_the_post_thumbnail($personaje[0]->ID);
+                        }
+
+                        $genero = $persona['genre'] ? 'Director' : 'Directora';
+                        echo '<div class="personaje">
+                                <p>'.get_the_title($personaje[0]->ID).'</p>
+                                <a href="'.get_post_permalink($personaje[0]->ID).'"> 
+                                '.$imagenDIR.'
+                                </a> 
+                                <p>'.get_field("citizenship_person", $personaje[0]->ID).'</p> 
+                                <p>'.$genero.'</p> 
+                                
+                        </div>';
                         
                     }
                         
-                        /*$loopPersonas = personas_home();
-                        if( $loopPersonas->have_posts() ):
-                            while( $loopPersonas->have_posts() ): $loopPersonas->the_post(); 
-                            global $post;
-                            if(!get_the_post_thumbnail()){
-                                    $imagenDIR='<img src='.get_stylesheet_directory_uri().'/images/no-director.jpg">';
-                                }else{
-                                    $imagenDIR = get_the_post_thumbnail();
-                                }
-                            echo '<div class="personaje">
-                                <p>'.get_the_title().'</p>
-                                <a href="'.get_post_permalink().'"> 
-                                '.$imagenDIR.'
-                                </a> 
-                                <p>'.get_field("citizenship_person").'</p> 
-                                
-                            </div>';
-                            endwhile;
-                        endif;*/               
+                                  
                     ?>
 
             </div>
