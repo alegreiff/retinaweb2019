@@ -16,3 +16,4 @@ echo '<span class="ficha_produccion">
     ' . creditos("Producción de campo", 'Producción de campo', $productor_campo) . '
     ' . creditos("Asistencia de producción", 'Asistencia de producción', $productor_asistente) . '
     </span>';
+ 

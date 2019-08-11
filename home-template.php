@@ -6,17 +6,21 @@
  * @package retina
  */
 
+//rl_home_los_directores
+
 remove_action ('genesis_loop', 'genesis_do_loop'); // Remove the standard loop
 add_action( 'genesis_loop', 'peliculas_retina_home' ); // Add custom loop
 
 function peliculas_retina_home() {
+
     /* Obtengo los parámetros de la página ACF */
     $traileresID = (get_field('eltrailer')); 
     $trailerinterno = get_field('trailerinterno');
-    /* $directores = get_field('personajes_home');
+    $directores = get_field('personajes_home');
     d($directores);
-    d(get_field('director', 4788)); */
-
+    //d(get_field('director', 4788)); 
+    $lesdirecteurs = (get_field('rl_home_los_directores')); 
+    d($lesdirecteurs);
 
     
     
@@ -327,12 +331,30 @@ function peliculas_retina_home() {
             <div class="personajes">
                 
                     <?php
-                        $loopPersonas = personas_home();
-                        if( $loopPersonas->have_posts() ):
+                    //$loopPersonas = $lesdirecteurs;
+                    $loopPersonas = $directores;
+                    
+                    foreach ($loopPersonas as $persona) {
+                        d($persona);
+                        /* print_r('<pre>');
+                        print_r($persona); 
+                        print_r('</pre>'); */
+                        $imagen = get_the_post_thumbnail($persona['peliculadirector'][0]);
+                        $r = get_field('director', $persona['peliculadirector'][0]);
 
+                        /* print_r('<pre>');
+                        print_r($r[0]->ID);
+                        print_r('</pre>'); */
+                        $imagen = get_the_post_thumbnail($r[0]->ID);
+                        echo $imagen;
+                        //echo $persona['genre'];
+                        
+                    }
+                        
+                        /*$loopPersonas = personas_home();
+                        if( $loopPersonas->have_posts() ):
                             while( $loopPersonas->have_posts() ): $loopPersonas->the_post(); 
                             global $post;
-
                             if(!get_the_post_thumbnail()){
                                     $imagenDIR='<img src='.get_stylesheet_directory_uri().'/images/no-director.jpg">';
                                 }else{
@@ -347,7 +369,7 @@ function peliculas_retina_home() {
                                 
                             </div>';
                             endwhile;
-                        endif;                    
+                        endif;*/               
                     ?>
 
             </div>
@@ -371,20 +393,23 @@ function personas_home(){
     $args = array(
             'posts_per_page'=> 4,
             'post_type' => 'person',
+            'fields' => 'ids',
             'tax_query' => array(
                 'relation' => 'AND',
                 array(
                     'taxonomy' => 'persons_categories',
                     'field'    => 'slug',
                     'terms' => 'enportada',
+                    
                     'operator' => 'IN'
                 )
             ),
             'orderby' => 'rand',
         );
-        $loop = new WP_Query( $args );
+        $personajes = new WP_Query( $args );
         wp_reset_query();
-    return $loop;
+        d($personajes->posts);
+    return $personajes;
 
 }
 
