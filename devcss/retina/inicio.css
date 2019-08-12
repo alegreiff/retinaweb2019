@@ -1,5 +1,5 @@
 .rl_home {
-  background-color: lime;
+  background-color: red;
   display: grid;
   grid-template-rows: auto auto auto auto;
 
@@ -686,4 +686,10 @@ span.duracion:before {
 }
 
 .peliculas {
+}
+
+.site-header {
+  background-image: url("/wp-content/uploads/2019/02/bg-header.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }

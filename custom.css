@@ -1607,11 +1607,6 @@ p.entry-meta {
 /*Variables tipo SASS*/
 /* COLORES ADICIONALES EN EL MANUAL DE IMAGEN*/
 /* FIN COLORES ADICIONALES*/
-.site-header {
-  background-image: url("/wp-content/uploads/2019/02/bg-header.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
 body {
   font-family: var(--letrabase);
 }
@@ -2082,7 +2077,7 @@ div.GEO_ALL {
   /*max-width: 90%;*/
 }
 .rl_home {
-  background-color: lime;
+  background-color: red;
   display: grid;
   grid-template-rows: auto auto auto auto
 }
@@ -2711,6 +2706,11 @@ span.duracion:before {
   grid-gap: 15px;
 }
 .peliculas {
+}
+.site-header {
+  background-image: url("/wp-content/uploads/2019/02/bg-header.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 /*LOGOSFOOTER*/
 .logos-footer-retina {

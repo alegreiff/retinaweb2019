@@ -97,7 +97,6 @@ function peliculas_retina_home() {
 
                 ?>
 
-
                 </div>
                 <div class="slider-txt"></div>
             </div>
@@ -272,10 +271,6 @@ function peliculas_retina_home() {
                                 <a href="'.get_post_permalink().'">'.get_the_title().'</a>
                                 <p>'.$contenido.'</p>
                                 </div>
-                                
-                                
-                                
-                                
                             </div>';
                             endwhile;
                         endif;                    
@@ -377,6 +372,4 @@ function noticias_home(){
     return $loop;
 
 }
-
-
  genesis();
