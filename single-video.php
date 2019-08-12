@@ -126,6 +126,19 @@ function muestradatos(){
     $productor_ejecutivo = get_field('executive_producer');
     $productor_asociado = get_field('associate_producer');
     $jefe_produccion = get_field('chief_producer');
+    $productor = get_field('producer');
+    
+    /* SUMA EL CAMPO DE JEFE DE PRODUCCIÓN A PRODUCCIÓN */
+    if($productor && $jefe_produccion){
+        $prod_jefeprod = array_merge($jefe_produccion, $productor);
+    }else if(!$productor && $jefe_produccion){
+        $prod_jefeprod = ($jefe_produccion);
+    }else if($productor && !$jefe_produccion){
+        $prod_jefeprod = ($productor);
+    }else{
+        $prod_jefeprod = null;
+    }
+    /* FIN SUMA EL CAMPO DE JEFE DE PRODUCCIÓN A PRODUCCIÓN */
 
     $sitioweb = get_field('webpage'); //string
     $locaciones = get_field('locations'); //string

@@ -1,0 +1,30 @@
+.personacine {
+  background: white;
+  min-height: 600px;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  grid-template-rows: 80px 1fr;
+
+  & .fotopersonacine {
+    & img {
+      border: 5px white solid;
+      border-radius: 0.9em;
+    }
+  }
+
+  & .nombrepaispersonacine {
+    background: yellow;
+    grid-column: 1 / 3;
+  }
+  & .infopersona {
+    background: crimson;
+  }
+
+  & .infopersonacine {
+    background: rgb(231, 167, 167);
+    padding-left: 1em;
+  }
+  & .posterespersonacine {
+    background: purple;
+  }
+}

@@ -2076,8 +2076,33 @@ div.GEO_ALL {
   background: red
   /*max-width: 90%;*/
 }
+.personacine {
+  background: white;
+  min-height: 600px;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  grid-template-rows: 80px 1fr
+}
+.personacine .fotopersonacine img {
+      border: 5px white solid;
+      border-radius: 0.9em;
+    }
+.personacine .nombrepaispersonacine {
+    background: yellow;
+    grid-column: 1 / 3;
+  }
+.personacine .infopersona {
+    background: crimson;
+  }
+.personacine .infopersonacine {
+    background: rgb(231, 167, 167);
+    padding-left: 1em;
+  }
+.personacine .posterespersonacine {
+    background: purple;
+  }
 .rl_home {
-  background-color: red;
+  background-color: none;
   display: grid;
   grid-template-rows: auto auto auto auto
 }
