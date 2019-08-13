@@ -10,7 +10,7 @@
 
     & .video {
       @media all and (max-width: $mqmedium) {
-        height: auto;
+        display: none;
       }
     }
 

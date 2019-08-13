@@ -2088,18 +2088,36 @@ div.GEO_ALL {
       border-radius: 0.9em;
     }
 .personacine .nombrepaispersonacine {
-    background: yellow;
+    /* background: yellow; */
     grid-column: 1 / 3;
   }
 .personacine .infopersona {
-    background: crimson;
+    /* background: crimson; */
   }
 .personacine .infopersonacine {
-    background: rgb(231, 167, 167);
+    /* background: rgb(231, 167, 167); */
     padding-left: 1em;
   }
+.personacine .posterespersonacine div {
+      border: 1px red dotted;
+    }
 .personacine .posterespersonacine {
-    background: purple;
+    /* background: pink; */
+  }
+.personacine .posterespersonacine h5 {
+      font-size: 0.9em;
+      text-align: center;
+    }
+.personacine .posterespersonacine img {
+      padding: 0.5em;
+      max-width: 170px;
+      display: block;
+      margin: 0 auto;
+    }
+.personacine .posterespersonacine {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 .rl_home {
   background-color: none;
@@ -3881,8 +3899,13 @@ img.retinsposter_responsive {
 .homeCierre {
     grid-template-columns: 1fr
 }
+.homeCierre .personajes {
+      grid-template-columns: 1fr 1fr
+
+      /* display: none; */
+  }
 .rl_home .destacados .video {
-        height: auto
+        display: none
     }
 .rl_home .destacados {
       padding: 0 1em;

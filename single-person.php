@@ -7,7 +7,10 @@ function your_custom_loop() {
 	if ( have_posts() ) {
 	while ( have_posts() ) {
 		the_post(); 
-
+		print_r('<pre>');
+		print_r(the_taxonomies());
+		print_r('</pre>');
+		
 	$videos = get_field("videos");		
 
 	/*foreach($videos as $key => $value):
@@ -45,25 +48,57 @@ function your_custom_loop() {
 			
 		</div>
 		<div class="infopersona">
-		<div class="infopersonacine">
-			<?php the_content();?>
-		</div>
-		<div class="posterespersonacine">
-			<?php 
-				if($videos){
-					foreach($videos as $video){
-						$poster = trae_poster(get_field('poster', $video->ID));
-						?>
-						<img src="<?php echo $poster;?>" alt="">
-						<?php
+			<div class="infopersonacine">
+				<?php the_content();?>
+			</div>
+			<div class="posterespersonacine">
+				<?php 
+					if($videos){
+						foreach($videos as $video){
+							
+							/* print_r('<pre>');
+							print_r($video);
+							print_r('</pre>'); */
+
+							$doctors = get_posts(array(
+								'post_type' => 'video',
+								'fields' => 'ids',
+								'meta_query' => array(
+									array(
+										
+										'key' => 'director', // name of custom field
+										'value' => '"' . get_the_ID() . '"', // matches exactly "123", not just 123. This prevents a match for "1234"
+										'compare' => 'LIKE',
+										
+									)
+								)
+							));
+							d($doctors);
+							//d(get_fields($video->ID, false));
+							
+							
+
+
+							if($video->post_status === 'publish'){
+								$poster = trae_poster(get_field('poster', $video->ID));
+								?>
+								<div>
+									<h5><?php echo $video->post_title;?></h5>
+									<img src="<?php echo $poster;?>" alt="">
+								</div>
+								<?php
+								
+							}
+							
+						}
+					}else{
+						echo '';
 					}
-				}else{
-					echo '';
-				}
-			?>
+				?>
+			</div>
+			
 		</div>
-		</div>
-	
+		
 	</div>
 	
 	<?php
