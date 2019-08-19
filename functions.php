@@ -780,3 +780,14 @@ function admin_style() {
     wp_enqueue_style( 'custom-style', get_stylesheet_directory_uri() . '/retinalatinaadmin.css' );
   }
   add_action('admin_enqueue_scripts', 'admin_style');
+
+
+$roles_personas=[
+    ["label" => "Directores", "campo" => 'director'],
+    ["label" => "Asistente de Dirección", "campo" => 'directors_assistant'],
+    ["label" => "Guionista", "campo" => 'screenwriter'],
+    ["label" => "Investigador", "campo" => 'searcher'],
+    ["label" => "Script / Continuista", "campo" => 'rl_script'],
+    ["label" => "Productor", "campo" => 'producer']
+    
+];

@@ -108,3 +108,6 @@ Typo: wysiwyg
 ##CAMPO Inspirado en otra obra
 Nombre del campo: rl_inspirado
 Typo: wysiwyg
+
+===
+En página persona, quiero saber qué rol desempeñó en cada película

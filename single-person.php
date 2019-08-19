@@ -2,6 +2,8 @@
 
 remove_action( 'genesis_loop', 'genesis_do_loop' );
 add_action( 'genesis_loop', 'your_custom_loop' );
+
+//echo count($roles_personas);
 function your_custom_loop() {
 
 	if ( have_posts() ) {
