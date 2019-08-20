@@ -2393,8 +2393,8 @@ article.mini_film:hover .middle {
     text-decoration: none;
   }
 .retina_poster:hover {
-    background-color: hsl(198, 84%, 65%);
-    background-color: var(--col_azul_retina);
+    /* background-color: var(--col_azul_retina); */
+    background-color: rgb(248, 193, 214);
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
     color: white
   }

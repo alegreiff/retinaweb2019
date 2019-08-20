@@ -420,7 +420,8 @@ article.mini_film:hover .middle {
   }
 
   &:hover {
-    background-color: var(--col_azul_retina);
+    /* background-color: var(--col_azul_retina); */
+    background-color: $rojo5;
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
     color: white;
     & h4 {

@@ -38,7 +38,7 @@ $rojo1: color($col1 saturation(0%));
 $rojo2: blue;
 $rojo3: color($col1 saturation(0%));
 $rojo4: color($col1 saturation(0%));
-$rojo5: color($col1 tint(20%));
+$rojo5: color($col1 tint(70%));
 $azul0: hsl(198, 84%, 65%);
 $azul1: color($azul0 tint(80%));
 $azuloscuro: #094965;
