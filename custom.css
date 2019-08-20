@@ -2098,27 +2098,21 @@ div.GEO_ALL {
     /* background: rgb(231, 167, 167); */
     padding-left: 1em;
   }
-.personacine .posterespersonacine div {
-      border: 1px red dotted;
-    }
 .personacine .posterespersonacine {
-    /* background: pink; */
-  }
-.personacine .posterespersonacine h5 {
-      font-size: 0.9em;
-      text-align: center;
-    }
-.personacine .posterespersonacine img {
-      padding: 0.5em;
-      max-width: 170px;
-      display: block;
-      margin: 0 auto;
-    }
-.personacine .posterespersonacine {
-
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 0.8em;
   }
+.rol_persona {
+  display: block;
+  text-align: center;
+}
+.losroles {
+  padding: 0.8em 0;
+  line-height: 1.1em;
+  font-weight: bold;
+  font-size: 0.8em;
+}
 .rl_home {
   background-color: none;
   display: grid;
@@ -2384,7 +2378,7 @@ article.mini_film:hover .middle {
   font-size: 16px;
   padding: 16px 32px;
 }
-.container {
+.retina_poster {
   width: auto;
   height: auto;
   background: white;
@@ -2395,27 +2389,27 @@ article.mini_film:hover .middle {
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15), 0 5px 6px rgba(0, 0, 0, 0.11);
   padding-top: 12px
 }
-.container a {
+.retina_poster a {
     text-decoration: none;
   }
-.container:hover {
+.retina_poster:hover {
     background-color: hsl(198, 84%, 65%);
     background-color: var(--col_azul_retina);
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
     color: white
   }
-.container:hover h4 {
+.retina_poster:hover h4 {
       color: white;
     }
-.container:hover > a .navigation .pais,
-  .container:hover > a .navigation .formato {
+.retina_poster:hover > a .navigation .pais,
+  .retina_poster:hover > a .navigation .formato {
     color: blue;
   }
-.container:hover > a .picture .duracion {
+.retina_poster:hover > a .picture .duracion {
     background-color: purple;
     color: white;
   }
-.container .picture {
+.retina_poster .picture {
     position: relative;
     top: 0;
     width: 100%;
@@ -2427,13 +2421,13 @@ article.mini_film:hover .middle {
     -webkit-animation-fill-mode: forwards;
             animation-fill-mode: forwards;
   }
-.container .picture_up {
+.retina_poster .picture_up {
     -webkit-animation: pictureUp 0.7s;
             animation: pictureUp 0.7s;
     -webkit-animation-fill-mode: forwards;
             animation-fill-mode: forwards;
   }
-.container .navigation {
+.retina_poster .navigation {
     width: 100%;
     height: 66px;
     position: relative;
@@ -2442,7 +2436,7 @@ article.mini_film:hover .middle {
     text-align: left;
     font-size: 16px
   }
-.container .navigation h4 {
+.retina_poster .navigation h4 {
       font-size: 0.8em;
       text-align: center;
     }

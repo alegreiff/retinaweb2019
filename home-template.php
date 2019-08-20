@@ -140,7 +140,7 @@ function peliculas_retina_home() {
 
             echo '
 
-            <div class="container">
+            <div class="retina_poster">
                 <a href="'.get_post_permalink().'">
                     <div class="picture" >
                         <img src="'.$poster.'" alt="">
@@ -205,7 +205,7 @@ function peliculas_retina_home() {
 
             echo '
 
-            <div class="container">
+            <div class="retina_poster">
                 <a href="'.get_post_permalink().'">
                     <div class="picture" >
                         <img src="'.$poster.'" alt="">

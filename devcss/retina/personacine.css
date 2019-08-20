@@ -25,22 +25,18 @@
     padding-left: 1em;
   }
   & .posterespersonacine {
-    & div {
-      border: 1px red dotted;
-    }
-    /* background: pink; */
-    & h5 {
-      font-size: 0.9em;
-      text-align: center;
-    }
-    & img {
-      padding: 0.5em;
-      max-width: 170px;
-      display: block;
-      margin: 0 auto;
-    }
-
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 0.8em;
   }
+}
+.rol_persona {
+  display: block;
+  text-align: center;
+}
+.losroles {
+  padding: 0.8em 0;
+  line-height: 1.1em;
+  font-weight: bold;
+  font-size: 0.8em;
 }

@@ -359,7 +359,7 @@ function filtro_peliculas_retina(){
             //var_dump(get_field('poster'));
 
             echo '
-            <div class="container">
+            <div class="retina_poster">
             <a href="'.enlace_relativo(get_post_permalink()).'">
                 <div class="picture" >
                     <img src="'.$poster.'" alt="">
@@ -782,12 +782,60 @@ function admin_style() {
   add_action('admin_enqueue_scripts', 'admin_style');
 
 
-$roles_personas=[
-    ["label" => "Directores", "campo" => 'director'],
-    ["label" => "Asistente de Dirección", "campo" => 'directors_assistant'],
-    ["label" => "Guionista", "campo" => 'screenwriter'],
-    ["label" => "Investigador", "campo" => 'searcher'],
-    ["label" => "Script / Continuista", "campo" => 'rl_script'],
-    ["label" => "Productor", "campo" => 'producer']
-    
-];
+
+
+function nombre_taxonomia_persona($nombre, $entrada, $salida){
+    $roles_personas=[
+        ["label" => "Dirección", "campo" => 'director', "taxslug" =>'directores'],
+        ["label" => "Asistencia de dirección", "campo" => 'directors_assistant', "taxslug" =>'asistente-de-direccion'],
+        ["label" => "Guion", "campo" => 'screenwriter', "taxslug" =>'guionista'],
+        ["label" => "Investigación", "campo" => 'searcher', "taxslug" =>'investigador'],
+        ["label" => "Script / Continuista", "campo" => 'rl_script', "taxslug" =>'script-continuista'],
+        ["label" => "Producción", "campo" => 'producer', "taxslug" =>'productor'],
+        ["label" => "Montaje", "campo" => 'montajista', "taxslug" =>'montajista'],
+        ["label" => "Sonido", "campo" => 'soundman', "taxslug" =>'sonidista'],
+        ["label" => "Dirección de fotografía", "campo" => 'director_photography', "taxslug" =>'director-de-fotografia'],
+        ["label" => "Cámara", "campo" => 'cameraman', "taxslug" =>'camarografo'],
+    ];
+    foreach ($roles_personas as $rol => $val) {
+        if ($val[$entrada] == $nombre) {
+            return $val[$salida];
+        }
+    }
+    return null;
+
+}
+
+
+function retrieve_my_terms() {
+
+    global $terms;
+
+    $terms = get_terms( array(
+        'taxonomy' => 'persons_categories',
+        'hide_empty' => false,
+    ) );
+    $salida = [];
+    foreach ($terms as $term) {
+        $salida[] = $term;
+        //return $option;
+    }
+    return $salida;
+}
+add_action('init', 'retrieve_my_terms', 9999);
+
+
+/** EN CASO DE EMERGENCIA. SALVAR TODOS LOS POSTS */
+
+/* function update_all_posts() {
+    $args = array(
+        'post_type' => 'person',
+        'numberposts' => -1
+    );
+    $all_posts = get_posts($args);
+    foreach ($all_posts as $single_post){
+        $single_post->post_title = $single_post->post_title.'';
+        wp_update_post( $single_post );
+    }
+}
+add_action( 'wp_loaded', 'update_all_posts' ); */
