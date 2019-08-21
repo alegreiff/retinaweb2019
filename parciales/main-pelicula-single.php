@@ -1,7 +1,6 @@
 <?php
-d("y se iba al monte...");
 d(get_field('trailer'));
-d($contacto);
+
 function datospeliculaHeader($clase, $pais, $year, $duracion, $subs){
     if($subs==='Si'){
         $sub_salida = '<span class="subs"><i class="fas fa-grip-lines"></i> SUBS </span>';
@@ -78,7 +77,14 @@ function datospeliculaHeader($clase, $pais, $year, $duracion, $subs){
             echo formato_dato($formato_pelicula);
             echo formato_dato($genero_pelicula);
             echo formato_dato($clasificacion_edad);
-            echo 'ANIMACIÓN + BLANCO Y NEGRO';
+            echo $es_animacion === 'Si' ? '<span class="rl_animacion">Animación</span>' : '';
+            echo $es_blancoynegro === 'Blanco y Negro' ? '<span class="rl_color_bn">Blanco y negro</span>' : '';
+            echo '<span class="rl_idiomas">'.$idioma_pelicula.'</span>';
+            //echo '<span class="rl_color_bn">'..'</span>';
+            
+            //echo ' ANIM: ' . $es_animacion;
+            //echo ' COLOR:' . $es_blancoynegro;
+            //echo 'ANIMACIÓN + BLANCO Y NEGRO';
             echo '<br />I DIO MA';
             echo creditos('Reparto', '', $reparto);
             echo web($sitioweb) ;

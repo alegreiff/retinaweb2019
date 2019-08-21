@@ -1,11 +1,11 @@
 <?php
-// load css into the website's front-end JAIME
 remove_action('genesis_loop', 'genesis_do_loop');
 add_action('genesis_loop', 'muestradatos');
 /*VARIABLES DE TEXTO PARA MENSAJES DEL PROYECTO*/
 $registro_inactiva = '<p>Regístrate, haz parte de Retina Latina</p>';
 $registro_pelicula = '<p>¿No puedes ver la película?, regístrate, haz parte de Retina Latina. Únete</p>';
 
+/* FUNCIONES AUXILIARES */
 function cuentacosas($cosa){
     return count($cosa);
 }
@@ -63,13 +63,19 @@ function creditos($rol, $rolplural = '', $personas_contenidos){
         $ta = array();
         foreach ($personas_contenidos as $persona) :
             //d($persona);
-            if ($rol === 'Dirección') {
+            
+                if(strlen($persona->post_content)>0){
+                    $a_p = '<a href="' . get_permalink($persona->ID) . '">' . get_the_title($persona->ID) . '</a>';
+                }else{
+                    $a_p = '<strong>' . get_the_title($persona->ID) . '</strong>';
+                }
+            
+            
+            /* if ($rol === 'Dirección') {
                 $a_p = '<a href="' . get_permalink($persona->ID) . '">' . get_the_title($persona->ID) . '</a>';
             } else {
-                d($persona);
-                d($persona->ID);
                 $a_p = '<strong>' . get_the_title($persona->ID) . '</strong>';
-            }
+            } */
             //$a_p = '<a href="' . get_permalink($persona->ID) . '">' . get_the_title($persona->ID) . '</a>';
             array_push($ta, $a_p);
         endforeach;
@@ -108,6 +114,8 @@ function muestradatos(){
     $nacionalidad = get_field('citizenship_video');
     $subtitulos = get_field('subtitulos');
     $paises_coproduccion = get_field('rl_coproduccionpaises');
+    $es_animacion = get_field('animation');
+    $es_blancoynegro = get_field('color');
 
     //d($nacionalidad);
     /*FIN CAMPOS DE NO PERSONAS*/
@@ -202,7 +210,8 @@ function muestradatos(){
     $clasificacion_edad = wp_get_post_terms(get_the_ID(), 'videos_classification')[0]->name;
     $formato_pelicula = wp_get_post_terms(get_the_ID(), 'videos_format')[0]->name;
     $genero_pelicula = wp_get_post_terms(get_the_ID(), 'videos_genres')[0]->name;
-    $idioma_pelicula = wp_get_post_terms(get_the_ID(), 'videos_language')[0]->name;
+    $idioma_pelicula = idiomas_pelicula(wp_get_post_terms(get_the_ID(), 'videos_language'));
+    //$idioma_peliculax = wp_get_post_terms(get_the_ID(), 'videos_language');
     $tagges = wp_get_post_terms(get_the_ID(), 'post_tag');
     /* INICIO CAMPOS NUEVOS 2019*/
     $geobloqueo = get_field('rl_geobloqueo');
@@ -216,6 +225,14 @@ function muestradatos(){
     }
     include_once('parciales/main-pelicula-single.php');
     $fields = get_fields();
-    //d($fields);
+    d($fields);
+  }
+  function idiomas_pelicula($arregloidiomas){
+      $idioma_mostrado = [];
+      foreach($arregloidiomas as $idioma){
+        $idioma_mostrado[] = $idioma->name;
+      }
+      return implode(" / ", $idioma_mostrado);
+      
   }
 genesis(); 

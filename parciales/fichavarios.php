@@ -4,7 +4,8 @@
  * RETINA LATINA 
  * FICHA VARIOS
  */
-
+//d($efectos_visuales);
+//d(strlen($colorista[0]->post_content));
  echo '<span class="ficha_varios">
     ' . creditos("Montaje", 'Montaje', $montajista) . '
     ' . creditos("Colorización", 'Colorización', $colorista) . '

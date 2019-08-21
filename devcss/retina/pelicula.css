@@ -378,3 +378,19 @@ div.GEO_ALL::before {
 }
 div.GEO_ALL {
 }
+/* FICHA PELÍCULA*/
+span.rl_animacion,
+span.rl_color_bn {
+  font-weight: bolder;
+  padding: 0.3em;
+  font-size: 0.8em;
+}
+span.rl_idiomas {
+  font-weight: bolder;
+  padding: 0.3em;
+  font-size: 0.8em;
+  display: block;
+}
+span.rl_idiomas::before {
+  content: "Idioma: ";
+}
