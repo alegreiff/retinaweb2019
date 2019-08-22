@@ -2011,9 +2011,9 @@ span.rl_adicionales {
   margin-top: 1em;
   /* background: lime; */
 }
-span.ficha_datosprincipales {
+div.ficha_datosprincipales {
   /* background: color($rojo tint(1%)); */
-  /* background: $rojo; */
+  background: #e83278;
   display: block;
 }
 span.ficha_fotografia {
@@ -2066,7 +2066,7 @@ span.rl_idiomas {
   display: block;
 }
 span.rl_idiomas::before {
-  content: "Idioma: ";
+  /* content: "Idioma: "; */
 }
 .rl-home-catalogos #rl-catalogos {
   grid-gap: 1em;

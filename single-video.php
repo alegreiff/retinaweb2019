@@ -6,14 +6,12 @@ $registro_inactiva = '<p>Regístrate, haz parte de Retina Latina</p>';
 $registro_pelicula = '<p>¿No puedes ver la película?, regístrate, haz parte de Retina Latina. Únete</p>';
 
 /* FUNCIONES AUXILIARES */
-function cuentacosas($cosa){
-    return count($cosa);
-}
+
 
 function formato_dato($dato){
     return '<p class="dato_pelicula">' . $dato . '</p>';
 }
-
+/* Función que trae el video desde KALTURA*/
 function peliculaIframe($video){
     return '<iframe class="retinx" src="http://cdnapi.kaltura.com/p/1993331/sp/199333100/embedIframeJs/uiconf_id/33074692/partner_id/1993331?iframeembed=true&playerId=kaltura_player_1452811701&entry_id=' . $video . '&flashvars[akamaiHD.loadingPolicy]=preInitialize&flashvars[akamaiHD.asyncInit]=true&flashvars[twoPhaseManifest]=true&flashvars[streamerType]=hdnetworkmanifest" width="560" height="395" allowfullscreen webkitallowfullscreen mozAllowFullScreen frameborder="0" style="width: 600px; height: 320px;" itemprop="video" itemscope itemtype="http://schema.org/VideoObject"></iframe>';
 }
@@ -94,6 +92,15 @@ function contacto_productora($contacto){
     echo '<br /> Contacto:'. $contacto;
     
 }
+function idiomas_pelicula($arregloidiomas){
+    $idioma_mostrado = [];
+    foreach($arregloidiomas as $idioma){
+      $idioma_mostrado[] = $idioma->name;
+    }
+    $idioma_mostrado === 1 ? $prefijo = 'Idioma: '  : $prefijo = 'Idiomas: ';
+    return $prefijo . implode(" / ", $idioma_mostrado);
+    
+}
 
 function muestradatos(){
     global $registro_inactiva;
@@ -105,7 +112,6 @@ function muestradatos(){
     $pais_pelicula = get_field('country_group');
     $post = get_post();
     $poster = get_field('poster')['url'];
-    //d($post);
 
     /*INICIO CAMPOS DE NO PERSONAS*/
     
@@ -116,8 +122,32 @@ function muestradatos(){
     $paises_coproduccion = get_field('rl_coproduccionpaises');
     $es_animacion = get_field('animation');
     $es_blancoynegro = get_field('color');
+    $sitioweb = get_field('webpage'); //string
+    $locaciones = get_field('locations'); //string
+    $contacto = get_field('rl_contacto'); //string
+    $inspirado = get_field('rl_inspirado'); //string
+    $eventos = get_field('participation_event'); //string table
+    $premios = get_field('awards'); //string table
+    $musica = get_field('music'); //string table
+    $duracion = get_field('duration');
+    $year_pelicula = get_field('year');
+    $imagendestacada = get_field('imagendestacada');
+    $galeria = get_field('gallery');
+    $video_meta = get_post_meta($post->ID, 'video', true);
+    //d($video_meta['embed']);
+    $video = $video_meta['embed'];
+    $clasificacion_edad = wp_get_post_terms(get_the_ID(), 'videos_classification')[0]->name;
+    $formato_pelicula = wp_get_post_terms(get_the_ID(), 'videos_format')[0]->name;
+    $genero_pelicula = wp_get_post_terms(get_the_ID(), 'videos_genres')[0]->name;
+    $idioma_pelicula = idiomas_pelicula(wp_get_post_terms(get_the_ID(), 'videos_language'));
+    //$idioma_peliculax = wp_get_post_terms(get_the_ID(), 'videos_language');
+    $tagges = wp_get_post_terms(get_the_ID(), 'post_tag');
+    /* INICIO CAMPOS NUEVOS 2019*/
+    $geobloqueo = get_field('rl_geobloqueo');
+    /* FIN CAMPOS NUEVOS 2019*/
+    $premios = get_field('awards');
+    $imagendestacada ? $fondopelicula = $imagendestacada : $fondopelicula = get_the_post_thumbnail_url();
 
-    //d($nacionalidad);
     /*FIN CAMPOS DE NO PERSONAS*/
 
     /*INICIO PERSONAS*/
@@ -125,10 +155,8 @@ function muestradatos(){
     $director = get_field('director');
     $director_asistente = get_field('directors_assistant');
     $guionista = get_field('screenwriter');
-
     $companias = get_field('company_productors');
     $scriptcontinuista = get_field('rl_script');
-    
     $productor = get_field('producer');
     $coproductor = get_field('coproducer');
     $productor_ejecutivo = get_field('executive_producer');
@@ -148,16 +176,6 @@ function muestradatos(){
     }
     /* FIN SUMA EL CAMPO DE JEFE DE PRODUCCIÓN A PRODUCCIÓN */
 
-    $sitioweb = get_field('webpage'); //string
-    $locaciones = get_field('locations'); //string
-    $contacto = get_field('rl_contacto'); //string
-    $inspirado = get_field('rl_inspirado'); //string
-    
-    
-    $eventos = get_field('participation_event'); //string table
-
-    $premios = get_field('awards'); //string table
-    $musica = get_field('music'); //string table
     $camarografo = get_field('cameraman');
     $director_fotografia = get_field('director_photography');
     $montajista = get_field('montajista');
@@ -178,9 +196,6 @@ function muestradatos(){
     $maquillador = get_field('rl_maquillaje');
     $microfonista = get_field('rl_microfonista');
     $editor_sonido = get_field('rl_ediciondesonido');
-
-
-    
     $casting = get_field('casting');
     $fotofija = get_field('foto_fija');
     $vestuario = get_field('vestuario');
@@ -191,48 +206,18 @@ function muestradatos(){
     } else {
         $muestra_musica = '';
     }
-
-    //$trailer = get_field('trailer');
     if (get_field('trailer')) {
         $trailer = getYouTubeId(get_field('trailer')); //JAIME
     }else{
         $trailer = false;
     }
-
-    
-    $duracion = get_field('duration');
-    $year_pelicula = get_field('year');
-    $imagendestacada = get_field('imagendestacada');
-    $galeria = get_field('gallery');
-    $video_meta = get_post_meta($post->ID, 'video', true);
-    //d($video_meta['embed']);
-    $video = $video_meta['embed'];
-    $clasificacion_edad = wp_get_post_terms(get_the_ID(), 'videos_classification')[0]->name;
-    $formato_pelicula = wp_get_post_terms(get_the_ID(), 'videos_format')[0]->name;
-    $genero_pelicula = wp_get_post_terms(get_the_ID(), 'videos_genres')[0]->name;
-    $idioma_pelicula = idiomas_pelicula(wp_get_post_terms(get_the_ID(), 'videos_language'));
-    //$idioma_peliculax = wp_get_post_terms(get_the_ID(), 'videos_language');
-    $tagges = wp_get_post_terms(get_the_ID(), 'post_tag');
-    /* INICIO CAMPOS NUEVOS 2019*/
-    $geobloqueo = get_field('rl_geobloqueo');
-    /* FIN CAMPOS NUEVOS 2019*/
-    $premios = get_field('awards');
-    $imagendestacada ? $fondopelicula = $imagendestacada : $fondopelicula = get_the_post_thumbnail_url();
     //d($imagendestacada);
     if (isset($trailer)) {
         //$retina_trailer = true;
         $muestra_trailer = '<div class="trailer_retinalatina">' . peliculaTrailer($trailer) . '</div>';
     }
     include_once('parciales/main-pelicula-single.php');
-    $fields = get_fields();
-    d($fields);
+    
   }
-  function idiomas_pelicula($arregloidiomas){
-      $idioma_mostrado = [];
-      foreach($arregloidiomas as $idioma){
-        $idioma_mostrado[] = $idioma->name;
-      }
-      return implode(" / ", $idioma_mostrado);
-      
-  }
+  
 genesis(); 

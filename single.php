@@ -8,14 +8,14 @@ add_action( 'genesis_loop', 'your_custom_loop' );
   function your_custom_loop() { 
 
 global $wp_query, $post;
-d($wp_query);
+//d($wp_query);
     $filmes_relacionados = get_field("relation_films");
     $tags = get_the_tags();
-    d($post);
+    //d($post);
     if(!empty($filmes_relacionados)){
         foreach($filmes_relacionados as $pelicula){
         $image_p= get_post_meta($pelicula->ID, 'poster',true);
-        d($pelicula->ID);
+        //d($pelicula->ID);
         //$imgDestacada = wp_get_attachment_url($image_p);
         $image = wp_get_attachment_image_src($image_p, 'poster-mini');
         $domain = get_site_url(); // returns something like http://domain.com

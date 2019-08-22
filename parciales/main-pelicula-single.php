@@ -1,5 +1,6 @@
 <?php
 d(get_field('trailer'));
+d($trailer);
 
 function datospeliculaHeader($clase, $pais, $year, $duracion, $subs){
     if($subs==='Si'){
@@ -32,7 +33,7 @@ function datospeliculaHeader($clase, $pais, $year, $duracion, $subs){
         //Si está logueado
         if ($retina_film) {
             if (get_field("msg_custom") == '' && $video) {
-                if (isset($trailer)) {
+                if (($trailer)) {
                     echo do_shortcode('[su_tabs][su_tab title="Tráiler"]' . $muestra_trailer . '[/su_tab] [su_tab title="Ver Película"]' . $muestra_film . '[/su_tab] [/su_tabs]');
                 } else {
                     echo do_shortcode('[su_tabs][su_tab title="Ver Película" anchor="r"]' . $muestra_film . '[/su_tab][/su_tabs]');
@@ -72,7 +73,7 @@ function datospeliculaHeader($clase, $pais, $year, $duracion, $subs){
     <?php datospeliculaHeader('movil-peliculaDatos', $pais_pelicula, $year_pelicula, $duracion, $subtitulos );?>
         
         <?php
-            echo '<span class="ficha_datosprincipales">';
+            echo '<div class="ficha_datosprincipales">';
             echo creditos('Dirección', '', $director);
             echo formato_dato($formato_pelicula);
             echo formato_dato($genero_pelicula);
@@ -85,11 +86,10 @@ function datospeliculaHeader($clase, $pais, $year, $duracion, $subs){
             //echo ' ANIM: ' . $es_animacion;
             //echo ' COLOR:' . $es_blancoynegro;
             //echo 'ANIMACIÓN + BLANCO Y NEGRO';
-            echo '<br />I DIO MA';
             echo creditos('Reparto', '', $reparto);
             echo web($sitioweb) ;
             echo contacto_productora($contacto) ; 
-            echo '</span>';
+            echo '</div>';
             //$screenwriter = get_field("screenwriter");
             $tags = get_the_tags();
             

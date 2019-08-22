@@ -1,0 +1,20 @@
+PROCESO COMPLETO
+Revisar que en el código fuente no haya llamados a la función d() del plugin debug que solo se usa en `desarrollo`
+
+http://reti.na/
+1. Exportar los custom fields
+
+http://latina.test/
+
+0. Garantizar que elsitio tenga la versión ACF PRO
+1. Borrar los custom fields
+2. Importar los custom fields
+3. Sincronizar a mano las categorías de PERSON
+4. Copia del tema padre GENESIS
+5. Copia del child theme postcss-genesis (limpio) (Configurar genesis - layout fullwidth)
+6. Activación del tema
+7. Garantizar que por lo menos UNA película esté en la categoría DestacadoHOME
+8. Crear la página de Inicio 2019 / clase homeretina / Establecer su plantilla a Retina latina - página de inicio. Layout FULLWIDTH
+
+9. En ajustes / lectura establecer Inicio 2019 como el home
+10. Las noticias que se muestran en el home son las dos más recientes con la categoría portada

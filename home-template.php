@@ -262,7 +262,7 @@ function peliculas_retina_home() {
                             $categoria = get_the_category()[0]->cat_name;
                             $fecha = ucfirst(get_the_date( 'F j \d\e Y' ));
                             $contenido = get_the_excerpt(60);
-                            d($contenido);
+                            //d($contenido);
                             echo '
                             <div class="noticia">
                                 <span class="fecha">'.$fecha.'</span>
@@ -283,7 +283,7 @@ function peliculas_retina_home() {
                     $loopPersonas = $directores;
                     
                     foreach ($loopPersonas as $persona) {
-                        d($persona);
+                        //d($persona);
                         
                         $imagen = get_the_post_thumbnail($persona['peliculadirector'][0]);
                         $personaje = get_field('director', $persona['peliculadirector'][0]);
