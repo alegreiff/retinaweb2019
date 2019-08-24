@@ -1,5 +1,5 @@
 <?php
-
+d("como una gota");
 // Replace default genesis loop
 
 remove_action( 'genesis_loop', 'genesis_do_loop' );

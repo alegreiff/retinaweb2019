@@ -17,7 +17,7 @@ function loop_persona_cine()
             }
             $losroles = array_filter($losroles);
             $videos = get_field("videos");
-            $persona = (basename(get_permalink()));
+            $persona = (basename(get_permalink())); 
 
             if (!get_the_post_thumbnail())
             {

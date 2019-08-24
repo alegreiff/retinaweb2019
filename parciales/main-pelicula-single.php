@@ -1,6 +1,6 @@
 <?php
-d(get_field('trailer'));
-d($trailer);
+//d(get_field('trailer'));
+//d($trailer);
 
 function datospeliculaHeader($clase, $pais, $year, $duracion, $subs){
     if($subs==='Si'){
@@ -29,6 +29,8 @@ function datospeliculaHeader($clase, $pais, $year, $duracion, $subs){
         if (is_user_logged_in()) {
             $retina_film = true;
             $muestra_film = peliculaIframe($video);
+            d($muestra_film);
+            d($video);
         }
         //Si está logueado
         if ($retina_film) {

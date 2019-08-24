@@ -18,3 +18,32 @@ http://latina.test/
 
 9. En ajustes / lectura establecer Inicio 2019 como el home
 10. Las noticias que se muestran en el home son las dos más recientes con la categoría portada
+
+**********
+**********
+**********
+**********
+**********
+**********
+**********
+**********
+PROCESO COMPLETO
+Revisar que en el código fuente no haya llamados a la función d() del plugin debug que solo se usa en `desarrollo`
+
+http://reti.na/
+1. Exportar los custom fields
+
+http://latina.test/
+
+XXX0. Garantizar que elsitio tenga la versión ACF PRO
+XXX1. Borrar los custom fields
+XXX2. Importar los custom fields
+XXX3. Sincronizar a mano las categorías de PERSON
+XXX4. Copia del tema padre GENESIS
+XXX5. Copia del child theme postcss-genesis (limpio) (Configurar genesis - layout fullwidth)
+XXX6. Activación del tema
+XXX7. Garantizar que por lo menos UNA película esté en la categoría DestacadoHOME
+XXX8. Crear la página de Inicio 2019 / clase homeretina / Establecer su plantilla a Retina latina - página de inicio. Layout FULLWIDTH
+
+XXX9. En ajustes / lectura establecer Inicio 2019 como el home
+XXX10. Las noticias que se muestran en el home son las dos más recientes con la categoría portada

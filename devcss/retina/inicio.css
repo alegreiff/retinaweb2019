@@ -24,30 +24,6 @@
     }
   }
 
-  & .peliculas {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-gap: 15px;
-    /* background: yellow; */
-
-    @media all and (max-width: $mqlarge) {
-      padding: 0 1em;
-      grid-template-columns: repeat(4, 1fr);
-      /* background: lime; */
-    }
-    @media all and (max-width: $mqmedium) {
-      padding: 0 1em;
-      grid-template-columns: repeat(3, 1fr);
-      /* background: purple; */
-    }
-
-    @media all and (max-width: $mqsmall) {
-      padding: 0 1em;
-      grid-template-columns: repeat(2, 1fr);
-      /* background: red; */
-    }
-  }
-
   & .secundarias {
     /*background: crimson;*/
     margin-top: 1em;
@@ -693,4 +669,30 @@ span.duracion:before {
   background-image: url("/wp-content/uploads/2019/02/bg-header.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+}
+.peliculas {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 15px;
+  /* background: yellow; */
+  @media all and (max-width: $mqlarge) {
+    padding: 0 1em;
+    grid-template-columns: repeat(4, 1fr);
+    background: lime;
+    /* MX--LARGE*/
+  }
+  @media all and (max-width: $mqmedium) {
+    padding: 0 1em;
+    grid-template-columns: repeat(3, 1fr);
+
+    background: purple;
+    /* MX--MEDIUM*/
+  }
+
+  @media all and (max-width: $mqsmall) {
+    padding: 0 1em;
+    grid-template-columns: repeat(2, 1fr);
+    background: red;
+    /* MX--SMALL*/
+  }
 }

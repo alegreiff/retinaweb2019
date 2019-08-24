@@ -269,6 +269,7 @@ function theme_name_scripts() {
 // AJAX carga de películas para la plantilla de paises (categorías)
 add_action('wp_ajax_filtro_peliculas_retina', 'filtro_peliculas_retina');
 add_action('wp_ajax_nopriv_filtro_peliculas_retina', 'filtro_peliculas_retina');
+
 function filtro_peliculas_retina(){
 	//https://rudrastyh.com/wordpress/ajax-post-filters.html
 	$args = array(
@@ -376,38 +377,7 @@ function filtro_peliculas_retina(){
             </div>
             ';
 
-            /*echo '
-            <article class="mini_film card  card--z-3">
-                <a href="#">
-                <img src="'.$poster.'" alt="Avatar" class="image" style="width:100%">
-                <div class="middle">
-                    <div class="text">
-                        <p>'.$formato_pelicula.'</p>
-                        <p>'.$genero_pelicula.'</p>
-                    </div>
-                </div>
-                <h6>'.$pais_pelicula.'</h6>
-                <h4>'.get_the_title().'</h4>
-                </a>
-            </article>
-
-                ';*/
-/*
-<article class="mini_film">
-                    <div class="containerx">
-                        <img src="'.$poster.'" alt="" class="image">
-                        <div class="middle">
-                            <div class="text">John Doe</div>
-                        </div>
-                    </div>
-
-                        <h6>'.$pais_pelicula.'</h6>
-						<h4>'.get_the_title().'</h4>
-                        <p>'.$formato_pelicula.'</p>
-
-
-                </article>
-*/
+  
             endwhile;
 		wp_reset_postdata();
 		//echo '</div>';

@@ -244,3 +244,83 @@ span.ficha_audio {
 p.rl_inspirado::before {
   content: "Inspirado en: ";
 }
+/* VISTA SINGLE NOTICIAS*/
+span.rl_fecha_entrada {
+  color: red;
+}
+
+div.rl_imagendestacada_single {
+  padding: 0;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center center !important; /* Center the image */
+  height: 350px;
+
+  & .rl_header_entrada_sencilla {
+    background: rgba(0, 0, 7, 0.3);
+    width: 100%;
+    height: 100%;
+  }
+  & h2 {
+    color: white;
+    font-size: 1.3em;
+    position: relative;
+    top: 70%;
+    left: 3em;
+  }
+}
+.relacionadas {
+  background: red;
+  display: none;
+}
+/* COMENTARIOS*/
+.coment_retina {
+  margin: 0 auto;
+  max-width: 800px;
+  border: 6px crimson solid;
+  background: purple;
+}
+
+.toggle {
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.toggle-label {
+  font-size: 16px;
+  background: #fff;
+  padding: 1em;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto 1em;
+  box-shadow: 0 1px 2px 0 rgba(153, 153, 153, 0.35);
+  border-radius: 4px;
+}
+.toggle-label:after {
+  color: #ed3e44;
+  content: "+";
+  float: right;
+  font-weight: bold;
+}
+
+.toggle-content {
+  color: #b0b3c2;
+  font-family: monospace;
+  font-size: 16px;
+  margin-bottom: 1.5em;
+  padding: 1em;
+}
+
+.toggle-input {
+  display: none;
+}
+.toggle-input:not(checked) ~ .toggle-content {
+  display: none;
+}
+
+.toggle-input:checked ~ .toggle-content {
+  display: block;
+}
+.toggle-input:checked ~ .toggle-label:after {
+  content: "-";
+}

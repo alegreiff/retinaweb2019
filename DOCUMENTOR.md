@@ -111,3 +111,6 @@ Typo: wysiwyg
 
 ===
 En página persona, quiero saber qué rol desempeñó en cada película
+
+===
+Instalar el plugin Genesis Translations
