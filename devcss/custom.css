@@ -277,8 +277,7 @@ div.rl_imagendestacada_single {
 .coment_retina {
   margin: 0 auto;
   max-width: 800px;
-  border: 6px crimson solid;
-  background: purple;
+  border: 1px grey solid;
 }
 
 .toggle {
@@ -323,4 +322,8 @@ div.rl_imagendestacada_single {
 }
 .toggle-input:checked ~ .toggle-label:after {
   content: "-";
+}
+
+label.titulo_comentarios {
+  font-weight: bolder;
 }

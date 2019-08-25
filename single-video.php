@@ -16,156 +16,17 @@ remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
 //Quitar tags
 remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
 
-add_action('genesis_entry_content', 'contenidobase');
+add_action('genesis_entry_content', 'muestradatos');
+//add_action('genesis_entry_content', 'contenidobase');
+
 function contenidobase(){
     ?>
-    <div style="height: 222px; background: red; border: 3px yellow dashed">Hola FICHA</div>
+    <div style="height: 222px; background: red; border: 3px yellow dashed">Hola FICHA 
+        <?php echo get_stylesheet_directory();?>
+    </div>
     <?php
 }
 
-add_action('genesis_after_entry_content', 'rl_comentarios');
-function rl_comentarios(){
-    ?>
-    <div style="height: 121px; background: yellow; border: 3px red dashed">Comments</div>
-    <?php
-}
-//remove_action( 'genesis_list_comments', 'genesis_default_list_comments' );
-//add_action( 'genesis_list_comments', 'comentarios_custom' );
-
-
-remove_action('genesis_comments', 'genesis_do_comments');
-add_action('genesis_comments', 'genesis_comentarios_retina');
-function genesis_comentarios_retina() {
-
-	global $wp_query; 
-
-	// Bail if comments are off for this post type.
-	if ( ( is_page() && ! genesis_get_option( 'comments_pages' ) ) || ( is_single() && ! genesis_get_option( 'comments_posts' ) ) ) {
-		return;
-	}
-
-	$no_comments_text     = apply_filters( 'genesis_no_comments_text', 'Se el primero en comentar.' );
-    $comments_closed_text = apply_filters( 'genesis_comments_closed_text', 'Comentarios cerrados.' );
-    d(have_comments());
-        d($wp_query->comments_by_type['comment']);
-
-	if ( ! empty( $wp_query->comments_by_type['comment'] ) && have_comments() ) {
-        
-
-		genesis_markup(
-			[
-				'open'    => '<div %s>',
-				'context' => 'entry-comments',
-			]
-		);
-
-		$comments_title = sprintf( '<h3>%s</h3>', esc_html__( 'Comments', 'genesis' ) );
-
-		/**
-		 * Comments title filter
-		 *
-		 * Allows the comments title to be filtered.
-		 *
-		 * @since ???
-		 *
-		 * @param string $comments_title The comments title.
-		 */
-		$comments_title = apply_filters( 'genesis_title_comments', $comments_title );
-
-		echo $comments_title; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- sanitize done prior to filter application
-		printf( '<ol %s>', genesis_attr( 'comment-list' ) );
-
-			/**
-			 * Fires inside comments list markup.
-			 *
-			 * @since 1.0.0
-			 */
-			do_action( 'genesis_list_comments' );
-
-		echo '</ol>';
-
-		// Comment Navigation.
-		$prev_link = get_previous_comments_link( apply_filters( 'genesis_prev_comments_link_text', '' ) );
-		$next_link = get_next_comments_link( apply_filters( 'genesis_next_comments_link_text', '' ) );
-
-		if ( $prev_link || $next_link ) {
-
-			$pagination  = sprintf( '<div class="pagination-previous alignleft">%s</div>', $prev_link );
-			$pagination .= sprintf( '<div class="pagination-next alignright">%s</div>', $next_link );
-
-			genesis_markup(
-				[
-					'open'    => '<div %s>',
-					'close'   => '</div>',
-					'content' => $pagination,
-					'context' => 'comments-pagination',
-				]
-			);
-
-		}
-
-		genesis_markup(
-			[
-				'close'   => '</div>',
-				'context' => 'entry-comments',
-			]
-		);
-
-	} elseif ( $no_comments_text && 'open' === get_post()->comment_status ) {
-		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Text Produced by a third party
-        echo sprintf( '<div %s>', genesis_attr( 'entry-comments' ) ) . $no_comments_text . '</div>';
-	} elseif ( $comments_closed_text ) {
-		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Text Produced by a third party
-        echo sprintf( '<div %s>', genesis_attr( 'entry-comments' ) ) . $comments_closed_text . '</div>';
-	}
-
-}
-
-function eachcomment(){
-    echo ' =============== COMM BEFORE';
-}
-add_action( 'genesis_before_comment', 'eachcomment' );
-
-function eachcomment2(){
-    echo ' $$$$$$$$$$$$$$$ COMM AFTER';
-}
-add_action( 'genesis_after_comment', 'eachcomment2' );
-
-/* function lespings(){
-    echo 'Ven, comenta pirobo';
-}
-add_action('genesis_before_comment_form', 'lespings'); */
-
-function lescomentarios(){
-    if(have_comments()){
-        echo 'LESCOOOEMNTARRIESS';
-    }
-}
-add_action('genesis_comments', 'lescomentarios');
-
-function antescomentarios(){
-    if(have_comments()){
-        echo '<div class="coment_retina">
-        <div class="toggle">
-      
-      <input type="checkbox" value="selected" id="colapsar_retina" class="toggle-input">
-      <label for="colapsar_retina" class="toggle-label">Mostrar comentarios</label>
-    
-      
-      <div role="toggle" class="toggle-content">';
-    }
-    
-}
-add_action('genesis_before_comments', 'antescomentarios');
-
-function postcomentarios(){
-    if(have_comments()){
-        echo '</div></div></div>';
-    }
-    
-}
-
-add_action('genesis_after_comments', 'postcomentarios');
 
 /* FUNCIONES AUXILIARES */
 
