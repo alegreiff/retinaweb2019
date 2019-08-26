@@ -2,13 +2,7 @@
 
 /*JAIME DE GREIFF CUSTOM*/
 
-add_action('wp_enqueue_scripts', 'enqueue_load_fa');
-function enqueue_load_fa() {
-    //wp_register_script('fontawesome', "https://use.fontawesome.com/releases/v5.0.6/js/all.js", null, '1.1', false);
-    wp_enqueue_style( 'font-awesome-free', '//use.fontawesome.com/releases/v5.2.0/css/all.css' );
 
-    wp_enqueue_script('font-awesome-free');
-}
 
 //QUITAR TÍTULO EN PÁGINAS
 add_action('genesis_before_entry', 'custom_remove_titles');
@@ -168,44 +162,7 @@ add_filter( 'sanitize_file_name', 'wpartisan_sanitize_file_name', 10, 1 );
 add_filter('use_block_editor_for_post', '__return_false');
 
 
-function my_relationship_query( $args, $field, $post_id ) {
-	
-    // only show children of the current post being edited
-    
-    //$args['meta_key'] = 'trailer';
-    //$args['meta_value'] !='';
-    
-$args['meta_query'] = array(
-    array(
-    'key' => 'trailer', // name of custom field
-    'value' => array(''),
-    'compare' => 'NOT IN'
-    )
-); // <-- this one!
-    // return
-    //d($args);
-    return $args;
-    //d("mierda");
-    
-}
 
-
-// filter for every field
-add_filter('acf/fields/relationship/query/name=eltrailer', 'my_relationship_query', 10, 3);
-
-/** CAMPO PELICULADIRECTOR */
-
-function my_relationship_result( $title, $post, $field, $post_id ) {
-	
-    $res = get_field('director', $post->ID);
-    //d($res[post_title]);
-    //d($res[0]->post_title);
-    return $title . ' / ' . $res[0]->post_title;
-    //return $res[0]->post_title;
-	
-}
-
-add_filter('acf/fields/relationship/result/name=peliculadirector', 'my_relationship_result', 10, 4);
 
 /** FIN CAMPO PELICULADIRECTOR */
 

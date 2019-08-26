@@ -83,3 +83,12 @@ add_action('wp_enqueue_scripts', 'sp_enqueue_script');
 function sp_enqueue_script() {
     wp_enqueue_script('sample-sticky-menu', get_stylesheet_directory_uri() . '/js/sticky-menu.js', array('jquery'), '1.0.0');
 }
+
+//Agrega y pone a disposición la librería de Font-Awesome
+add_action('wp_enqueue_scripts', 'enqueue_load_fa');
+function enqueue_load_fa() {
+    //wp_register_script('fontawesome', "https://use.fontawesome.com/releases/v5.0.6/js/all.js", null, '1.1', false);
+    wp_enqueue_style( 'font-awesome-free', '//use.fontawesome.com/releases/v5.2.0/css/all.css' );
+
+    wp_enqueue_script('font-awesome-free');
+}

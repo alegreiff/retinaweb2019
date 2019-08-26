@@ -170,10 +170,12 @@ function genesis_sample_comments_gravatar($args) {
 
 }
 
+//remove_theme_support( 'genesis-inpost-layouts' );
+
 
 
 // VARIOS DESORDEN
-// include_once( get_stylesheet_directory(). '/retinafunciones/desorden.php');
+//include_once( get_stylesheet_directory(). '/retinafunciones/desorden.php');
 
 //Funciones Generales
 include_once( get_stylesheet_directory(). '/retinafunciones/generales.php');
@@ -192,3 +194,9 @@ include_once( get_stylesheet_directory(). '/retinafunciones/personas.php');
 
 //Funciones relacionadas con los listados / catálogos / colecciones
 include_once( get_stylesheet_directory(). '/retinafunciones/colecciones.php');
+
+//Deshabilitar gutenberg en algunos contenidos
+include_once( get_stylesheet_directory(). '/retinafunciones/gutenbergdisable.php');
+
+//Compatibilidad para el campo video de Slimvideo para guardar el Kaltura ID
+include_once( get_stylesheet_directory(). '/retinafunciones/guardavideokaltura.php');

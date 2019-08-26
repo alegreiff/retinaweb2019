@@ -28,8 +28,6 @@ function postcomentarios(){
 }
 
 add_action('genesis_after_comments', 'postcomentarios');
-
-
 function eachcomment(){
     echo ' =============== COMM BEFORE';
 }
@@ -57,4 +55,9 @@ function despuesformulario(){
 }
 add_action('genesis_after_comment_form','despuesformulario');
 
+add_filter('genesis_no_comments_text', 'texto_no_comentarios');
+function texto_no_comentarios(){
+$mensaje = '<div class="coment_retina">No hay comentarios para esta entrada.</div>';
+return $mensaje;
+}
 // FIN Mostrar los comentarios de forma colapsable

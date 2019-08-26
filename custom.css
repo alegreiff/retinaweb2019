@@ -4199,8 +4199,12 @@ div.rl_imagendestacada_single h2 {
 /* COMENTARIOS*/
 .coment_retina {
   margin: 0 auto;
+  padding: 0.5em;
   max-width: 800px;
-  border: 1px grey solid;
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 .toggle {
   margin: 0 auto;

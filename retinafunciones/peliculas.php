@@ -1,5 +1,5 @@
 <?php
-//Extrae el ID de YouTube
+//Extrae el ID de YouTube 
 function getYouTubeId($url) {
     if (strlen($url) == 11) {
         return $url;
@@ -67,3 +67,32 @@ function muestra_genero($genero){
         return '';
     }
 }
+
+//EN  la página de inicio permite seleccionar las películas que tienen tráiler para ser mostradas en portada
+function my_relationship_query( $args, $field, $post_id ) {
+    // only show children of the current post being edited
+    //$args['meta_key'] = 'trailer';
+    //$args['meta_value'] !='';
+    $args['meta_query'] = array(
+        array(
+            'key' => 'trailer', // name of custom field
+            'value' => array(''),
+            'compare' => 'NOT IN'
+        )); // <-- this one!
+    // return
+    //d($args);
+    return $args;
+    
+}
+add_filter('acf/fields/relationship/query/name=eltrailer', 'my_relationship_query', 10, 3);
+
+// En la página de inicio permite seleccionar los directores que se muestran en portada
+/** CAMPO PELICULADIRECTOR */
+function my_relationship_result( $title, $post, $field, $post_id ) {
+	
+    $res = get_field('director', $post->ID);
+    return $title . ' / ' . $res[0]->post_title;
+	
+}
+
+add_filter('acf/fields/relationship/result/name=peliculadirector', 'my_relationship_result', 10, 4);

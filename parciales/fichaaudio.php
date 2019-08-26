@@ -11,3 +11,4 @@
     ' . creditos("Música", 'Música', $musico) . '
     
     </span> ';
+    //echo nombre_taxonomia_persona('cast', 'campo', 'label');

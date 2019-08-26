@@ -166,6 +166,7 @@ function muestradatos(){
     $video_meta = get_post_meta($post->ID, 'video', true);
     //d($video_meta['embed']);
     $video = $video_meta['embed'];
+    d($video);
     $clasificacion_edad = wp_get_post_terms(get_the_ID(), 'videos_classification')[0]->name;
     $formato_pelicula = wp_get_post_terms(get_the_ID(), 'videos_format')[0]->name;
     $genero_pelicula = wp_get_post_terms(get_the_ID(), 'videos_genres')[0]->name;
