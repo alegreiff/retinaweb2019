@@ -1,8 +1,9 @@
 <?php
 //Listado de personas
+//El valor de LABEL será mostrado al presentar cada campo
 function nombre_taxonomia_persona($nombre, $entrada, $salida){
     $roles_personas=[
-        ["label" => "Actuación", "campo" => 'cast', "taxslug" =>'actores'],
+        ["label" => "Reparto", "campo" => 'cast', "taxslug" =>'actores'],
         ["label" => "Animación", "campo" => 'animator', "taxslug" =>'animador'],
         ["label" => "Asistencia de cámara", "campo" => 'camara_assistant', "taxslug" =>'asistente-de-camara'],
         ["label" => "Asistencia de dirección", "campo" => 'directors_assistant', "taxslug" =>'asistente-de-direccion'],
@@ -28,7 +29,7 @@ function nombre_taxonomia_persona($nombre, $entrada, $salida){
         ["label" => "Microfonista", "campo" => 'rl_microfonista', "taxslug" =>'microfonista'],
         ["label" => "Montaje", "campo" => 'montajista', "taxslug" =>'montajista'],
         ["label" => "Música", "campo" => 'musician', "taxslug" =>'musico'],
-        ["label" => "narración", "campo" => 'narration', "taxslug" =>'narracion'],
+        ["label" => "Narración", "campo" => 'narration', "taxslug" =>'narracion'],
         ["label" => "Producción", "campo" => 'producer', "taxslug" =>'productor'],
         ["label" => "Producción asociada", "campo" => 'associate_producer', "taxslug" =>'productor-asociado'],
         ["label" => "Producción de campo", "campo" => 'rl_productordecampo', "taxslug" =>'productor-de-campo'],

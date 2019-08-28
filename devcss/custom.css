@@ -300,10 +300,14 @@ div.rl_imagendestacada_single {
   border-radius: 4px;
 }
 .toggle-label:after {
-  color: #ed3e44;
-  content: "+";
+  color: $azul;
+  font-size: 2em;
+  content: "\E316";
   float: right;
-  font-weight: bold;
+  padding-bottom: 120px !important;
+  font-family: "Material Icons";
+  position: relative;
+  bottom: 0.5em;
 }
 
 .toggle-content {
@@ -325,9 +329,109 @@ div.rl_imagendestacada_single {
   display: block;
 }
 .toggle-input:checked ~ .toggle-label:after {
-  content: "-";
+  content: "\E313";
+  font-family: "Material Icons";
 }
 
 label.titulo_comentarios {
   font-weight: bolder;
 }
+
+/* Búsqueda*/
+/* # Search
+---------------------------------------------------------------------------------------------------- */
+.menu-primary .menu-item {
+  float: left;
+}
+
+.fa-search {
+  color: #fff;
+}
+
+/* Header search */
+.search-form-container {
+  position: relative;
+}
+
+.search-toggle {
+  float: right;
+  padding: 30px 24px;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.search-toggle:hover,
+.search-toggle.active {
+  background: #4d4d4d;
+}
+
+@media screen and (max-width: 600px) {
+  .search-toggle {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    margin-right: -5%;
+    background: #4c4c4c;
+    padding: 17px 24px;
+  }
+}
+
+.search-box-wrapper {
+  z-index: 999;
+  width: 100%;
+  display: none;
+}
+
+.search-box {
+  padding: 1em;
+  background: #4d4d4d;
+}
+
+.search-box input[type="search"] {
+  max-width: 350px;
+  float: right;
+  padding: 10px 20px 10px 40px;
+  font-size: 20px;
+  background-color: #fff;
+  border: 0;
+  border-radius: 3px;
+}
+
+.search-box input[value="Search"] {
+  display: none;
+}
+
+/* Text meant only for screen readers - from UnderScores */
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  right: 0;
+}
+
+.screen-reader-text:hover,
+.screen-reader-text:active,
+.screen-reader-text:focus {
+  background-color: #f1f1f1;
+  border-radius: 3px;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
+  color: #21759b;
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
+}
+form.search-form ::placeholder {
+  color: grey;
+  opacity: 0.3;
+}
+/* FIN Búsqueda*/

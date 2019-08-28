@@ -15,7 +15,9 @@ add_action( 'genesis_loop', 'sk_do_search_loop' );
 
 function sk_do_search_loop() {
 	// create an array variable with specific post types in your desired order.
-	$post_types = array( 'video', 'post', 'person' );
+    $post_types = array( 'video', 'post', 'person' );
+    the_field('opciones_rl_eslogan', 'option');
+
 	echo '<div class="search-content">';
 	foreach ( $post_types as $post_type ) {
         
@@ -49,6 +51,7 @@ function sk_do_search_loop() {
                 break;
         }
 		if ( $query->have_posts() ) {
+
             echo '<div class="post-type '. $post_type .'"><div class="post-type-heading">'. $nombreColeccion. '</div>';
 
 
@@ -58,9 +61,12 @@ function sk_do_search_loop() {
                     if( $loop->have_posts() ):
                         while( $loop->have_posts() ): $loop->the_post(); 
                         if($post_type==='person'){
+
                             $fields = get_fields();
-                            //d($fields);
-                            if(has_term( 'Director', 'persons_categories')){
+
+                            d(the_post());
+                            //if(has_term( ['Director', 'Colorizador', 'Maquillador'], 'persons_categories')){
+                            if(get_the_post_thumbnail()){
                                 $imagenDIR = get_the_post_thumbnail()? get_the_post_thumbnail(): 'ND';
                                 if(!get_the_post_thumbnail()){
                                     $imagenDIR='<img src='.get_stylesheet_directory_uri().'/images/no-director.jpg">';
@@ -147,10 +153,10 @@ function sk_do_search_loop() {
 			echo '</div>';
             
 		}
-	}
-    echo '</div>
-    <h1 style="color: crimson">POR MEJORAR Búsqueda en etiquetas</h1>
-    '; // .search-content
+    }
+    echo '</div>';
+    //echo '</div><h1 style="color: crimson">POR MEJORAR Búsqueda en etiquetas</h1>'; 
+    // .search-content
 }
 
 

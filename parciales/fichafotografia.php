@@ -5,8 +5,9 @@
  * FICHA DE FOTOGRAFIA
  */
 echo '<span class="ficha_fotografia">
-    ' . creditos("Dirección de fotografía", 'Dirección de fotografía', $director_fotografia) . '    
-    ' . creditos("Cámara", '', $camarografo) . '
-    ' . creditos("Asistencia de cámara", 'Asistencia de cámara', $asistente_camara) . '
-    ' . creditos("Fotofija", '', $fotofija) . '
+    
+    ' . muestra_creditos('director_photography') . '
+    ' . muestra_creditos('cameraman') . '    
+    ' . muestra_creditos('camara_assistant') . '
+    ' . muestra_creditos('foto_fija') . '
 </span>';

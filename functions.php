@@ -25,6 +25,27 @@ function genesis_sample_localization_setup() {
     load_child_theme_textdomain('genesis-sample', get_stylesheet_directory() . '/languages');
 }
 
+/* ACF OPTIONS PAGE*/
+function register_acf_options_pages() {
+
+    // Check function exists.
+    if( !function_exists('acf_add_options_page') )
+        return;
+
+    // register options page.
+    $option_page = acf_add_options_page(array(
+        'page_title'    => __('Opciones globales de Retina Latina'),
+        'menu_title'    => __('Retina CONFIG'),
+        'menu_slug'     => 'theme-general-settings',
+        'capability'    => 'edit_posts',
+        'redirect'      => false
+    ));
+}
+
+// Hook into acf initialization.
+add_action('acf/init', 'register_acf_options_pages');
+/* END ACF OPTIONS PAGE*/
+
 // Add the helper functions.
 include_once (get_stylesheet_directory() . '/lib/helper-functions.php');
 
@@ -177,6 +198,9 @@ function genesis_sample_comments_gravatar($args) {
 // VARIOS DESORDEN
 //include_once( get_stylesheet_directory(). '/retinafunciones/desorden.php');
 
+//Búsqueda (en desarrollo)
+include_once( get_stylesheet_directory(). '/retinafunciones/busqueda.php');
+
 //Funciones Generales
 include_once( get_stylesheet_directory(). '/retinafunciones/generales.php');
 
@@ -200,3 +224,6 @@ include_once( get_stylesheet_directory(). '/retinafunciones/gutenbergdisable.php
 
 //Compatibilidad para el campo video de Slimvideo para guardar el Kaltura ID
 include_once( get_stylesheet_directory(). '/retinafunciones/guardavideokaltura.php');
+
+
+

@@ -29,7 +29,7 @@ function daily_dish_before_footer_widgets() {
 
 
 /** Register Utility Bar Widget Areas. */
-genesis_register_sidebar( array(
+    genesis_register_sidebar( array(
     'id' => 'utility-bar-left',
     'name' => __( 'Utility Bar Left', 'theme-prefix' ),
     'description' => __( 'This is the left utility bar above the header.', 'theme-prefix' ),
@@ -88,7 +88,16 @@ function sp_enqueue_script() {
 add_action('wp_enqueue_scripts', 'enqueue_load_fa');
 function enqueue_load_fa() {
     //wp_register_script('fontawesome', "https://use.fontawesome.com/releases/v5.0.6/js/all.js", null, '1.1', false);
-    wp_enqueue_style( 'font-awesome-free', '//use.fontawesome.com/releases/v5.2.0/css/all.css' );
+    wp_enqueue_style('font-awesome-free', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css'); 
 
     wp_enqueue_script('font-awesome-free');
+}
+
+//Añade Material design icons
+add_action('wp_enqueue_scripts', 'efectos_js');
+function efectos_js() {
+    wp_register_script('efectos', get_stylesheet_directory_uri() . '/js/efectos.js', array('jquery'), '1.0.0', true );
+    //wp_enqueue_style( 'style-name', 'https://storage.googleapis.com/code.getmdl.io/1.0.2/material.blue-orange.min.css' );
+    wp_enqueue_style( 'style-name', 'https://fonts.googleapis.com/icon?family=Material+Icons', array() , CHILD_THEME_VERSION);
+    wp_enqueue_script('efectos');
 }

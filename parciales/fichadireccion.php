@@ -5,9 +5,9 @@
  * FICHA DIRECCIÓN
  */
 echo '<span class="ficha_direccion"> 
-    ' . creditos("Direccción", '', $director) . '
-    ' . creditos("Asistencia de dirección", 'Asistencia de dirección', $director_asistente) . '
-    ' . creditos("Guion", 'Guion', $guionista) . '
-    ' . creditos("Investigación", 'Investigación', $investigador) . '    
-    ' . creditos("Continuista", '', $scriptcontinuista) . '
+    ' . muestra_creditos('director') . '
+    ' . muestra_creditos('directors_assistant') . '
+    ' . muestra_creditos('screenwriter') . '
+    ' . muestra_creditos('searcher') . '
+    ' . muestra_creditos('rl_script') . '
 </span>';

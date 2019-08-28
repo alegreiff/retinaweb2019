@@ -33,10 +33,44 @@ function contenidobase(){
 //* Modify the author says text in comments
 //add_filter( 'comment_author_says_text', 'topleague_comment_author_says_text' );
 
-
- 
-
-
+function muestra_creditos($campo){
+    $salida = '';
+    if($campo === 'producer'){
+        $productor = get_field('producer');
+        $jefe_produccion= get_field('chief_producer');
+        
+        if($productor && $jefe_produccion){
+            $prod_jefeprod = array_merge($jefe_produccion, $productor);
+        }else if(!$productor && $jefe_produccion){
+            $prod_jefeprod = ($jefe_produccion);
+        }else if($productor && !$jefe_produccion){
+            $prod_jefeprod = ($productor);
+        }else{
+            $prod_jefeprod = null;
+        }
+        $personas_contenidos = $prod_jefeprod;
+        $label = nombre_taxonomia_persona($campo, 'campo', 'label');
+    }else if(get_field($campo)){
+        
+            $personas_contenidos = get_field($campo);
+            $label = nombre_taxonomia_persona($campo, 'campo', 'label');
+    }
+    if(isset($personas_contenidos)){
+        $salida .= '<p>' . $label . ': ';
+        $ta = array();
+        foreach ($personas_contenidos as $persona) :
+            if(strlen($persona->post_content)>0){
+                $a_p = '<a href="' . get_permalink($persona->ID) . '">' . get_the_title($persona->ID) . '</a>';
+            }else{
+                $a_p = '<strong>' . get_the_title($persona->ID) . '</strong>';
+            }
+            array_push($ta, $a_p);
+        endforeach;
+        $salida .= implode(', ', $ta);
+        $salida .= '</p>';
+    }
+return $salida;
+}
 
 function formato_dato($dato){
     return '<p class="dato_pelicula">' . $dato . '</p>';
@@ -80,38 +114,6 @@ function lista_asociada($etiqueta, $etiquetaplural = '', $campos){
   return $salida;
 }
 
-function creditos($rol, $rolplural = '', $personas_contenidos){
-    /*
-    SI LA PERSONA TIENE CONTENIDO, GENERAR EL ENLACE, SI NO, SOLO EL NOMBRE
-    */
-  $rolplural === '' ? $rolplural = $rol : $rolplural = $rolplural;
-    $salida = '';
-    if ($personas_contenidos) {
-        count($personas_contenidos) ===  1 ? $salida .= '<p>' . $rol . ': ' : $salida .= '<p>' . $rolplural . ': ';
-        $ta = array();
-        foreach ($personas_contenidos as $persona) :
-            //d($persona);
-            
-                if(strlen($persona->post_content)>0){
-                    $a_p = '<a href="' . get_permalink($persona->ID) . '">' . get_the_title($persona->ID) . '</a>';
-                }else{
-                    $a_p = '<strong>' . get_the_title($persona->ID) . '</strong>';
-                }
-            
-            
-            /* if ($rol === 'Dirección') {
-                $a_p = '<a href="' . get_permalink($persona->ID) . '">' . get_the_title($persona->ID) . '</a>';
-            } else {
-                $a_p = '<strong>' . get_the_title($persona->ID) . '</strong>';
-            } */
-            //$a_p = '<a href="' . get_permalink($persona->ID) . '">' . get_the_title($persona->ID) . '</a>';
-            array_push($ta, $a_p);
-        endforeach;
-        $salida .= implode(', ', $ta);
-        $salida .= '</p>';
-    }
-return $salida;
-}
 function web($url){
     if($url!=='')
     echo '<br /><i class="fas fa-link"></i> '. '<a href="'.$url.'" target="">Sitio web</a>';
@@ -164,9 +166,7 @@ function muestradatos(){
     $imagendestacada = get_field('imagendestacada');
     $galeria = get_field('gallery');
     $video_meta = get_post_meta($post->ID, 'video', true);
-    //d($video_meta['embed']);
     $video = $video_meta['embed'];
-    d($video);
     $clasificacion_edad = wp_get_post_terms(get_the_ID(), 'videos_classification')[0]->name;
     $formato_pelicula = wp_get_post_terms(get_the_ID(), 'videos_format')[0]->name;
     $genero_pelicula = wp_get_post_terms(get_the_ID(), 'videos_genres')[0]->name;
@@ -182,7 +182,7 @@ function muestradatos(){
     /*FIN CAMPOS DE NO PERSONAS*/
 
     /*INICIO PERSONAS*/
-    $reparto = get_field('cast');
+    /* $reparto = get_field('cast');
     $director = get_field('director');
     $director_asistente = get_field('directors_assistant');
     $guionista = get_field('screenwriter');
@@ -192,11 +192,10 @@ function muestradatos(){
     $coproductor = get_field('coproducer');
     $productor_ejecutivo = get_field('executive_producer');
     $productor_asociado = get_field('associate_producer');
-    $jefe_produccion = get_field('chief_producer');
-    $productor = get_field('producer');
+    $jefe_produccion = get_field('chief_producer'); */
     
     /* SUMA EL CAMPO DE JEFE DE PRODUCCIÓN A PRODUCCIÓN */
-    if($productor && $jefe_produccion){
+    /* if($productor && $jefe_produccion){
         $prod_jefeprod = array_merge($jefe_produccion, $productor);
     }else if(!$productor && $jefe_produccion){
         $prod_jefeprod = ($jefe_produccion);
@@ -204,10 +203,10 @@ function muestradatos(){
         $prod_jefeprod = ($productor);
     }else{
         $prod_jefeprod = null;
-    }
+    } */
     /* FIN SUMA EL CAMPO DE JEFE DE PRODUCCIÓN A PRODUCCIÓN */
 
-    $camarografo = get_field('cameraman');
+    /* $camarografo = get_field('cameraman');
     $director_fotografia = get_field('director_photography');
     $montajista = get_field('montajista');
     $colorista = get_field('rl_colorista');
@@ -229,7 +228,7 @@ function muestradatos(){
     $editor_sonido = get_field('rl_ediciondesonido');
     $casting = get_field('casting');
     $fotofija = get_field('foto_fija');
-    $vestuario = get_field('vestuario');
+    $vestuario = get_field('vestuario'); */
     /*FIN PERSONAS*/
 
     if ($musica) {

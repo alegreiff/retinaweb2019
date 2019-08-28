@@ -68,7 +68,7 @@ function peliculas_retina_home() {
                 //echo $destacado->post_title;
                 if($trailerinterno ==='SI'){
                 echo peliculaTrailer($et['trailer']); 
-                echo ($et['titulo']);
+                echo ($et['titulo']) . '<i class="material-icons">local_offer</i>';
                 }else{
                     echo peliculaTrailer(getYouTubeId(get_field('video_estreno'))); 
                     echo (get_field('mensaje_estreno'));

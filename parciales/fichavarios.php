@@ -7,18 +7,18 @@
 //d($efectos_visuales);
 //d(strlen($colorista[0]->post_content));
  echo '<span class="ficha_varios">
-    ' . creditos("Montaje", 'Montaje', $montajista) . '
-    ' . creditos("Colorización", 'Colorización', $colorista) . '
-    ' . creditos("Edición de sonido", 'Edición de sonido', $editor_sonido) . '
-    ' . creditos("Direccción de arte", 'Direccción de arte', $director_arte) . '
-    ' . creditos("Efectos visuales", '', $efectos_visuales) . '
-    ' . creditos("Animación", 'Animación', $animador) . '
-    ' . creditos("Diseño gráfico", '', $diseno_grafico) . '    
+    ' . muestra_creditos('montajista') . '
+    ' . muestra_creditos('rl_colorista') . '
+    ' . muestra_creditos('rl_ediciondesonido') . '
+    ' . muestra_creditos('art_director') . '
+    ' . muestra_creditos('rl_efectosvisuales') . '
+    ' . muestra_creditos('animator') . '
+    ' . muestra_creditos('rl_disenografico') . '
 
-    ' . creditos("Casting", '', $casting) . '
-    ' . creditos("Vestuario", '', $vestuario) . '
-    ' . creditos("Maquillaje", '', $maquillador) . '
-    ' . creditos("Narración", '', $narracion) . '
+    ' . muestra_creditos('casting') . '
+    ' . muestra_creditos('vestuario') . '
+    ' . muestra_creditos('rl_maquillaje') . '
+    ' . muestra_creditos('narration') . '
 
     
     

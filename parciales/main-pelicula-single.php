@@ -76,7 +76,7 @@ function datospeliculaHeader($clase, $pais, $year, $duracion, $subs){
         
         <?php
             echo '<div class="ficha_datosprincipales">';
-            echo creditos('Dirección', '', $director);
+            echo muestra_creditos('director');
             echo formato_dato($formato_pelicula);
             echo formato_dato($genero_pelicula);
             echo formato_dato($clasificacion_edad);
@@ -88,7 +88,7 @@ function datospeliculaHeader($clase, $pais, $year, $duracion, $subs){
             //echo ' ANIM: ' . $es_animacion;
             //echo ' COLOR:' . $es_blancoynegro;
             //echo 'ANIMACIÓN + BLANCO Y NEGRO';
-            echo creditos('Reparto', '', $reparto);
+            echo muestra_creditos('cast');
             echo web($sitioweb) ;
             echo contacto_productora($contacto) ; 
             echo '</div>';
