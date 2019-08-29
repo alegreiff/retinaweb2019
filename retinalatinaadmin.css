@@ -4,3 +4,28 @@
   color: gray;
   padding: 1em;
 }
+
+.coloresrl {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  color: white;
+  font-weight: 600;
+}
+.coloresrl div {
+  padding: 0.5em;
+}
+.coloresrl div:nth-child(1) {
+  background: #e83278;
+}
+.coloresrl div:nth-child(2) {
+  background: #5bc5f2;
+}
+.coloresrl div:nth-child(3) {
+  background: #783683;
+}
+.coloresrl div:nth-child(4) {
+  background: #72639f;
+}
+.coloresrl div:nth-child(5) {
+  background: #433583;
+}

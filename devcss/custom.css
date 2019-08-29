@@ -380,7 +380,8 @@ label.titulo_comentarios {
 
 .search-box-wrapper {
   z-index: 999;
-  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
   display: none;
 }
 
@@ -435,3 +436,11 @@ form.search-form ::placeholder {
   opacity: 0.3;
 }
 /* FIN Búsqueda*/
+
+.site-inner {
+  padding: 0.5em;
+  background: white;
+}
+#genesis-content {
+  padding: 0.5em;
+}

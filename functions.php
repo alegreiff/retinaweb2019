@@ -36,9 +36,13 @@ function register_acf_options_pages() {
     $option_page = acf_add_options_page(array(
         'page_title'    => __('Opciones globales de Retina Latina'),
         'menu_title'    => __('Retina CONFIG'),
-        'menu_slug'     => 'theme-general-settings',
+        'menu_slug'     => 'retina-latina-conf',
         'capability'    => 'edit_posts',
-        'redirect'      => false
+        'redirect'      => false,
+        'position' => 2,
+        'icon_url' => plugins_url('customretina/images/custom.retina.png'),
+
+
     ));
 }
 
@@ -227,3 +231,19 @@ include_once( get_stylesheet_directory(). '/retinafunciones/guardavideokaltura.p
 
 
 
+//* Change the footer text
+add_filter('genesis_pre_get_option_footer_text', 'sp_footer_creds_filter');
+function sp_footer_creds_filter( $creds ) {
+    $r = the_field('opciones_rl_mensajefooter', 'option');
+    
+    
+	$creds = $r;
+	return $creds;
+}
+
+
+/*
+<style>
+  
+</style>
+*/ 

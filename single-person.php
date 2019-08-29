@@ -13,7 +13,7 @@ function loop_persona_cine()
             $losroles = [];
             foreach ($roles_persona as $rol)
             {
-                $losroles[] = nombre_taxonomia_persona($rol->slug, 'taxslug', 'campo');
+                $losroles[] = nombre_taxonomia_persona($rol->slug, 'taxslug', 'campo'); 
             }
             $losroles = array_filter($losroles);
             $videos = get_field("videos");

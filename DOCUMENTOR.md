@@ -114,3 +114,9 @@ En página persona, quiero saber qué rol desempeñó en cada película
 
 ===
 Instalar el plugin Genesis Translations
+
+===
+define('WP_POST_REVISIONS', 3);
+
+DELETE from mcc_posts WHERE post_type = 'revision';
+SELECT \* from mcc_posts WHERE post_type = 'revision';

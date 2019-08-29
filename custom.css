@@ -2217,6 +2217,9 @@ nav#genesis-nav-primary sub-menu a {
   margin-top: -30px;
   grid-column: 2;
 }
+.rl_home .destacados .video {
+  font-weight: bolder;
+}
 .homeCierre {
   display: grid;
 
@@ -3537,7 +3540,9 @@ span.duracion:before {
   }
 /*LOGOSFOOTER*/
 .logos-footer-retina {
-  border-top: 5px crimson solid;
+  background: rgb(248, 239, 239);
+  border-radius: 0.88em;
+  border: 5px white solid;
   margin-top: 1em;
   padding-top: 1em;
   display: grid;
@@ -3545,11 +3550,13 @@ span.duracion:before {
   grid-column-gap: 15px;
   grid-row-gap: 0
 }
-.logos-footer-retina @media only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
+.logos-footer-retina {
     grid-template-columns: 1fr;
     text-align: center;
-    margin: 0 auto;
-    height: auto;
+    margin: 1em auto;
+    height: auto
+}
   }
 .logos-footer-retina img {
     max-width: 100%;
@@ -3562,18 +3569,22 @@ span.duracion:before {
     padding-top: 2em;
     text-align: right
   }
-.logos-footer-retina .coordinacion-texto @media only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
+.logos-footer-retina .coordinacion-texto {
       text-align: center;
       padding-top: 0;
       color: red;
-      grid-column: auto;
+      grid-column: auto
+  }
     }
 .logos-footer-retina .coordinacion-logo {
     grid-column: 4 / 6
   }
-.logos-footer-retina .coordinacion-logo @media only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
+.logos-footer-retina .coordinacion-logo {
       grid-column: 1;
-      text-align: center;
+      text-align: center
+  }
     }
 .logos-footer-retina .miembros-logo {
     grid-column: 1 / 8;
@@ -3584,12 +3595,14 @@ span.duracion:before {
     height: 100px;
     grid-column-gap: 11px
   }
-.logos-footer-retina .miembros-logo @media only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
+.logos-footer-retina .miembros-logo {
       grid-column: 1;
       grid-template-columns: 1fr;
       grid-column-gap: 0;
       height: auto;
-      margin: 0 auto;
+      margin: 0 auto
+  }
     }
 .logos-footer-retina .miembros-logo a {
       text-align: center;
@@ -3599,9 +3612,11 @@ span.duracion:before {
 
       text-align: right
     }
-.logos-footer-retina .miembros-logo p @media only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
+.logos-footer-retina .miembros-logo p {
         text-align: center;
-        padding-top: 0;
+        padding-top: 0
+    }
       }
 .logos-footer-retina .colaboran-texto {
     grid-column: 1 / 2;
@@ -3609,25 +3624,31 @@ span.duracion:before {
     padding-top: 2em;
     text-align: right
   }
-.logos-footer-retina .colaboran-texto @media only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
+.logos-footer-retina .colaboran-texto {
       grid-column: 1;
       text-align: center;
-      padding: 0 !important;
+      padding: 0 !important
+  }
     }
 .logos-footer-retina .colaboran-logo1 {
     grid-column: 2 / 3
   }
-.logos-footer-retina .colaboran-logo1 @media only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
+.logos-footer-retina .colaboran-logo1 {
       grid-column: 1;
-      text-align: center;
+      text-align: center
+  }
     }
 .logos-footer-retina .colaboran-logo2 {
     grid-column: 3 / 4
   }
-.logos-footer-retina .colaboran-logo2 @media only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
+.logos-footer-retina .colaboran-logo2 {
       grid-column: 1;
       text-align: center;
-      padding: 0;
+      padding: 0
+  }
     }
 .logos-footer-retina .apoya-texto {
     grid-column: 5 / 6;
@@ -3635,18 +3656,22 @@ span.duracion:before {
     padding-top: 2em;
     text-align: right
   }
-.logos-footer-retina .apoya-texto @media only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
+.logos-footer-retina .apoya-texto {
       grid-column: 1;
       text-align: center;
-      padding: 0;
+      padding: 0
+  }
     }
 .logos-footer-retina .apoya-logo {
     grid-column: 6 / 7
   }
-.logos-footer-retina .apoya-logo @media only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
+.logos-footer-retina .apoya-logo {
       grid-column: 1;
       text-align: center;
-      padding: 0;
+      padding: 0
+  }
     }
 .pieretina {
   color: red;
@@ -4290,7 +4315,8 @@ label.titulo_comentarios {
 }
 .search-box-wrapper {
   z-index: 999;
-  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
   display: none;
 }
 .search-box {
@@ -4356,3 +4382,10 @@ form.search-form ::placeholder {
   opacity: 0.3;
 }
 /* FIN Búsqueda*/
+.site-inner {
+  padding: 0.5em;
+  background: white;
+}
+#genesis-content {
+  padding: 0.5em;
+}

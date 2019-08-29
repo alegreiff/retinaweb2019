@@ -125,3 +125,7 @@
   margin-top: -30px;
   grid-column: 2;
 }
+
+.rl_home .destacados .video {
+  font-weight: bolder;
+}

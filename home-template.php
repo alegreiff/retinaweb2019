@@ -13,6 +13,7 @@ function peliculas_retina_home() {
 
     /* Obtengo los parámetros de la página ACF */
     $traileresID = (get_field('eltrailer')); 
+    d($traileresID);
     $trailerinterno = get_field('trailerinterno');
     $directores = get_field('personajes_home');
 
@@ -27,6 +28,7 @@ function peliculas_retina_home() {
         );
     }
     $et = $traileres[array_rand($traileres)];
+    d($et);
 
     if(get_field('aliados')):
         $aliados = array();
@@ -41,7 +43,7 @@ function peliculas_retina_home() {
     endif;
     $numero_de_peliculas = get_field('num_peliculas');
     $categoria_home = get_field('peliculas_categoria');
-    $destacado = get_field('destacado_home');
+    //$destacado = get_field('destacado_home');
     //$haylistados=get_field('listado_secundario');
 
     if(get_field('listado_secundario')=='SI'){
@@ -68,10 +70,22 @@ function peliculas_retina_home() {
                 //echo $destacado->post_title;
                 if($trailerinterno ==='SI'){
                 echo peliculaTrailer($et['trailer']); 
-                echo ($et['titulo']) . '<i class="material-icons">local_offer</i>';
+                //echo '<i class="material-icons rl_icono_azul">movie</i>'. ($et['titulo']) ;
+                ?>
+                <a href="<?php echo $et['url'];?>"><?php echo $et['titulo'];?></a>
+                <?php
                 }else{
                     echo peliculaTrailer(getYouTubeId(get_field('video_estreno'))); 
-                    echo (get_field('mensaje_estreno'));
+                    if(get_field('url_mensaje_estreno')){
+                        ?>
+                        <a href="<?php echo get_post_permalink(get_field('url_mensaje_estreno'));?>"><?php echo get_field('mensaje_estreno');?></a>
+                        <?php
+                        
+                    }else{
+                        echo (get_field('mensaje_estreno'));
+                    }
+                    
+                    
                     
                 }
                 

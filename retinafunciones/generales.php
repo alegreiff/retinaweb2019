@@ -4,6 +4,7 @@
 add_action( 'wp_enqueue_scripts', 'wsm_custom_stylesheet', 20 );
 function wsm_custom_stylesheet() {
     wp_enqueue_style( 'custom-style', get_stylesheet_directory_uri() . '/custom.css' );
+    wp_enqueue_style( 'custom-vars-in-php', get_stylesheet_directory_uri() . '/estilos.php' );
 }
 /* https://10up.github.io/wp-local-docker-docs/environments/ */
 
@@ -101,3 +102,14 @@ function efectos_js() {
     wp_enqueue_style( 'style-name', 'https://fonts.googleapis.com/icon?family=Material+Icons', array() , CHILD_THEME_VERSION);
     wp_enqueue_script('efectos');
 }
+
+
+
+
+
+// Update CSS within in Admin
+function admin_style() {
+    
+    wp_enqueue_style( 'custom-style', get_stylesheet_directory_uri() . '/retinalatinaadmin.css' );
+  }
+  add_action('admin_enqueue_scripts', 'admin_style');
