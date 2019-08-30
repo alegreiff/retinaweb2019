@@ -1,25 +1,21 @@
-.peliculas_search,
+/* .peliculas_search,
 .persona_search {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-gap: 15px;
-  /* background: yellow; */
 
   @media all and (max-width: $mqlarge) {
     padding: 0 1em;
     grid-template-columns: repeat(4, 1fr);
-    /* background: lime; */
   }
   @media all and (max-width: $mqmedium) {
     padding: 0 1em;
     grid-template-columns: repeat(3, 1fr);
-    /* background: purple; */
   }
 
   @media all and (max-width: $mqsmall) {
     padding: 0 1em;
     grid-template-columns: repeat(2, 1fr);
-    /* background: red; */
   }
 }
 
@@ -27,23 +23,19 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 15px;
-  /* background: yellow; */
 
   @media all and (max-width: $mqlarge) {
     padding: 0 1em;
     grid-template-columns: repeat(3, 1fr);
-    /* background: lime; */
   }
   @media all and (max-width: $mqmedium) {
     padding: 0 1em;
     grid-template-columns: repeat(2, 1fr);
-    /* background: purple; */
   }
 
   @media all and (max-width: $mqsmall) {
     padding: 0 1em;
     grid-template-columns: repeat(1, 1fr);
-    /* background: red; */
   }
   & .container {
     padding: 0;
@@ -68,5 +60,59 @@
     & p.busca_autor {
       color: var(--col_azul_retina);
     }
+  }
+}
+
+.search-content-retina {
+  background: yellow;
+}
+ */
+
+.search-content {
+  & .post-type.video {
+    background: purple;
+  }
+  & .post-type.post {
+    background: rgb(137, 185, 137);
+  }
+  & .post-type.person {
+    background: mediumpurple;
+  }
+}
+
+.personajesbusqueda {
+  background: $azul0;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  color: white;
+
+  & .personaje {
+    margin: 0.2em;
+    & img {
+      display: block;
+      max-width: 80%;
+      margin: 0 auto;
+      border-radius: 0.5em;
+      filter: grayscale(100%);
+
+      &:hover {
+        filter: none;
+      }
+    }
+    & p {
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+  }
+  & div.personaje:hover {
+    cursor: hand;
+    cursor: pointer;
+    opacity: 0.9;
+  }
+  @media all and (max-width: $mqmedium) {
+    grid-template-columns: 1fr 1fr;
+
+    /* display: none; */
   }
 }

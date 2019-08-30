@@ -4,8 +4,8 @@
  * Link: https://sridharkatakam.com/
  * https://sridharkatakam.com/custom-search-template-in-genesis-showing-results-grouped-by-post-types/
  */
-remove_action( 'genesis_loop', 'genesis_do_loop' );
-add_action( 'genesis_loop', 'sk_do_search_loop' );
+//remove_action( 'genesis_loop', 'genesis_do_loop' );
+//add_action( 'genesis_loop', 'sk_do_search_loop' );
 /**
  * Outputs a custom loop.
  *
@@ -16,7 +16,7 @@ add_action( 'genesis_loop', 'sk_do_search_loop' );
 function sk_do_search_loop() {
 	// create an array variable with specific post types in your desired order.
 	$post_types = array( 'video', 'post', 'person' );
-	echo '<div class="search-content">';
+	echo '<div class="search-content-retina">';
 	foreach ( $post_types as $post_type ) {
         
 		// get the search term entered by user.
