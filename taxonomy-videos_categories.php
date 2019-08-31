@@ -1,22 +1,28 @@
 <?php
-/** 
- * Template Name: Retina Latina - Países
- * Plantilla PAÍSES RetinaLatina
+/* remove_action('genesis_loop', 'genesis_do_loop');
+add_action('genesis_loop', 'wps_grid_loop_helper');
 
- * @package retina
- */
+function wps_grid_loop_helper(){
+    catalogo_peliculas_taxonomia('videos_categories');
+}
+
+genesis(); */
+
 
 remove_action ('genesis_loop', 'genesis_do_loop'); // Remove the standard loop
 add_action( 'genesis_loop', 'retina_loop_paises' ); // Add custom loop
 
     global $wp;
-    $categoria = add_query_arg( array(), $wp->request );
+    //$categoria = add_query_arg( array(), $wp->request );
+    $categoria = get_queried_object()->slug;
+    
+    
 
 function retina_loop_paises(){
     global $categoria;
-    d($categoria);
+    
     $cat = get_term_by('slug', $categoria, 'videos_categories')->term_id;
-    d($cat);
+    
     ?>
     <div class="paises">
     <div class="header_peliculas"><i class="fas fa-film"></i>
@@ -31,13 +37,7 @@ function retina_loop_paises(){
             <form id="filter">
                 <input type="hidden" name="action" value="filtro_peliculas_retina">
                 <input type="hidden" name="categoria_mostrada" value="<?php echo $cat;?>">
-                <!--<div class="switch-field">
-                    <div class="switch-title">Is this awesome?</div>
-                    <input type="radio" id="switch_left" name="switch_2" value="yes" checked/>
-                    <label for="switch_left">Yes</label>
-                    <input type="radio" id="switch_right" name="switch_2" value="no" />
-                    <label for="switch_right">No</label>
-                </div>-->
+
                 <div class="controles">
                     <div class="switch-field">
                         
@@ -60,38 +60,12 @@ function retina_loop_paises(){
                     </div>
                     <div><span class="mensaje">Mensaje</span></div>
                 </div>
-                <!--<label>
-                    <input type="radio" name="formato" value="25" /> LARGO
-                </label>
-                <label>
-                    <input type="radio" name="formato" value="22" /> CORTO
-                </label>
-                <label>
-                    <input type="radio" name="formato" value="" checked="checked" /> TODOS
-                </label>
-                <label>
-                    <input type="radio" name="date" value="ASC" /> Date: Ascending
-                </label>
-                <label>
-                    <input type="radio" name="date" value="DESC" checked="checked" /> Date: Descending
-                </label>-->
+                
                 
                 
             </form>
         </div><!-- filtros-->
-        <div class="menu">
-        <?php
-            echo'<div class="nav-primary">';
-            //wp_nav_menu( array( 'theme_location' => 'third-menu', 'container_class' => 'genesis-nav-menu' ) );
-            wp_nav_menu(array(
-'container_class' => 'menu_paises',    // para que no tenga contenedor
-'theme_location' => 'paises_paginas_menu',    // id del menu
-'link_before' => '<div>', // HTML previo al texto de cada sección
-'link_after' => '</div>'    // HTML posterior al texto de cada sección
-));
-            echo'</div>';
-        ?>
-        </div>
+
         
         <?php
             echo '<div class="peliculas_paises">Cargando';

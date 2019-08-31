@@ -1,4 +1,4 @@
-jQuery(function($) {
+jQuery(function ($) {
   //$('#filter').submit(function(){
 
   var filter = $("#filter");
@@ -9,14 +9,14 @@ jQuery(function($) {
     url: MyAjax.ajaxurl,
     data: filter.serialize(),
     type: "POST",
-    beforeSend: function(xhr) {
+    beforeSend: function (xhr) {
       filter.find("mensaje").text("cateando..."); // changing the button label
     },
-    success: function(data) {
+    success: function (data) {
       filter.find("mensaje").text("Mensaje Inicio"); // changing the button label back
       $(".peliculas_paises").html(data); // insert data
     },
-    error: function(err) {
+    error: function (err) {
       console.log("001 err net");
       console.log(err);
     }
@@ -24,24 +24,24 @@ jQuery(function($) {
   return false;
 });
 
-jQuery(function($) {
+jQuery(function ($) {
   //$('#filter').submit(function(){
-  $("#filter").on("change", function() {
+  $("#filter").on("change", function () {
     var filter = $("#filter");
     console.log(filter.serialize());
     $.ajax({
       url: MyAjax.ajaxurl,
       data: filter.serialize(),
       type: "POST",
-      beforeSend: function(xhr) {
-        filter.find("mensaje").text("cateando..."); // changing the button label
+      beforeSend: function (xhr) {
+        filter.find("mensaje").text("cateando..."); // changing the button label 
         console.log("BeforeSend");
       },
-      success: function(data) {
+      success: function (data) {
         filter.find("mensaje").text("Mensaje"); // changing the button label back
         $(".peliculas_paises").html(data); // insert data
       },
-      error: function(err) {
+      error: function (err) {
         console.log("jajajaja");
         console.log(err);
       }
@@ -51,7 +51,7 @@ jQuery(function($) {
 });
 
 /*jQuery(function($){
-$('a.enlaceajax').on('click', function(){  
+$('a.enlaceajax').on('click', function(){
     event.preventDefault();
     console.log($(this).attr("id"))
     var id = $(this).attr("id");
@@ -60,9 +60,9 @@ $('a.enlaceajax').on('click', function(){
         data:{
             categoryfilter: id,
             action: 'misha_filter_function'
-        }, 
+        },
         type: 'POST',
-        
+
         success:function(data){
             //filter.find('button').text('Apply filter'); // changing the button label back
             $('.peliculas_paises').html(data); // insert data
@@ -81,7 +81,7 @@ $('a.enlaceajax').on('click', function(){
         data:{
             categoryfilter: '22',
             action: 'misha_filter_function'
-        }, 
+        },
         type: 'POST',
         success:function(data){
             //filter.find('button').text('Apply filter'); // changing the button label back
