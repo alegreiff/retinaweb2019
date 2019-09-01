@@ -209,3 +209,122 @@ function catalogo_peliculas_taxonomia($taxonomia)
         
 
 }
+
+add_action( 'wp_enqueue_scripts', 'esnayoajax' );
+function esnayoajax() {
+	if ( is_tax('videos_format') ) {
+		wp_enqueue_script( 'script-name', get_stylesheet_directory_uri() . '/js/ensayoajax.js', array('jquery'), '1.0.0', true );
+		wp_localize_script( 'script-name', 'pachukas', array(
+		'ajaxurl' => admin_url( 'admin-ajax.php' ),
+		'security' => wp_create_nonce( 'my-special-pachukas' )
+		));
+	}
+}
+add_action('wp_ajax_myfilter', 'misha_filter_function'); // wp_ajax_{ACTION HERE} 
+add_action('wp_ajax_nopriv_myfilter', 'misha_filter_function');
+
+function misha_filter_function(){
+    
+    
+    $args = array(
+        'posts_per_page' => -1,
+        'post_type' => 'video',
+        'order' => 'ASC',
+        'orderby' => 'title',
+        'post_status' => 'publish',
+        
+    );
+
+    if( isset( $_POST['categoryfilter'] ) && $_POST['categoryfilter'] !== ''){
+        echo 'CON FILTROS ';
+        
+        
+        $args['tax_query'] = array(
+            'relation' => 'AND',
+            array(
+				'taxonomy' => 'videos_format',
+				'field'    => 'id',
+				'terms' => $_POST['termino']
+			
+            ),
+
+			array(
+				'taxonomy' => 'videos_genres',
+				'field' => 'id',
+                'terms' => $_POST['categoryfilter'],
+                'operator' => 'AND'
+            ),
+            
+			
+        );
+    }else{
+        echo 'SENSA FILTROS';
+        
+        $args['tax_query'] = array(
+            'relation' => 'AND',
+            array(
+				'taxonomy' => 'videos_format',
+				'field'    => 'id',
+				'terms' => $_POST['termino']
+			
+            )
+            
+			
+        );
+        
+    }
+        
+        //global $wp_query;
+        //$wp_query  = new WP_Query( $args );
+        $query = new WP_Query( $args );
+        $total = $query->found_posts;
+        
+        if ( $query->have_posts() ) {
+                echo $total . '<hr />';
+			
+				echo '<div class="peliculas">';
+				while( $query->have_posts() ): $query->the_post(); 
+				$poster = trae_poster(get_field('poster', get_the_ID()));
+            	$pais_pelicula = muestra_codigopais(get_field('country_group'));
+            	$formato_pelicula = wp_get_post_terms(get_the_ID(), 'videos_format')[0]->name;
+				$genero_pelicula = wp_get_post_terms(get_the_ID(), 'videos_genres')[0]->name;
+            	$duracion = get_field('duration');
+            	$year = get_field('year');
+				echo '
+				<div class="retina_poster">
+                <a href="'.get_post_permalink().'">
+                    <div class="picture" >
+                        <img src="'.$poster.'" alt="">
+                        <span class="duracion"> '.($duracion).'</span>
+                    </div>
+                    <div class="navigation">
+                        <span class="pais">'.$pais_pelicula.' - '.$year.'</span>
+                        <h4>'.get_the_title().'</h4>
+                        <span class="formato">'.muestra_genero($genero_pelicula).'</span>
+                    </div>
+                </a>
+            	</div>
+				';
+                endwhile;
+                wp_reset_postdata();
+				echo '</div>';
+			
+
+		}else{
+            echo 'No postres found';
+        }
+ 
+    /* $query = new WP_Query( $args );
+    
+ 
+	if( $query->have_posts() ) :
+		while( $query->have_posts() ): $query->the_post();
+			echo '<h2>' . $query->post->post_title . '</h2>';
+		endwhile;
+		wp_reset_postdata();
+	else :
+		echo 'No posts found';
+	endif; */
+ 
+	die();
+}

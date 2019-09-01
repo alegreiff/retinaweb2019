@@ -127,7 +127,9 @@ function contacto_productora($contacto){
 function idiomas_pelicula($arregloidiomas){
     $idioma_mostrado = [];
     foreach($arregloidiomas as $idioma){
-      $idioma_mostrado[] = $idioma->name;
+      $idioma_mostrado[] = '<a href="'.get_term_link($idioma->name, $idioma->taxonomy ).'">'.$idioma->name.'</a>';
+      
+      
     }
     $idioma_mostrado === 1 ? $prefijo = 'Idioma: '  : $prefijo = 'Idiomas: ';
     return $prefijo . implode(" / ", $idioma_mostrado);
@@ -168,8 +170,11 @@ function muestradatos(){
     $video_meta = get_post_meta($post->ID, 'video', true);
     $video = $video_meta['embed'];
     $clasificacion_edad = wp_get_post_terms(get_the_ID(), 'videos_classification')[0]->name;
-    $formato_pelicula = wp_get_post_terms(get_the_ID(), 'videos_format')[0]->name;
-    $genero_pelicula = wp_get_post_terms(get_the_ID(), 'videos_genres')[0]->name;
+    $pre_formato_pelicula = wp_get_post_terms(get_the_ID(), 'videos_format')[0];
+    $formato_pelicula = '<a href="'.get_term_link($pre_formato_pelicula->name, $pre_formato_pelicula->taxonomy ).'">'.$pre_formato_pelicula->name.'</a>';
+    
+    $pre_genero_pelicula = wp_get_post_terms(get_the_ID(), 'videos_genres')[0];
+    $genero_pelicula =  '<a href="'.get_term_link($pre_genero_pelicula->name, $pre_genero_pelicula->taxonomy ).'">'.$pre_genero_pelicula->name.'</a>';
     $idioma_pelicula = idiomas_pelicula(wp_get_post_terms(get_the_ID(), 'videos_language'));
     //$idioma_peliculax = wp_get_post_terms(get_the_ID(), 'videos_language');
     $tagges = wp_get_post_terms(get_the_ID(), 'post_tag');
