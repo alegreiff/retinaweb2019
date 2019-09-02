@@ -216,7 +216,8 @@ function esnayoajax() {
 		wp_enqueue_script( 'script-name', get_stylesheet_directory_uri() . '/js/ensayoajax.js', array('jquery'), '1.0.0', true );
 		wp_localize_script( 'script-name', 'pachukas', array(
 		'ajaxurl' => admin_url( 'admin-ajax.php' ),
-		'security' => wp_create_nonce( 'my-special-pachukas' )
+        'security' => wp_create_nonce( 'my-special-pachukas' ),
+        'imagen' => get_stylesheet_directory_uri().'/images/bx_loader.gif'
 		));
 	}
 }
@@ -229,14 +230,14 @@ function misha_filter_function(){
     $args = array(
         'posts_per_page' => -1,
         'post_type' => 'video',
-        'order' => 'ASC',
-        'orderby' => 'title',
+        'order' => $_POST['fechaentrada'],
+        'orderby' => 'date',
         'post_status' => 'publish',
         
     );
 
     if( isset( $_POST['categoryfilter'] ) && $_POST['categoryfilter'] !== ''){
-        echo 'CON FILTROS ';
+        
         
         
         $args['tax_query'] = array(
@@ -258,7 +259,7 @@ function misha_filter_function(){
 			
         );
     }else{
-        echo 'SENSA FILTROS';
+        
         
         $args['tax_query'] = array(
             'relation' => 'AND',
@@ -280,7 +281,7 @@ function misha_filter_function(){
         $total = $query->found_posts;
         
         if ( $query->have_posts() ) {
-                echo $total . '<hr />';
+                echo '<div class="rl_peliculas_total">'.$total.'</div>';
 			
 				echo '<div class="peliculas">';
 				while( $query->have_posts() ): $query->the_post(); 
@@ -313,18 +314,6 @@ function misha_filter_function(){
 		}else{
             echo 'No postres found';
         }
- 
-    /* $query = new WP_Query( $args );
-    
- 
-	if( $query->have_posts() ) :
-		while( $query->have_posts() ): $query->the_post();
-			echo '<h2>' . $query->post->post_title . '</h2>';
-		endwhile;
-		wp_reset_postdata();
-	else :
-		echo 'No posts found';
-	endif; */
  
 	die();
 }

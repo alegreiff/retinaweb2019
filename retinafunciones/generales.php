@@ -113,3 +113,16 @@ function admin_style() {
     wp_enqueue_style( 'custom-style', get_stylesheet_directory_uri() . '/retinalatinaadmin.css' );
   }
   add_action('admin_enqueue_scripts', 'admin_style');
+
+//QUITAR TÍTULO EN PÁGINAS
+/*
+add_action('genesis_before_entry', 'custom_remove_titles');
+function custom_remove_titles() {
+    // if we are not on a static Page, abort.
+    if (!is_page()) {
+        return;
+    }
+    remove_action('genesis_entry_header', 'genesis_entry_header_markup_open', 5);
+    remove_action('genesis_entry_header', 'genesis_do_post_title');
+    remove_action('genesis_entry_header', 'genesis_entry_header_markup_close', 15);
+}*/

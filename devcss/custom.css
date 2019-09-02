@@ -444,3 +444,22 @@ form.search-form ::placeholder {
 #genesis-content {
   padding: 0.5em;
 }
+
+.switch-field input {
+  display: none;
+}
+
+.switch-field label:hover {
+  cursor: pointer;
+}
+
+img.rl_imagen_load {
+  margin: 0 auto;
+  display: block;
+  padding: 2em;
+}
+
+div.rl_peliculas_total {
+  font-size: 3em;
+  color: $azul;
+}
