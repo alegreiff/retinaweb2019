@@ -210,10 +210,10 @@ function catalogo_peliculas_taxonomia($taxonomia)
 
 }
 
-add_action( 'wp_enqueue_scripts', 'esnayoajax' );
+add_action( 'wp_enqueue_scripts', 'esnayoajax' ); 
 function esnayoajax() {
 	if ( is_tax('videos_format') ) {
-		wp_enqueue_script( 'script-name', get_stylesheet_directory_uri() . '/js/ensayoajax.js', array('jquery'), '1.0.0', true );
+		wp_enqueue_script( 'script-name', get_stylesheet_directory_uri() . '/js/taxonomias_video_ajax.js', array('jquery'), '1.0.0', true );
 		wp_localize_script( 'script-name', 'pachukas', array(
 		'ajaxurl' => admin_url( 'admin-ajax.php' ),
         'security' => wp_create_nonce( 'my-special-pachukas' ),

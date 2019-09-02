@@ -4459,3 +4459,53 @@ div.rl_peliculas_total {
   font-size: 3em;
   color: #5bc5f2;
 }
+.personajesListado {
+  background: hsl(198, 84%, 65%);
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  background: white
+}
+.personajesListado .personaje {
+    width: auto;
+    height: auto;
+
+    text-align: center;
+
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15), 0 5px 6px rgba(0, 0, 0, 0.11);
+    padding-top: 12px
+  }
+.personajesListado .personaje p.nombre {
+      height: 3em;
+    }
+.personajesListado .personaje {
+    margin: 0.2em
+  }
+.personajesListado .personaje img {
+      display: block;
+      max-width: 80%;
+      margin: 0 auto;
+      border-radius: 0.5em;
+      -webkit-filter: grayscale(100%);
+              filter: grayscale(100%)
+    }
+.personajesListado .personaje img:hover {
+        -webkit-filter: none;
+                filter: none;
+      }
+.personajesListado .personaje p {
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+.personajesListado div.personaje:hover {
+    cursor: hand;
+    cursor: pointer;
+    opacity: 0.9;
+  }
+@media all and (max-width: 960px) {
+.personajesListado {
+    grid-template-columns: 1fr 1fr
+
+    /* display: none; */
+}
+  }

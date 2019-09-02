@@ -101,6 +101,7 @@ function lista_asociada($etiqueta, $etiquetaplural = '', $campos){
   $etiquetaplural === '' ? $etiquetaplural = $etiqueta : $etiquetaplural = $etiquetaplural;
   $salida = '';
   if ($campos) :
+    d($campos);
     count($campos) ===  1 ? $salida .= '<p>' . $etiqueta . ': ' : $salida .= '<p>' . $etiquetaplural . ': ';
     //$salida .= '<p><strong>' . $etiqueta . ': </strong>';
     $ta = array();

@@ -154,6 +154,7 @@ add_theme_support('genesis-after-entry-widget-area');
 // Add Image Sizes.
 add_image_size('featured-image', 720, 400, true);
 add_image_size('poster-mini', 230, 325, true);
+add_image_size('persona-mini', 160, 240, true);
 
 // Rename primary and secondary navigation menus.
 add_theme_support('genesis-menus', array(

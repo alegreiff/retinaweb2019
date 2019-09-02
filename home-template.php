@@ -295,6 +295,7 @@ function peliculas_retina_home() {
                     <?php
                     //$loopPersonas = $lesdirecteurs;
                     $loopPersonas = $directores;
+                    $size = "persona-mini";
                     
                     foreach ($loopPersonas as $persona) {
                         //d($persona);
@@ -305,7 +306,8 @@ function peliculas_retina_home() {
                         if(!get_the_post_thumbnail($personaje[0]->ID)){
                             $imagenDIR='<img src='.get_stylesheet_directory_uri().'/images/no-director.jpg">';
                         }else{
-                            $imagenDIR = get_the_post_thumbnail($personaje[0]->ID);
+                            $imagenDIR = get_the_post_thumbnail($personaje[0]->ID, $size);
+                            
                         }
 
                         $genero = $persona['genre'] ? 'Director' : 'Directora';
