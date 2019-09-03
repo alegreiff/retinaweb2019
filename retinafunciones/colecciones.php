@@ -236,7 +236,7 @@ function misha_filter_function(){
         
     );
 
-    if( isset( $_POST['categoryfilter'] ) && $_POST['categoryfilter'] !== ''){
+    if( isset( $_POST['genero'] ) && $_POST['genero'] !== ''){
         
         
         
@@ -252,7 +252,7 @@ function misha_filter_function(){
 			array(
 				'taxonomy' => 'videos_genres',
 				'field' => 'id',
-                'terms' => $_POST['categoryfilter'],
+                'terms' => $_POST['genero'],
                 'operator' => 'AND'
             ),
             
@@ -281,7 +281,7 @@ function misha_filter_function(){
         $total = $query->found_posts;
         
         if ( $query->have_posts() ) {
-                echo '<div class="rl_peliculas_total">'.$total.'</div>';
+                echo '<div class="rl_peliculas_total">'.$total. ' - ORDEN: ' .$_POST['fechaentrada'].' - EDAD '.$_POST['edad'].'</div>';
 			
 				echo '<div class="peliculas">';
 				while( $query->have_posts() ): $query->the_post(); 

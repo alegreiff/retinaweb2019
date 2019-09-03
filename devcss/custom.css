@@ -445,14 +445,6 @@ form.search-form ::placeholder {
   padding: 0.5em;
 }
 
-.switch-field input {
-  display: none;
-}
-
-.switch-field label:hover {
-  cursor: pointer;
-}
-
 img.rl_imagen_load {
   margin: 0 auto;
   display: block;
@@ -510,4 +502,9 @@ div.rl_peliculas_total {
 
     /* display: none; */
   }
+}
+
+#filtrotaxonomias_formato {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }

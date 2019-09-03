@@ -1,8 +1,9 @@
 jQuery(function ($) {
-    //$('#filteresnayoajax').submit(function () {
+    //$('#filtrotaxonomias_formato').submit(function () {
 
 
-    var filter = $('#filteresnayoajax');
+    var filter = $('#filtrotaxonomias_formato');
+    let valor = $('input[name=genero]:checked').attr('data-value');
     let img = pachukas.imagen;
     $.ajax({
         url: pachukas.ajaxurl,
@@ -19,6 +20,7 @@ jQuery(function ($) {
         success: function (data) {
             filter.find('button').text('Apply filter'); // changing the button label back
             $('#contenedor_peliculas_ajax').html(data); // insert data
+            $('.tax_filter').html(valor);
 
 
         },
@@ -31,13 +33,10 @@ jQuery(function ($) {
 
 });
 jQuery(function ($) {
-    //$('#filteresnayoajax').submit(function () {
-    $("#posss").on("change", function () {
-        let valor = $('#posss option:selected').text()
-
-
-
-        var filter = $('#filteresnayoajax');
+    //$('#filtrotaxonomias_formato').submit(function () {
+    $("#filtrotaxonomias_formato").on("change", function () {
+        let valor = $('input[name=genero]:checked').attr('data-value');
+        var filter = $('#filtrotaxonomias_formato');
         let img = pachukas.imagen;
         $.ajax({
             url: pachukas.ajaxurl,
@@ -66,16 +65,12 @@ jQuery(function ($) {
 
 
 
-jQuery(function ($) {
-    //$('#filteresnayoajax').submit(function () {
+/* jQuery(function ($) {
 
     $("input[name=fechaentrada]").change(function () {
 
         let valor = $('#posss option:selected').text()
-
-
-
-        var filter = $('#filteresnayoajax');
+        var filter = $('#filtrotaxonomias_formato');
         let img = pachukas.imagen;
         $.ajax({
             url: pachukas.ajaxurl,
@@ -87,8 +82,8 @@ jQuery(function ($) {
                 $('#contenedor_peliculas_ajax').html('<img class="rl_imagen_load" alt="" src="' + img + '" align="center" />');
             },
             success: function (data) {
-                filter.find('button').text('Apply filter'); // changing the button label back
-                $('#contenedor_peliculas_ajax').html(data); // insert data
+                filter.find('button').text('Apply filter');
+                $('#contenedor_peliculas_ajax').html(data);
                 $('.tax_filter').html(valor);
 
             },
@@ -99,5 +94,5 @@ jQuery(function ($) {
         });
         return false;
     });
-});
+}); */
 

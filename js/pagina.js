@@ -14,7 +14,7 @@ jQuery(function ($) {
     },
     success: function (data) {
       filter.find("mensaje").text("Mensaje Inicio"); // changing the button label back
-      $(".peliculas_paises").html(data); // insert data
+      $(".peliculas_paises").html(data); // insert data 
     },
     error: function (err) {
       console.log("001 err net");

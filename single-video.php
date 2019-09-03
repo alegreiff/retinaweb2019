@@ -170,7 +170,10 @@ function muestradatos(){
     $galeria = get_field('gallery');
     $video_meta = get_post_meta($post->ID, 'video', true);
     $video = $video_meta['embed'];
-    $clasificacion_edad = wp_get_post_terms(get_the_ID(), 'videos_classification')[0]->name;
+    $pre_clasificacion_edad = wp_get_post_terms(get_the_ID(), 'videos_classification')[0];
+    
+    $clasificacion_edad = '<a href="'.get_term_link($pre_clasificacion_edad->name, $pre_clasificacion_edad->taxonomy ).'">'.$pre_clasificacion_edad->name.'</a>';
+
     $pre_formato_pelicula = wp_get_post_terms(get_the_ID(), 'videos_format')[0];
     $formato_pelicula = '<a href="'.get_term_link($pre_formato_pelicula->name, $pre_formato_pelicula->taxonomy ).'">'.$pre_formato_pelicula->name.'</a>';
     
