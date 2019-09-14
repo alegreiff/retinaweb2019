@@ -42,7 +42,7 @@ function daily_dish_before_footer_widgets() {
    ) );
    
    
-   add_action( 'genesis_before_header', 'utility_bar' );
+   //add_action( 'genesis_before_header', 'utility_bar' );
    /**
    * Add utility bar above header.
    *
@@ -80,7 +80,7 @@ function carrusel_home() {
 }
 /* STICKY MENU https://www.jeanphilippemarchand.com/code/add-sticky-menu-genesis-sample-child-theme/ */
 //* Enqueue sticky menu script
-add_action('wp_enqueue_scripts', 'sp_enqueue_script');
+//add_action('wp_enqueue_scripts', 'sp_enqueue_script');
 function sp_enqueue_script() {
     wp_enqueue_script('sample-sticky-menu', get_stylesheet_directory_uri() . '/js/sticky-menu.js', array('jquery'), '1.0.0');
 }

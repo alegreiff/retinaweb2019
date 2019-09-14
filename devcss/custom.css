@@ -16,28 +16,6 @@
 @import "retina/search.css";
 @import "retina/filtros_peliculas.css";
 
-/* body {
-  background-color: $rojo5;
-} */
-
-/*STICKY MENU*/
-/*
-Sticky Menu
----------------------------------------------------------------------------------------------------- */
-#genesis-nav-primary {
-  /* position: fixed;
-  top: 0;
-  z-index: 1000;
-  margin: 0 auto;
-  padding: 30px 0px 0px 0px;
-  width: 100%; */
-}
-
-/* nav.nav-primary {
-  margin-top: 130px;
-} */
-/* FIN STICKY MENU*/
-
 .fixedBar {
   position: fixed;
   top: 0;
@@ -45,153 +23,6 @@ Sticky Menu
   z-index: 1000;
   margin: 0 auto;
   width: 100%;
-}
-
-/* .fixedBar .nav-inner {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.nav-placeholder {
-  margin: 0 auto;
-} */
-
-.header-image .site-title a {
-}
-
-p.netflix {
-}
-
-/* Utility Bar
---------------------------------------------- */
-.utility-bar {
-  background-color: #333;
-  border-bottom: 1px solid #ddd;
-  color: #ddd;
-  font-size: 12px;
-  font-size: 1.2rem;
-  padding: 10px 0;
-  padding: 1rem;
-  max-height: 33px;
-}
-.utility-bar a {
-  color: #ccff33;
-}
-.utility-bar a:hover {
-  text-decoration: underline;
-}
-.utility-bar-left,
-.utility-bar-right {
-  width: 50%;
-}
-.utility-bar-left p,
-.utility-bar-right p {
-  margin-bottom: 0;
-}
-.utility-bar-left {
-  float: left;
-}
-.utility-bar-right {
-  float: right;
-  text-align: right;
-}
-.utility-bar input[type="search"] {
-  background: inherit;
-  padding: 10px 0 0;
-  padding: 1rem 0 0;
-}
-
-/* # Search
----------------------------------------------------------------------------------------------------- */
-.menu-primary .menu-item {
-  float: left;
-}
-
-.fa-search {
-  color: #fff;
-}
-
-/* Header search */
-.search-form-container {
-  position: relative;
-}
-
-.search-toggle {
-  float: right;
-  padding: 30px 24px;
-  color: #fff;
-  text-align: center;
-  cursor: pointer;
-  line-height: 1;
-}
-
-.search-toggle:hover,
-.search-toggle.active {
-  background: #4d4d4d;
-}
-
-@media screen and (max-width: 600px) {
-  .search-toggle {
-    position: absolute;
-    top: -50px;
-    right: 0;
-    margin-right: -5%;
-    background: #4c4c4c;
-    padding: 17px 24px;
-  }
-}
-
-.search-box-wrapper {
-  z-index: 999;
-  width: 100%;
-  display: none;
-}
-
-.search-box {
-  padding: 1em;
-  background: transparent;
-}
-
-.search-box input[type="search"] {
-  max-width: 350px;
-  float: right;
-  padding: 10px 20px 10px 40px;
-  font-size: 20px;
-  background-color: #fff;
-  border: 0;
-  border-radius: 3px;
-}
-
-.search-box input[value="Search"] {
-  display: none;
-}
-
-/* Text meant only for screen readers - from UnderScores */
-.screen-reader-text {
-  clip: rect(1px, 1px, 1px, 1px);
-  position: absolute !important;
-  right: 0;
-}
-
-.screen-reader-text:hover,
-.screen-reader-text:active,
-.screen-reader-text:focus {
-  background-color: #f1f1f1;
-  border-radius: 3px;
-  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
-  clip: auto !important;
-  color: #21759b;
-  display: block;
-  font-size: 14px;
-  font-weight: bold;
-  height: auto;
-  left: 5px;
-  line-height: normal;
-  padding: 15px 23px 14px;
-  text-decoration: none;
-  top: 5px;
-  width: auto;
-  z-index: 100000;
 }
 
 .menu_paises li.current_page_item a {
@@ -214,11 +45,7 @@ p.netflix {
     }
   }
 }
-div.datos_adicionales {
-  /* background: crimson; */
-}
-div.datos_ficha {
-}
+
 div.info_poster {
   background: rgb(231, 172, 231);
 }
@@ -228,12 +55,7 @@ div.fichacolretina {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-div.fichacol001 {
-  /* background: lime; */
-}
-div.fichacol002 {
-  /* background: blue; */
-}
+
 span.ficha_fotografia {
   background-color: #86d3f7;
 }
@@ -337,106 +159,6 @@ label.titulo_comentarios {
   font-weight: bolder;
 }
 
-/* Búsqueda*/
-/* # Search
----------------------------------------------------------------------------------------------------- */
-.menu-primary .menu-item {
-  float: left;
-}
-
-.fa-search {
-  color: #fff;
-}
-
-/* Header search */
-.search-form-container {
-  position: relative;
-}
-
-.search-toggle {
-  float: right;
-  padding: 30px 24px;
-  color: #fff;
-  text-align: center;
-  cursor: pointer;
-  line-height: 1;
-}
-
-.search-toggle:hover,
-.search-toggle.active {
-  background: #4d4d4d;
-}
-
-@media screen and (max-width: 600px) {
-  .search-toggle {
-    position: absolute;
-    top: -50px;
-    right: 0;
-    margin-right: -5%;
-    background: #4c4c4c;
-    padding: 17px 24px;
-  }
-}
-
-.search-box-wrapper {
-  z-index: 999;
-  max-width: 1280px;
-  margin: 0 auto;
-  display: none;
-}
-
-.search-box {
-  padding: 1em;
-  background: #4d4d4d;
-}
-
-.search-box input[type="search"] {
-  max-width: 350px;
-  float: right;
-  padding: 10px 20px 10px 40px;
-  font-size: 20px;
-  background-color: #fff;
-  border: 0;
-  border-radius: 3px;
-}
-
-.search-box input[value="Search"] {
-  display: none;
-}
-
-/* Text meant only for screen readers - from UnderScores */
-.screen-reader-text {
-  clip: rect(1px, 1px, 1px, 1px);
-  position: absolute !important;
-  right: 0;
-}
-
-.screen-reader-text:hover,
-.screen-reader-text:active,
-.screen-reader-text:focus {
-  background-color: #f1f1f1;
-  border-radius: 3px;
-  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
-  clip: auto !important;
-  color: #21759b;
-  display: block;
-  font-size: 14px;
-  font-weight: bold;
-  height: auto;
-  left: 5px;
-  line-height: normal;
-  padding: 15px 23px 14px;
-  text-decoration: none;
-  top: 5px;
-  width: auto;
-  z-index: 100000;
-}
-form.search-form ::placeholder {
-  color: grey;
-  opacity: 0.3;
-}
-/* FIN Búsqueda*/
-
 .site-inner {
   padding: 0.5em;
   background: white;
@@ -507,4 +229,141 @@ div.rl_peliculas_total {
 #filtrotaxonomias_formato {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+}
+
+/* SEtiembre 03 ============================================ */
+.site-header > .wrap {
+  position: relative;
+}
+
+.menu-toggle {
+  margin: 10px 30px 0 auto;
+}
+
+.header-search-wrap {
+  display: none;
+}
+
+.js .header-search-wrap {
+  position: absolute;
+  z-index: 1001; /* Show above the menu toggle button */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: none;
+  transition: none;
+  -webkit-transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -100%, 0);
+}
+
+.js .header-search-wrap .search-form,
+.js .header-search-wrap input[type="search"] {
+  height: 100%;
+}
+
+.search-visible .header-search-wrap {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+.header-search-wrap:target {
+  display: block;
+  clear: both;
+  position: relative;
+}
+
+.header-search-wrap input[type="search"] {
+  padding: 0;
+  border: 0;
+}
+
+.header-search-wrap input[type="submit"]:focus {
+  right: 50px;
+  margin-top: 1px;
+  padding: 20px;
+  border-radius: 3px;
+}
+
+.js .toggle-header-search.close:focus {
+  outline: 0;
+}
+
+.toggle-header-search.close {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 100%;
+  padding: 0;
+  color: #000;
+  -webkit-transition: -webkit-transform 0.2s ease-in-out;
+  transition: -webkit-transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+  -webkit-transform: translate3d(-6px, 0, 0);
+  transform: translate3d(-6px, 0, 0);
+}
+
+.header-search-wrap:target .toggle-header-search.close {
+  -webkit-transform: none;
+  transform: none;
+}
+
+.toggle-header-search .ionicons {
+  font-size: 12px;
+  font-size: 1.2rem;
+  -webkit-transform: scale(2);
+  transform: scale(2);
+}
+
+.toggle-header-search.close .ionicons {
+  position: absolute;
+  top: calc(50% - 5px);
+  right: 0;
+  -webkit-transform: scale(3);
+  transform: scale(3);
+}
+
+.toggle-header-search {
+  position: absolute;
+  right: 5px;
+  top: 20px;
+}
+
+/* Header Search
+--------------------------------------------- */
+
+.site-header > .wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+}
+
+.title-area,
+.nav-primary {
+  float: none;
+}
+
+.nav-primary {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  text-align: right;
+}
+
+.toggle-header-search {
+  position: static;
+  display: block;
+  padding: 12px 15px;
+  line-height: 1;
+  margin-left: 20px;
 }

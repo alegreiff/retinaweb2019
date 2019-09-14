@@ -10,9 +10,6 @@
  * @link    http://www.studiopress.com/
  */
 
-/* error_reporting(E_ALL); 
-ini_set("display_errors", 1); */
-
 // Start the engine.
 include_once (get_template_directory() . '/lib/init.php');
 
@@ -76,6 +73,12 @@ define('CHILD_THEME_VERSION', '2.3.0');
 // Enqueue Scripts and Styles.
 add_action('wp_enqueue_scripts', 'genesis_sample_enqueue_scripts_styles');
 function genesis_sample_enqueue_scripts_styles() {
+
+    wp_enqueue_style(
+        'monochrome-ionicons', '//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css',
+        array(),
+        CHILD_THEME_VERSION
+    );
 
     wp_enqueue_style('genesis-sample-fonts', '//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700', array() , CHILD_THEME_VERSION);
     wp_enqueue_style('dashicons');
@@ -163,8 +166,8 @@ add_theme_support('genesis-menus', array(
 ));
 
 // Reposition the secondary navigation menu.
-remove_action('genesis_after_header', 'genesis_do_subnav');
-add_action('genesis_footer', 'genesis_do_subnav', 5);
+/* remove_action('genesis_after_header', 'genesis_do_subnav');
+add_action('genesis_footer', 'genesis_do_subnav', 5); */
 
 // Reduce the secondary navigation menu to one level depth.
 add_filter('wp_nav_menu_args', 'genesis_sample_secondary_menu_args');
@@ -204,7 +207,8 @@ function genesis_sample_comments_gravatar($args) {
 //include_once( get_stylesheet_directory(). '/retinafunciones/desorden.php');
 
 //Búsqueda (en desarrollo)
-include_once( get_stylesheet_directory(). '/retinafunciones/busqueda.php');
+//include_once( get_stylesheet_directory(). '/retinafunciones/busqueda.php');
+include_once( get_stylesheet_directory(). '/retinafunciones/searchretina.php');
 
 //Funciones Generales
 include_once( get_stylesheet_directory(). '/retinafunciones/generales.php');

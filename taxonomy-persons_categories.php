@@ -28,7 +28,7 @@ function persona_categoria_retina(){
                 )
             );
             global $wp_query;
-            $wp_query  = new WP_Query( $args );
+            $wp_query  = new WP_Query( $args ); 
             if ( $wp_query->have_posts() ) {
                 $size = "persona-mini";
                 
